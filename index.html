@@ -818,14 +818,16 @@
     display: grid;
     place-items: center;
   }
-  .product-visual::before {
-    content: '';
+  .product-img {
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.25;
+    mix-blend-mode: luminosity;
+    display: block;
   }
   .product-visual-inner {
     position: relative;
@@ -1779,6 +1781,7 @@
 
     <div class="product-row">
       <div class="product-visual">
+        <img class="product-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Drehteile_vor_und_nach_dem_br%C3%BCnieren.jpg/1280px-Drehteile_vor_und_nach_dem_br%C3%BCnieren.jpg" alt="Metal parts before and after conversion coating treatment">
         <div class="product-visual-inner">
           <div class="formula-display">[Zn₃(PO₄)₂ · 4H₂O]</div>
           <div class="formula-name">Conversion<br>Coatings</div>
@@ -1803,6 +1806,7 @@
 
     <div class="product-row reverse">
       <div class="product-visual product-visual-2">
+        <img class="product-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Engineers_Clean_JWST_Secondary_Reflector_with_Carbon_Dioxide_Snow.jpg" alt="Sandblasted steel surface after preparation treatment">
         <div class="product-visual-inner">
           <div class="formula-display">[ALKALINE · pH 12.4]</div>
           <div class="formula-name">Surface<br>Preparation</div>
@@ -1827,6 +1831,7 @@
 
     <div class="product-row">
       <div class="product-visual product-visual-3">
+        <img class="product-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Moderne_Br%C3%BCnieranlage.jpg/1280px-Moderne_Br%C3%BCnieranlage.jpg" alt="Modern industrial chemical blackening and corrosion protection system">
         <div class="product-visual-inner">
           <div class="formula-display">[Cr-FREE · LOW-SLUDGE]</div>
           <div class="formula-name">Corrosion<br>Protection</div>
