@@ -154,10 +154,12 @@
   .nav-cta:hover svg { transform: translateX(3px); }
 
   /* ============ HERO ============ */
+ 
   .hero {
     min-height: 100vh;
     background: var(--primary-deep);
     background-image:
+    
       radial-gradient(ellipse at top right, rgba(37,99,235,0.25) 0%, transparent 50%),
       radial-gradient(ellipse at bottom left, rgba(91,42,134,0.18) 0%, transparent 50%),
       linear-gradient(135deg, #0F1F3D 0%, #1E3A8A 100%);
@@ -170,12 +172,28 @@
     content: '';
     position: absolute;
     inset: 0;
+    z-index: 1;
     background-image:
       linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .hero-bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+    opacity: 0.13;
+    mix-blend-mode: luminosity;
   }
   .hero-inner {
     max-width: 1440px;
@@ -579,14 +597,34 @@
   }
   .sol-card:hover::before { opacity: 1; }
 
+  .sol-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(15,31,61,0.8) 0%, rgba(37,99,235,0.15) 100%);
+  }
+  .sol-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.22;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sol-card:hover .sol-bg img { opacity: 0.30; }
+  .sol-content {
+    position: relative;
+    z-index: 1;
+  }
+
   .sol-icon {
     width: 56px; height: 56px;
-    border: 1px solid rgba(59,130,246,0.4);
     border-radius: 14px;
     display: grid;
     place-items: center;
     margin-bottom: 28px;
-    background: rgba(37,99,235,0.08);
   }
   .sol-icon svg { width: 26px; height: 26px; stroke: var(--accent-bright); fill: none; stroke-width: 1.5; }
   .sol-num {
@@ -1389,6 +1427,11 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <!-- Background photo: replace src with an industrial shot (phosphating tank, factory floor, or surface treatment line) -->
+  <div class="hero-bg-img">
+    <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1600" alt="">
+  </div>
+
   <div class="hero-inner">
     <div>
       <div class="eyebrow">Industrial Chemical Specialists · Est. 1993</div>
@@ -1526,58 +1569,79 @@
 
     <div class="solutions-grid">
       <div class="sol-card">
-        <span class="sol-num">/ 01</span>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 3h6v4l4 8a4 4 0 01-4 6H9a4 4 0 01-4-6l4-8V3z"/><path d="M9 14h6"/></svg>
+        <!-- Background: drop photo at images/solutions/formulation.jpg to activate -->
+        <div class="sol-bg">
+          <img src="https://www.kingchem.com/content/uploads/2024/08/shutterstock_1944817174.jpg" alt="Custom formulation engineering">
         </div>
-        <h3>Custom Formulation Engineering</h3>
-        <p>Chemistry built around your specific process, water chemistry, organic load, and throughput. On-site trials. SOP alignment. Validated results.</p>
-        <div class="sol-tags">
-          <span class="sol-tag">Water analysis</span>
-          <span class="sol-tag">On-site trials</span>
-          <span class="sol-tag">SOP-aligned</span>
-        </div>
-      </div>
-
-      <div class="sol-card">
-        <span class="sol-num">/ 02</span>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
-        </div>
-        <h3>Surface Treatment &amp; Phosphating</h3>
-        <p>Zinc, iron, and manganese phosphating systems engineered for superior corrosion resistance, paint adhesion, and batch-to-batch consistency.</p>
-        <div class="sol-tags">
-          <span class="sol-tag">Zinc</span>
-          <span class="sol-tag">Iron</span>
-          <span class="sol-tag">Manganese</span>
+        <div class="sol-content">
+          <span class="sol-num">/ 01</span>
+          <div class="sol-icon">
+            
+          </div>
+          <h3>Custom Formulation Engineering</h3>
+          <p>Chemistry built around your specific process, water chemistry, organic load, and throughput. On-site trials. SOP alignment. Validated results.</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Water analysis</span>
+            <span class="sol-tag">On-site trials</span>
+            <span class="sol-tag">SOP-aligned</span>
+          </div>
         </div>
       </div>
 
       <div class="sol-card">
-        <span class="sol-num">/ 03</span>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <!-- Background: drop photo at images/solutions/surface-treatment.jpg to activate -->
+        <div class="sol-bg">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Surface treatment and phosphating">
         </div>
-        <h3>Corrosion Protection</h3>
-        <p>Rust preventives, chromium-free passivation, and eco-friendly sealants designed for long service life across storage, handling, and field deployment.</p>
-        <div class="sol-tags">
-          <span class="sol-tag">Cr-free</span>
-          <span class="sol-tag">Low-sludge</span>
-          <span class="sol-tag">Eco-compliant</span>
+        <div class="sol-content">
+          <span class="sol-num">/ 02</span>
+          <div class="sol-icon">
+          </div>
+          <h3>Surface Treatment &amp; Phosphating</h3>
+          <p>Zinc, iron, and manganese phosphating systems engineered for superior corrosion resistance, paint adhesion, and batch-to-batch consistency.</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Zinc</span>
+            <span class="sol-tag">Iron</span>
+            <span class="sol-tag">Manganese</span>
+          </div>
         </div>
       </div>
 
       <div class="sol-card">
-        <span class="sol-num">/ 04</span>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><path d="M2 12h4l2-7 4 14 2-7h8"/></svg>
+        <!-- Background: drop photo at images/solutions/corrosion-protection.jpg to activate -->
+        <div class="sol-bg">
+          <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=800" alt="Corrosion protection">
         </div>
-        <h3>IoT Process Monitoring</h3>
-        <p>Automated dosing, real-time pH and TDS monitoring, predictive maintenance alerts, and centralised analytics — bringing digital control to chemical operations.</p>
-        <div class="sol-tags">
-          <span class="sol-tag">Real-time</span>
-          <span class="sol-tag">Auto-dosing</span>
-          <span class="sol-tag">Predictive</span>
+        <div class="sol-content">
+          <span class="sol-num">/ 03</span>
+          <div class="sol-icon">
+          </div>
+          <h3>Corrosion Protection</h3>
+          <p>Rust preventives, chromium-free passivation, and eco-friendly sealants designed for long service life across storage, handling, and field deployment.</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Cr-free</span>
+            <span class="sol-tag">Low-sludge</span>
+            <span class="sol-tag">Eco-compliant</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <!-- Background: drop photo at images/solutions/iot-monitoring.jpg to activate -->
+        <div class="sol-bg">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="IoT process monitoring">
+        </div>
+        <div class="sol-content">
+          <span class="sol-num">/ 04</span>
+          <div class="sol-icon">
+          </div>
+          <h3>IoT Process Monitoring</h3>
+          <p>Automated dosing, real-time pH and TDS monitoring, predictive maintenance alerts, and centralised analytics — bringing digital control to chemical operations.</p>
+          <div class="sol-tags">
+            <span class="sol-tag">Real-time</span>
+            <span class="sol-tag">Auto-dosing</span>
+            <span class="sol-tag">Predictive</span>
+          </div>
         </div>
       </div>
     </div>
