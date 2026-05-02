@@ -361,13 +361,41 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+    overflow: visible;
   }
-  .connector-svg path {
-    stroke: rgba(59,130,246,0.4);
-    stroke-width: 1;
-    stroke-dasharray: 4 4;
-    fill: none;
+  .connector-svg path { fill: none; }
+
+  /* Draw-on animated base paths */
+  .c-path {
+    stroke: rgba(59,130,246,0.45);
+    stroke-width: 1.5;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: connDraw 2s ease-out forwards;
   }
+  #cp1 { animation-delay: 1.1s; }
+  #cp2 { animation-delay: 1.5s; }
+  #cp3 { animation-delay: 1.9s; }
+
+  /* Hover-activated glow layer (blurred duplicate paths) */
+  .c-glow {
+    stroke-width: 5;
+    stroke: transparent;
+    filter: blur(4px);
+    transition: stroke 0.35s ease;
+  }
+
+  /* Card 1 ↔ path 1 */
+  .hero-visual:has(.process-card-1:hover) .c-glow-1,
+  .hero-visual:has(.process-card-2:hover) .c-glow-1 { stroke: rgba(96,165,250,0.75); }
+
+  /* Card 2/3 ↔ path 2 */
+  .hero-visual:has(.process-card-2:hover) .c-glow-2,
+  .hero-visual:has(.process-card-3:hover) .c-glow-2 { stroke: rgba(96,165,250,0.75); }
+
+  /* Card 3/4 ↔ path 3 */
+  .hero-visual:has(.process-card-3:hover) .c-glow-3,
+  .hero-visual:has(.process-card-4:hover) .c-glow-3 { stroke: rgba(96,165,250,0.75); }
 
   /* Hero stats strip */
   .hero-stats {
@@ -1374,6 +1402,11 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+  @keyframes connDraw {
+    0%   { stroke-dasharray: 500; stroke-dashoffset: 500; }
+    65%  { stroke-dasharray: 500; stroke-dashoffset: 0; }
+    100% { stroke-dasharray: 4 6; stroke-dashoffset: 0; }
+  }
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 1024px) {
@@ -1445,9 +1478,35 @@
 
     <div class="hero-visual">
       <svg class="connector-svg" viewBox="0 0 500 560" preserveAspectRatio="none">
-        <path d="M 110 85 Q 250 112 380 198" />
-        <path d="M 380 198 Q 275 315 140 460" />
-        <path d="M 140 460 Q 280 492 375 495" />
+        <!-- Animated draw-on base paths -->
+        <path id="cp1" class="c-path" d="M 110 85 Q 250 112 380 198"/>
+        <path id="cp2" class="c-path" d="M 380 198 Q 275 315 140 460"/>
+        <path id="cp3" class="c-path" d="M 140 460 Q 280 492 375 495"/>
+
+        <!-- Hover-activated glow duplicates -->
+        <path class="c-glow c-glow-1" d="M 110 85 Q 250 112 380 198"/>
+        <path class="c-glow c-glow-2" d="M 380 198 Q 275 315 140 460"/>
+        <path class="c-glow c-glow-3" d="M 140 460 Q 280 492 375 495"/>
+
+        <!-- Traveling pulse dots (start after each path finishes drawing) -->
+        <circle r="3" opacity="0" fill="rgba(96,165,250,0.95)" style="filter:drop-shadow(0 0 5px #60A5FA)">
+          <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="3.2s" fill="freeze"/>
+          <animateMotion dur="2.8s" begin="3.2s" repeatCount="indefinite">
+            <mpath href="#cp1"/>
+          </animateMotion>
+        </circle>
+        <circle r="3" opacity="0" fill="rgba(96,165,250,0.95)" style="filter:drop-shadow(0 0 5px #60A5FA)">
+          <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="3.6s" fill="freeze"/>
+          <animateMotion dur="3.4s" begin="3.6s" repeatCount="indefinite">
+            <mpath href="#cp2"/>
+          </animateMotion>
+        </circle>
+        <circle r="3" opacity="0" fill="rgba(96,165,250,0.95)" style="filter:drop-shadow(0 0 5px #60A5FA)">
+          <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="4.0s" fill="freeze"/>
+          <animateMotion dur="2.2s" begin="4.0s" repeatCount="indefinite">
+            <mpath href="#cp3"/>
+          </animateMotion>
+        </circle>
       </svg>
 
       <div class="process-card process-card-1">
