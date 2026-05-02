@@ -1894,6 +1894,235 @@
     border-radius: 20px;
   }
 
+  /* ============ How It Works (light section) ============ */
+  .iot-howitworks {
+    background: #FAFAFA;
+    padding: 120px 80px;
+    color: var(--ink);
+  }
+  .hiw-head { max-width: 1200px; margin: 0 auto 96px; }
+  .hiw-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--purple);
+    margin-bottom: 36px;
+  }
+  .hiw-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--purple);
+  }
+  .hiw-title {
+    font-family: var(--display);
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px 0;
+    max-width: 900px;
+  }
+  .hiw-title em { color: var(--purple); font-style: italic; font-weight: 400; }
+  .hiw-subtitle {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--slate);
+    max-width: 540px;
+    margin: 0;
+  }
+
+  /* --- 4-node diagram --- */
+  .setup-diagram {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .setup-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 8px;
+  }
+  .setup-icon-wrap {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 36px;
+  }
+  .setup-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1.5px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  .setup-icon svg { width: 36px; height: 36px; }
+  .setup-node:hover .setup-icon {
+    transform: translateY(-4px);
+    border-color: rgba(91,42,134,0.3);
+    box-shadow: 0 14px 40px rgba(15,31,61,0.08);
+  }
+  .setup-num {
+    position: absolute;
+    top: -2px;
+    right: 6px;
+    width: 30px;
+    height: 30px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #FAFAFA;
+    z-index: 2;
+  }
+
+  /* featured node (Edge Controller) */
+  .setup-node.featured .setup-icon {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .setup-node.featured .setup-halo {
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 1px solid rgba(91,42,134,0.18);
+    pointer-events: none;
+    animation: haloPulse 3.6s ease-in-out infinite;
+  }
+  @keyframes haloPulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50%      { transform: scale(1.04); opacity: 1; }
+  }
+  .setup-node.featured .setup-title { color: var(--accent); }
+  .setup-node.featured:hover .setup-icon {
+    border-color: var(--ink);
+    box-shadow: 0 14px 40px rgba(15,31,61,0.18);
+  }
+
+  .setup-title {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 18px 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .setup-desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.55;
+    margin: 0 0 22px 0;
+    max-width: 220px;
+  }
+  .setup-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 240px;
+  }
+  .setup-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: #FFFFFF;
+    line-height: 1.4;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .setup-tag:hover { border-color: rgba(91,42,134,0.4); transform: translateY(-1px); }
+  .setup-node.featured .setup-tag {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #FFFFFF;
+  }
+  .setup-node.featured .setup-tag:hover { transform: translateY(-1px); border-color: var(--accent); }
+
+  /* connector */
+  .setup-connector {
+    flex: 0 1 110px;
+    min-width: 60px;
+    padding-top: 70px;
+    align-self: flex-start;
+  }
+  .setup-connector-line {
+    position: relative;
+    height: 1px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .setup-connector-line.accent {
+    background: linear-gradient(to right,
+      var(--line) 0%,
+      var(--line) 35%,
+      rgba(37,99,235,0.5) 65%,
+      rgba(37,99,235,0.85) 100%
+    );
+  }
+  .flow-dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(37,99,235,0.6);
+    animation: flowDot 2.4s linear infinite;
+  }
+  .setup-connector:nth-of-type(4) .flow-dot { animation-delay: 0.6s; }
+  .setup-connector:nth-of-type(6) .flow-dot { animation-delay: 1.2s; }
+
+  @keyframes flowDot {
+    0%   { left: 0%;   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  .setup-connector-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+
   /* prefers-reduced-motion */
   @media (prefers-reduced-motion: reduce) {
     .iot-panel-entry { transition: none; opacity: 1; transform: none; }
@@ -1903,6 +2132,8 @@
     .sat-chip { animation: none; opacity: 1; transform: none; }
     .dosing-bar { animation: none; transform: scaleY(1); }
     .bath-dosing-fill { transition: none; transform: scaleX(1); }
+    .flow-dot { animation: none; opacity: 0.6; left: 50%; }
+    .setup-halo { animation: none; }
   }
 
   /* ============ RESPONSIVE ============ */
@@ -1928,6 +2159,11 @@
     .gauge-panel { order: -1; }
     .bath-panel, .dosing-panel { width: 100%; }
     .satellite-chips { grid-template-columns: repeat(4, 1fr); }
+    .iot-howitworks { padding: 80px 24px; }
+    .hiw-head { margin-bottom: 64px; }
+    .setup-diagram { flex-direction: column; align-items: center; gap: 56px; }
+    .setup-node { flex: 0 0 auto; width: 100%; max-width: 360px; }
+    .setup-connector { display: none; }
   }
   @media (max-width: 480px) {
     .bath-sparkline { display: none; }
@@ -2624,6 +2860,129 @@
       </div>
 
     </div>
+
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="iot-howitworks" id="iot-howitworks">
+  <div class="hiw-head iot-panel-entry">
+    <div class="hiw-eyebrow">How It Works</div>
+    <h2 class="hiw-title">Real infrastructure, <em>not vaporware.</em></h2>
+    <p class="hiw-subtitle">From sensor to screen in under 2 seconds. Our IoT stack plugs into your existing equipment — no rip-and-replace, no proprietary lock-in.</p>
+  </div>
+
+  <div class="setup-diagram iot-panel-entry">
+
+    <!-- Node 1: Field Sensor -->
+    <div class="setup-node">
+      <div class="setup-icon-wrap">
+        <div class="setup-num">1</div>
+        <div class="setup-icon">
+          <!-- sensor / probe burst -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="setup-title">Field Sensor</h3>
+      <p class="setup-desc">In-bath probes measuring pH, temperature, TDS &amp; liquid level</p>
+      <div class="setup-tags">
+        <span class="setup-tag">pH probe</span>
+        <span class="setup-tag">Temp NTC</span>
+        <span class="setup-tag">TDS sensor</span>
+        <span class="setup-tag">Level float</span>
+      </div>
+    </div>
+
+    <!-- Connector 1 -->
+    <div class="setup-connector">
+      <div class="setup-connector-line"><div class="flow-dot"></div></div>
+      <div class="setup-connector-label">RS485 · 4-20mA</div>
+    </div>
+
+    <!-- Node 2: Edge Controller (featured) -->
+    <div class="setup-node featured">
+      <div class="setup-icon-wrap">
+        <div class="setup-halo"></div>
+        <div class="setup-num">2</div>
+        <div class="setup-icon">
+          <!-- chip / PLC -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="6" width="12" height="12" rx="1.5"/>
+            <rect x="9.5" y="9.5" width="5" height="5" rx="0.5"/>
+            <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="setup-title">Edge Controller</h3>
+      <p class="setup-desc">On-site unit handles dosing logic, alarms &amp; local failsafe</p>
+      <div class="setup-tags">
+        <span class="setup-tag">Modbus RTU</span>
+        <span class="setup-tag">Modbus TCP</span>
+        <span class="setup-tag">RS485</span>
+        <span class="setup-tag">PLC-ready</span>
+        <span class="setup-tag">SCADA</span>
+      </div>
+    </div>
+
+    <!-- Connector 2 -->
+    <div class="setup-connector">
+      <div class="setup-connector-line accent"><div class="flow-dot"></div></div>
+      <div class="setup-connector-label">4G · WiFi · LAN</div>
+    </div>
+
+    <!-- Node 3: Cloud Platform -->
+    <div class="setup-node">
+      <div class="setup-icon-wrap">
+        <div class="setup-num">3</div>
+        <div class="setup-icon">
+          <!-- cloud -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.5 19a4.5 4.5 0 1 0-1.43-8.77 6 6 0 0 0-11.49 2A3.5 3.5 0 0 0 5 19h12.5z"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="setup-title">Cloud Platform</h3>
+      <p class="setup-desc">Secure data ingestion, storage, analytics &amp; alert engine</p>
+      <div class="setup-tags">
+        <span class="setup-tag">MQTT</span>
+        <span class="setup-tag">HTTPS/TLS</span>
+        <span class="setup-tag">REST API</span>
+        <span class="setup-tag">AWS hosted</span>
+      </div>
+    </div>
+
+    <!-- Connector 3 -->
+    <div class="setup-connector">
+      <div class="setup-connector-line"><div class="flow-dot"></div></div>
+      <div class="setup-connector-label">HTTPS · WebSocket</div>
+    </div>
+
+    <!-- Node 4: Dashboard -->
+    <div class="setup-node">
+      <div class="setup-icon-wrap">
+        <div class="setup-num">4</div>
+        <div class="setup-icon">
+          <!-- monitor with chart -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4" width="19" height="13" rx="1.5"/>
+            <path d="M8 21h8M12 17v4"/>
+            <path d="M6 13l3-3 2 2 4-5"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="setup-title">Dashboard</h3>
+      <p class="setup-desc">Web &amp; mobile interface — accessible anywhere, any device</p>
+      <div class="setup-tags">
+        <span class="setup-tag">Web app</span>
+        <span class="setup-tag">Mobile</span>
+        <span class="setup-tag">WhatsApp alerts</span>
+        <span class="setup-tag">Email reports</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
