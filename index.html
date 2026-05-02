@@ -1408,6 +1408,503 @@
     100% { stroke-dasharray: 4 6; stroke-dashoffset: 0; }
   }
 
+  /* ============ IoT COMMAND CENTER ============ */
+
+  /* --- keyframes --- */
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .5; transform: scale(1.5); }
+  }
+  @keyframes liveFlash {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+    50%      { box-shadow: 0 0 0 6px rgba(239,68,68,0.3); }
+  }
+  @keyframes alertFlash {
+    0%, 100% { background: rgba(37,99,235,0.05); }
+    50%      { background: rgba(239,68,68,0.15); }
+  }
+  @keyframes scaleBarUp {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes fadeScaleIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes sparkDraw {
+    from { stroke-dashoffset: 300; }
+    to   { stroke-dashoffset: 0; }
+  }
+  @keyframes iotPanelIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- Section wrapper --- */
+  .iot-command {
+    background: #050D1A;
+    background-image: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(37,99,235,0.08) 0%, transparent 70%);
+    padding: 120px 80px;
+    overflow: hidden;
+  }
+  .iot-command .section-head { margin-bottom: 64px; }
+  .iot-section-head .section-eyebrow { color: rgba(59,130,246,0.9); border-color: rgba(59,130,246,0.2); }
+  .iot-section-head .section-title { color: #fff; }
+  .iot-section-head .section-title em { color: #3B82F6; font-style: italic; }
+
+  /* --- 3-column grid --- */
+  .iot-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 280px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* ---- panel entry animation state ---- */
+  .iot-panel-entry {
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: transform, opacity;
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .iot-panel-entry.visible { opacity: 1; transform: translateY(0); }
+  .iot-panel-entry:nth-child(2) { transition-delay: 0.15s; }
+  .iot-panel-entry:nth-child(3) { transition-delay: 0.3s; }
+
+  /* ============ LEFT: Bath Cards ============ */
+  .bath-panel { display: flex; flex-direction: column; gap: 16px; }
+
+  .bath-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(59,130,246,0.15);
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+  }
+  .bath-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59,130,246,0.4);
+    box-shadow: 0 8px 32px rgba(37,99,235,0.12);
+  }
+
+  .bath-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .bath-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.5);
+  }
+  .bath-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .bath-dot.status-ok  { background: #059669; animation: pulseDot 2s ease-in-out infinite; }
+  .bath-dot.status-warn{ background: #F59E0B; animation: pulseDot 1.2s ease-in-out infinite; }
+
+  .bath-metrics {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .bath-metric {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
+  .bm-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+  .bm-val {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 600;
+    color: #3B82F6;
+    min-width: 40px;
+    display: inline-block;
+  }
+
+  /* sparkline */
+  .bath-sparkline {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 12px;
+    overflow: visible;
+  }
+  .spark-path {
+    fill: none;
+    stroke: url(#sparkGrad);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+  }
+  .spark-path.drawn { animation: sparkDraw 1.2s ease-out forwards; }
+
+  /* dosing bar */
+  .bath-dosing-wrap { }
+  .bath-dosing-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.3);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .bath-dosing-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bath-dosing-fill {
+    height: 100%;
+    width: var(--fill, 60%);
+    background: linear-gradient(90deg, #2563EB, #3B82F6);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .iot-panel-entry.visible .bath-dosing-fill { transform: scaleX(1); }
+
+  /* ============ CENTER: Gauge Panel ============ */
+  .gauge-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .health-ring-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+  .health-ring {
+    width: 200px;
+    height: 200px;
+    transform: rotate(-90deg);
+  }
+  .ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.05);
+    stroke-width: 8;
+  }
+  .ring-arc {
+    fill: none;
+    stroke: #3B82F6;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 502.65;
+    stroke-dashoffset: 502.65;
+    will-change: stroke-dashoffset;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .ring-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ring-num {
+    font-family: var(--mono);
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+  .ring-pct { font-family: var(--mono); font-size: 18px; color: rgba(255,255,255,0.5); }
+  .ring-sublabel {
+    font-family: var(--sans);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.3);
+    margin-top: 2px;
+  }
+
+  .ring-title {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 16px;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  /* satellite chips */
+  .satellite-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .sat-chip {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(59,130,246,0.15);
+    border-radius: 10px;
+    padding: 12px 14px;
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  .sat-chip.visible {
+    animation: fadeScaleIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .sat-chip:nth-child(1) { animation-delay: 0.2s; }
+  .sat-chip:nth-child(2) { animation-delay: 0.35s; }
+  .sat-chip:nth-child(3) { animation-delay: 0.5s; }
+  .sat-chip:nth-child(4) { animation-delay: 0.65s; }
+  .sat-val {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 600;
+    color: #3B82F6;
+    display: block;
+    line-height: 1.1;
+  }
+  .sat-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.35);
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* event log */
+  .event-log-wrap {
+    width: 100%;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(59,130,246,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .event-log-head {
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .live-pill {
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #EF4444;
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    animation: liveFlash 2s ease-in-out infinite;
+  }
+  .event-log {
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+  }
+  .event-log-inner {
+    padding: 8px 0;
+  }
+  .event-row {
+    padding: 5px 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .event-row.show { opacity: 1; transform: translateY(0); }
+  .event-time { color: rgba(59,130,246,0.7); flex-shrink: 0; }
+  .event-row.alert-row { animation: alertFlash 0.6s ease-in-out; }
+
+  /* ============ RIGHT: Dosing Timeline ============ */
+  .dosing-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .dosing-head {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+  .dosing-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .dosing-row {
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+    padding: 0 0 16px 0;
+    position: relative;
+  }
+  .dosing-bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .dosing-bar {
+    width: 3px;
+    flex: 1;
+    min-height: 40px;
+    border-radius: 2px;
+    transform-origin: top;
+    transform: scaleY(0);
+    will-change: transform;
+  }
+  .dosing-bar.blue   { background: #3B82F6; }
+  .dosing-bar.green  { background: #059669; }
+  .dosing-bar.amber  { background: #F59E0B; }
+  .dosing-bar.purple { background: #8B5CF6; }
+  .iot-panel-entry.visible .dosing-bar {
+    animation: scaleBarUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .dosing-row:nth-child(1) .dosing-bar { animation-delay: 0.1s; }
+  .dosing-row:nth-child(2) .dosing-bar { animation-delay: 0.25s; }
+  .dosing-row:nth-child(3) .dosing-bar { animation-delay: 0.4s; }
+  .dosing-row:nth-child(4) .dosing-bar { animation-delay: 0.55s; }
+  .dosing-row:nth-child(5) .dosing-bar { animation-delay: 0.7s; }
+  .dosing-row:nth-child(6) .dosing-bar { animation-delay: 0.85s; }
+
+  .dosing-info { flex: 1; padding-top: 2px; }
+  .dosing-time {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 3px;
+  }
+  .dosing-event {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+  .dosing-row.flash-alert .dosing-info { animation: alertFlash 0.8s ease-in-out; }
+
+  .dosing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-top: 4px;
+  }
+  .dosing-badge.live-badge {
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #EF4444;
+    animation: liveFlash 2s ease-in-out infinite;
+  }
+  .dosing-badge.auto-badge {
+    background: rgba(5,150,105,0.15);
+    border: 1px solid rgba(5,150,105,0.3);
+    color: #34D399;
+  }
+  .dosing-badge.warn-badge {
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: #FBBF24;
+  }
+
+  /* ============ IoT sol-card enhancements ============ */
+  .sol-card:last-child .sol-bg img {
+    transition: transform 1.5s ease-in-out, opacity 0.4s ease;
+  }
+  .sol-card:last-child:hover .sol-bg img {
+    transform: scale(1.04);
+    opacity: 0.38 !important;
+  }
+  .sol-live-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #EF4444;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    animation: liveFlash 2s ease-in-out infinite;
+    z-index: 3;
+  }
+  .sol-live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #EF4444;
+    animation: pulseDot 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .sol-metric-pills {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .smp {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #3B82F6;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .iot-panel-entry { transition: none; opacity: 1; transform: none; }
+    .bath-dot, .live-pill, .sol-live-badge, .sol-live-dot, .dosing-badge.live-badge { animation: none; }
+    .spark-path.drawn { animation: none; stroke-dashoffset: 0; }
+    .ring-arc { transition: none; }
+    .sat-chip { animation: none; opacity: 1; transform: none; }
+    .dosing-bar { animation: none; transform: scaleY(1); }
+    .bath-dosing-fill { transition: none; transform: scaleX(1); }
+  }
+
   /* ============ RESPONSIVE ============ */
   @media (max-width: 1024px) {
     .nav { padding: 16px 24px; }
@@ -1426,6 +1923,16 @@
     .flow-diagram { flex-direction: column; gap: 32px; }
     .flow-arrow { display: none; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .iot-command { padding: 80px 24px; }
+    .iot-grid { grid-template-columns: 1fr; gap: 24px; }
+    .gauge-panel { order: -1; }
+    .bath-panel, .dosing-panel { width: 100%; }
+    .satellite-chips { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .bath-sparkline { display: none; }
+    .satellite-chips { grid-template-columns: repeat(2, 1fr); }
+    .ring-num { font-size: 32px; }
   }
 </style>
 </head>
@@ -1688,11 +2195,17 @@
         <div class="sol-bg">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="IoT process monitoring">
         </div>
+        <div class="sol-live-badge"><span class="sol-live-dot"></span> LIVE</div>
         <div class="sol-content">
           <span class="sol-num">/ 04</span>
           <div class="sol-icon">
           </div>
           <h3>IoT Process Monitoring</h3>
+          <div class="sol-metric-pills">
+            <span class="smp" data-metric="ph" data-target="3.2">pH —</span>
+            <span class="smp" data-metric="temp" data-target="48">48°C</span>
+            <span class="smp" data-metric="tds" data-target="1240">TDS —</span>
+          </div>
           <p>Automated dosing, real-time pH and TDS monitoring, predictive maintenance alerts, and centralised analytics — bringing digital control to chemical operations.</p>
           <div class="sol-tags">
             <span class="sol-tag">Real-time</span>
@@ -1911,6 +2424,205 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IoT COMMAND CENTER ============ -->
+<section class="iot-command" id="iot-dashboard">
+  <!-- SVG defs for sparkline gradient -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2563EB"/>
+        <stop offset="100%" stop-color="#3B82F6"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="container">
+    <div class="section-head iot-section-head">
+      <div class="section-eyebrow">Real-Time · IoT</div>
+      <h2 class="section-title">Live Process <em>Intelligence.</em></h2>
+    </div>
+
+    <div class="iot-grid">
+
+      <!-- LEFT: Bath Monitor Cards -->
+      <div class="bath-panel iot-panel-entry">
+
+        <div class="bath-card" data-ph="3.2" data-temp="48" data-tds="1240" data-status="ok">
+          <div class="bath-header">
+            <span class="bath-name">Phosphating Tank 1</span>
+            <span class="bath-dot status-ok"></span>
+          </div>
+          <div class="bath-metrics">
+            <div class="bath-metric"><span class="bm-label">pH</span><span class="bm-val" data-metric="ph">—</span></div>
+            <div class="bath-metric"><span class="bm-label">Temp °C</span><span class="bm-val" data-metric="temp">—</span></div>
+            <div class="bath-metric"><span class="bm-label">TDS ppm</span><span class="bm-val" data-metric="tds">—</span></div>
+          </div>
+          <svg class="bath-sparkline" viewBox="0 0 120 32" preserveAspectRatio="none">
+            <path class="spark-path" d="M0,24 C10,22 20,18 30,16 C40,14 45,20 55,18 C65,16 70,10 80,12 C90,14 100,8 120,6"/>
+          </svg>
+          <div class="bath-dosing-wrap">
+            <span class="bath-dosing-label">Pump utilisation</span>
+            <div class="bath-dosing-bar"><div class="bath-dosing-fill" style="--fill:72%"></div></div>
+          </div>
+        </div>
+
+        <div class="bath-card" data-ph="8.1" data-temp="55" data-tds="420" data-status="warn">
+          <div class="bath-header">
+            <span class="bath-name">Degreaser Bath</span>
+            <span class="bath-dot status-warn"></span>
+          </div>
+          <div class="bath-metrics">
+            <div class="bath-metric"><span class="bm-label">pH</span><span class="bm-val" data-metric="ph">—</span></div>
+            <div class="bath-metric"><span class="bm-label">Temp °C</span><span class="bm-val" data-metric="temp">—</span></div>
+            <div class="bath-metric"><span class="bm-label">TDS ppm</span><span class="bm-val" data-metric="tds">—</span></div>
+          </div>
+          <svg class="bath-sparkline" viewBox="0 0 120 32" preserveAspectRatio="none">
+            <path class="spark-path" d="M0,16 C8,14 16,18 24,16 C32,14 40,22 50,20 C60,18 70,12 80,14 C90,16 105,10 120,8"/>
+          </svg>
+          <div class="bath-dosing-wrap">
+            <span class="bath-dosing-label">Pump utilisation</span>
+            <div class="bath-dosing-bar"><div class="bath-dosing-fill" style="--fill:58%"></div></div>
+          </div>
+        </div>
+
+        <div class="bath-card" data-ph="6.9" data-temp="22" data-tds="85" data-status="ok">
+          <div class="bath-header">
+            <span class="bath-name">Rinse Stage 3</span>
+            <span class="bath-dot status-ok"></span>
+          </div>
+          <div class="bath-metrics">
+            <div class="bath-metric"><span class="bm-label">pH</span><span class="bm-val" data-metric="ph">—</span></div>
+            <div class="bath-metric"><span class="bm-label">Temp °C</span><span class="bm-val" data-metric="temp">—</span></div>
+            <div class="bath-metric"><span class="bm-label">TDS ppm</span><span class="bm-val" data-metric="tds">—</span></div>
+          </div>
+          <svg class="bath-sparkline" viewBox="0 0 120 32" preserveAspectRatio="none">
+            <path class="spark-path" d="M0,20 C15,18 25,22 35,20 C45,18 55,16 65,14 C75,12 90,16 105,12 C110,11 115,10 120,9"/>
+          </svg>
+          <div class="bath-dosing-wrap">
+            <span class="bath-dosing-label">Pump utilisation</span>
+            <div class="bath-dosing-bar"><div class="bath-dosing-fill" style="--fill:41%"></div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CENTER: Ring Gauge + Satellite Chips + Event Log -->
+      <div class="gauge-panel iot-panel-entry">
+        <div class="health-ring-wrap">
+          <svg class="health-ring" viewBox="0 0 200 200">
+            <circle class="ring-bg" cx="100" cy="100" r="80"/>
+            <circle class="ring-arc" cx="100" cy="100" r="80" id="healthArc"/>
+          </svg>
+          <div class="ring-overlay">
+            <span class="ring-num" id="healthScore">0</span><span class="ring-pct">%</span>
+            <span class="ring-sublabel">Health Score</span>
+          </div>
+        </div>
+        <div class="ring-title">Overall Process Health</div>
+
+        <div class="satellite-chips">
+          <div class="sat-chip">
+            <span class="sat-val" data-target="99.4" data-suffix="%">0%</span>
+            <span class="sat-label">Uptime</span>
+          </div>
+          <div class="sat-chip">
+            <span class="sat-val" data-target="2" data-suffix="">0</span>
+            <span class="sat-label">Active Alerts</span>
+          </div>
+          <div class="sat-chip">
+            <span class="sat-val" data-target="18" data-suffix="">0</span>
+            <span class="sat-label">Batches Today</span>
+          </div>
+          <div class="sat-chip">
+            <span class="sat-val" data-target="96.7" data-suffix="%">0%</span>
+            <span class="sat-label">Efficiency</span>
+          </div>
+        </div>
+
+        <div class="event-log-wrap">
+          <div class="event-log-head">
+            <span class="live-pill">● LIVE</span>
+            Event Log
+          </div>
+          <div class="event-log">
+            <div class="event-log-inner" id="eventLogInner">
+              <div class="event-row"><span class="event-time">[14:23]</span><span>pH drift detected — auto-dosing triggered</span></div>
+              <div class="event-row"><span class="event-time">[14:19]</span><span>Phosphating Tank 1 back in spec</span></div>
+              <div class="event-row"><span class="event-time">[14:12]</span><span>Batch #MC-0041 completed — 98.2% yield</span></div>
+              <div class="event-row"><span class="event-time">[14:08]</span><span>Rinse Stage 3 TDS normal — 85 ppm</span></div>
+              <div class="event-row"><span class="event-time">[14:01]</span><span>Degreaser temp spike — alert sent</span></div>
+              <div class="event-row"><span class="event-time">[13:54]</span><span>Auto-dose: Zn phosphate concentrate +2.1%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Dosing Timeline -->
+      <div class="dosing-panel iot-panel-entry">
+        <div class="dosing-head">Dosing Timeline</div>
+        <div class="dosing-feed" id="dosingFeed">
+
+          <div class="dosing-row">
+            <div class="dosing-bar-col"><div class="dosing-bar blue"></div></div>
+            <div class="dosing-info">
+              <div class="dosing-time">14:23:08</div>
+              <div class="dosing-event">Auto-dose triggered<br>pH correction +0.3 units</div>
+              <span class="dosing-badge live-badge">● LIVE</span>
+            </div>
+          </div>
+
+          <div class="dosing-row">
+            <div class="dosing-bar-col"><div class="dosing-bar green"></div></div>
+            <div class="dosing-info">
+              <div class="dosing-time">14:19:44</div>
+              <div class="dosing-event">Bath restored to spec<br>Phosphating Tank 1</div>
+              <span class="dosing-badge auto-badge">✓ Auto-corrected</span>
+            </div>
+          </div>
+
+          <div class="dosing-row">
+            <div class="dosing-bar-col"><div class="dosing-bar amber"></div></div>
+            <div class="dosing-info">
+              <div class="dosing-time">14:01:22</div>
+              <div class="dosing-event">Temp spike detected<br>Degreaser Bath — 57°C</div>
+              <span class="dosing-badge warn-badge">⚠ Alert sent</span>
+            </div>
+          </div>
+
+          <div class="dosing-row">
+            <div class="dosing-bar-col"><div class="dosing-bar blue"></div></div>
+            <div class="dosing-info">
+              <div class="dosing-time">13:54:11</div>
+              <div class="dosing-event">Scheduled dose cycle<br>Zn concentrate +2.1%</div>
+              <span class="dosing-badge auto-badge">✓ Completed</span>
+            </div>
+          </div>
+
+          <div class="dosing-row">
+            <div class="dosing-bar-col"><div class="dosing-bar purple"></div></div>
+            <div class="dosing-info">
+              <div class="dosing-time">13:40:05</div>
+              <div class="dosing-event">Predictive alert<br>TDS trending high — Rinse 3</div>
+              <span class="dosing-badge warn-badge">⚠ Pre-emptive</span>
+            </div>
+          </div>
+
+          <div class="dosing-row">
+            <div class="dosing-bar-col"><div class="dosing-bar green"></div></div>
+            <div class="dosing-info">
+              <div class="dosing-time">13:30:00</div>
+              <div class="dosing-event">Shift start — all systems nominal<br>Batch #MC-0041 initiated</div>
+              <span class="dosing-badge auto-badge">✓ System ready</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2191,6 +2903,221 @@
     <div>Engineered chemistry · Since 1993</div>
   </div>
 </footer>
+
+<script>
+(function() {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Intersection Observer: reveal panels + trigger ring/counters ── */
+  var observed = false;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        el.classList.add('visible');
+        // trigger sat-chip animations
+        el.querySelectorAll('.sat-chip').forEach(function(c) { c.classList.add('visible'); });
+        // draw sparklines
+        el.querySelectorAll('.spark-path').forEach(function(p) { p.classList.add('drawn'); });
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.iot-panel-entry').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* ring arc observer */
+  var ringTriggered = false;
+  var ringObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !ringTriggered) {
+        ringTriggered = true;
+        triggerRing();
+        animateCounters();
+        animateEventLog();
+        ringObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  var gaugePanels = document.querySelectorAll('.gauge-panel');
+  if (gaugePanels.length) ringObserver.observe(gaugePanels[0]);
+
+  /* ── Ring Arc ── */
+  function triggerRing() {
+    if (reduced) {
+      var arc = document.getElementById('healthArc');
+      if (arc) arc.style.strokeDashoffset = '30.16'; // 94%
+      var scoreEl = document.getElementById('healthScore');
+      if (scoreEl) scoreEl.textContent = '94';
+      return;
+    }
+    var arc = document.getElementById('healthArc');
+    if (!arc) return;
+    var circumference = 502.65;
+    var score = 94;
+    var offset = circumference * (1 - score / 100);
+    setTimeout(function() { arc.style.strokeDashoffset = offset; }, 100);
+    // counter
+    animateNumber(document.getElementById('healthScore'), 0, 94, 1800, function(v) { return Math.round(v); });
+  }
+
+  /* ── Generic number counter ── */
+  function animateNumber(el, from, to, duration, format) {
+    if (!el || reduced) { if (el) el.textContent = format(to); return; }
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = format(from + (to - from) * ease);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function animateCounters() {
+    document.querySelectorAll('.sat-val[data-target]').forEach(function(el) {
+      var target = parseFloat(el.dataset.target);
+      var suffix = el.dataset.suffix || '';
+      var decimals = target % 1 !== 0 ? 1 : 0;
+      animateNumber(el, 0, target, 1200, function(v) {
+        return v.toFixed(decimals) + suffix;
+      });
+    });
+  }
+
+  /* ── Event Log: add new row every 3s ── */
+  var eventMessages = [
+    ['Auto-dosing', 'pH stabilised — Phosphating Tank 1'],
+    ['Sensor check', 'TDS probe calibrated — Rinse Stage 3'],
+    ['Batch update', 'Batch #MC-0042 initiated — Zn phosphate'],
+    ['Alert cleared', 'Degreaser temp normalised — 54°C'],
+    ['Predictive', 'Maintenance window recommended — Tank 2'],
+    ['System', 'Network heartbeat OK — all nodes online'],
+    ['Auto-dosing', 'Alkaline concentrate adjusted — pH 8.2'],
+  ];
+  var eventIdx = 0;
+  var eventLogInner = document.getElementById('eventLogInner');
+
+  function padTime(n) { return n < 10 ? '0' + n : '' + n; }
+  function nowTime() {
+    var d = new Date();
+    return '[' + padTime(d.getHours()) + ':' + padTime(d.getMinutes()) + ']';
+  }
+
+  function animateEventLog() {
+    if (reduced || !eventLogInner) return;
+    // show existing rows
+    var rows = eventLogInner.querySelectorAll('.event-row');
+    rows.forEach(function(r, i) {
+      setTimeout(function() { r.classList.add('show'); }, i * 120);
+    });
+
+    setInterval(function() {
+      var msg = eventMessages[eventIdx % eventMessages.length];
+      eventIdx++;
+      var row = document.createElement('div');
+      row.className = 'event-row';
+      var isAlert = msg[0].toLowerCase().indexOf('alert') >= 0 || msg[0].toLowerCase().indexOf('auto-dosing') >= 0;
+      if (isAlert) row.classList.add('alert-row');
+      row.innerHTML = '<span class="event-time">' + nowTime() + '</span><span>' + msg[0] + ' — ' + msg[1] + '</span>';
+      eventLogInner.insertBefore(row, eventLogInner.firstChild);
+      requestAnimationFrame(function() { row.classList.add('show'); });
+      // remove old rows beyond 10
+      var allRows = eventLogInner.querySelectorAll('.event-row');
+      if (allRows.length > 10) {
+        var last = allRows[allRows.length - 1];
+        last.parentNode.removeChild(last);
+      }
+    }, 3000);
+  }
+
+  /* ── Metric oscillator for bath cards ── */
+  function oscillate(val, pct) {
+    var delta = val * pct * (Math.random() * 2 - 1);
+    return val + delta;
+  }
+
+  function startMetricOscillation() {
+    if (reduced) {
+      // set static values
+      document.querySelectorAll('.bath-card').forEach(function(card) {
+        var ph = parseFloat(card.dataset.ph), temp = parseFloat(card.dataset.temp), tds = parseFloat(card.dataset.tds);
+        card.querySelector('[data-metric="ph"]').textContent = ph.toFixed(1);
+        card.querySelector('[data-metric="temp"]').textContent = temp.toFixed(1);
+        card.querySelector('[data-metric="tds"]').textContent = Math.round(tds);
+      });
+      // sol metric pills
+      document.querySelectorAll('.smp[data-target]').forEach(function(el) {
+        var t = parseFloat(el.dataset.target);
+        var m = el.dataset.metric;
+        if (m === 'ph') el.textContent = 'pH ' + t.toFixed(1);
+        else if (m === 'temp') el.textContent = t.toFixed(0) + '°C';
+        else el.textContent = 'TDS ' + Math.round(t);
+      });
+      return;
+    }
+
+    // initial population
+    document.querySelectorAll('.bath-card').forEach(function(card) {
+      updateCard(card);
+    });
+    updateSolPills();
+
+    setInterval(function() {
+      document.querySelectorAll('.bath-card').forEach(function(card) {
+        updateCard(card);
+      });
+      updateSolPills();
+    }, 2500);
+  }
+
+  function updateCard(card) {
+    var ph = oscillate(parseFloat(card.dataset.ph), 0.02);
+    var temp = oscillate(parseFloat(card.dataset.temp), 0.02);
+    var tds = oscillate(parseFloat(card.dataset.tds), 0.02);
+    var phEl = card.querySelector('[data-metric="ph"]');
+    var tempEl = card.querySelector('[data-metric="temp"]');
+    var tdsEl = card.querySelector('[data-metric="tds"]');
+    if (phEl) phEl.textContent = ph.toFixed(1);
+    if (tempEl) tempEl.textContent = temp.toFixed(1);
+    if (tdsEl) tdsEl.textContent = Math.round(tds);
+  }
+
+  function updateSolPills() {
+    document.querySelectorAll('.smp[data-target]').forEach(function(el) {
+      var t = parseFloat(el.dataset.target);
+      var m = el.dataset.metric;
+      var v = oscillate(t, 0.02);
+      if (m === 'ph') el.textContent = 'pH ' + v.toFixed(1);
+      else if (m === 'temp') el.textContent = v.toFixed(0) + '°C';
+      else el.textContent = 'TDS ' + Math.round(v);
+    });
+  }
+
+  /* ── Dosing alert flash every 8s ── */
+  function startDosingFlash() {
+    if (reduced) return;
+    setInterval(function() {
+      var feed = document.getElementById('dosingFeed');
+      if (!feed) return;
+      var rows = feed.querySelectorAll('.dosing-row');
+      if (!rows.length) return;
+      var row = rows[0];
+      row.classList.add('flash-alert');
+      setTimeout(function() { row.classList.remove('flash-alert'); }, 800);
+    }, 8000);
+  }
+
+  /* ── Start everything ── */
+  startMetricOscillation();
+  startDosingFlash();
+
+})();
+</script>
 
 </body>
 </html>
