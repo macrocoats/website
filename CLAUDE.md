@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Static marketing website for **MacroCoats Pvt Ltd** (formerly Technical Electroless Chemical Co. Pvt. Ltd), a specialty industrial chemistry company based in Chennai, India. The company specialises in process-engineered chemical solutions — phosphating, surface treatment, and corrosion protection — for industrial clients across India. Est. 1993.
+Marketing website for **MacroCoats Pvt Ltd** (formerly Technical Electroless Chemical Co. Pvt. Ltd), a specialty industrial chemistry company based in Chennai, India. The company specialises in process-engineered chemical solutions — phosphating, surface treatment, and corrosion protection — for industrial clients across India. Est. 1993.
 
 - **Company tagline**: Process-Engineered Chemistry
 - **Phone**: +91 98840 80377
@@ -15,15 +15,14 @@ Static marketing website for **MacroCoats Pvt Ltd** (formerly Technical Electrol
 
 | Layer | Technology |
 |-------|-----------|
-| Markup | HTML5 |
-| Styling | CSS3 (embedded in `<style>`) |
-| JavaScript | None |
+| Framework | React 19 |
+| Routing | React Router DOM 7 |
+| Build | Vite 6 |
+| CSS | `src/index.css` (3,119 lines, separate file) |
+| Email | EmailJS Browser 4.4.1 (`@emailjs/browser`) |
 | Fonts | Google Fonts — Fraunces, Geist, Geist Mono |
 | Icons | Inline SVG |
-| Build tool | None — edit HTML directly |
-| Deployment | Static hosting (push to GitHub) |
-
-There is no build step, no bundler, no framework. Editing `index.html` is the entire workflow.
+| Deployment | Netlify (auto-build on `git push origin main`) |
 
 ---
 
@@ -31,167 +30,219 @@ There is no build step, no bundler, no framework. Editing `index.html` is the en
 
 ```
 website/
-├── index.html          # Entire website (2,071 lines)
-└── .gitignore
+├── index.html              # Vite entry point (16 lines — do not add content here)
+├── vite.config.js          # Vite config
+├── package.json            # Dependencies + scripts (dev / build / preview)
+├── .env                    # EmailJS keys (gitignored)
+├── .env.example            # EmailJS variable names — template for .env setup
+├── .gitignore
+├── content/
+│   └── linkedin-posts-ready-to-publish.md
+├── blog/                   # Pre-rendered blog pages (generated)
+├── dist/                   # Production build output (gitignored)
+└── src/
+    ├── index.css           # 3,119-line design system (all styles live here)
+    ├── main.jsx            # React entry point — mounts <App />
+    ├── App.jsx             # React Router setup (routes below)
+    ├── hooks/              # Custom React hooks for IoT animations
+    │   ├── useDosingFlash.js
+    │   ├── useEventLog.js
+    │   ├── useIoTAnimations.js
+    │   ├── useMetricOscillator.js
+    │   └── useRingGauge.js
+    ├── pages/
+    │   ├── HomePage.jsx
+    │   ├── BlogListPage.jsx
+    │   └── BlogArticlePage.jsx
+    └── components/
+        ├── layout/
+        │   ├── Nav.jsx
+        │   └── Footer.jsx
+        ├── home/           # 14 homepage section components (render order below)
+        │   ├── Hero.jsx
+        │   ├── TrustedBy.jsx
+        │   ├── Challenge.jsx
+        │   ├── Solutions.jsx
+        │   ├── Industries.jsx
+        │   ├── Products.jsx
+        │   ├── IoTCommandCenter.jsx
+        │   ├── IoTHowItWorks.jsx
+        │   ├── ProcessServices.jsx
+        │   ├── CoreBelief.jsx
+        │   ├── ClientValue.jsx
+        │   ├── Leadership.jsx
+        │   ├── ProcessAudit.jsx
+        │   └── CtaBand.jsx
+        └── blog/
+            ├── BlogNav.jsx
+            ├── BlogFooter.jsx
+            ├── BlogSidebar.jsx
+            └── articles/
+                └── SaltSprayArticle.jsx
 ```
-
-All HTML, CSS, and content live in `index.html`. The `<style>` block spans lines **1–1,362**; the `<body>` starts at line **1,364**.
 
 ---
 
-## Section Map (line numbers in `index.html`)
+## Routing
 
-| Section | Lines | HTML comment / id |
-|---------|-------|-------------------|
-| CSS styles | 1–1,362 | `<style>` block |
-| Navigation | 1,366–1,388 | `<!-- NAVIGATION -->` |
-| Hero | 1,390–1,458 | `<!-- HERO -->` |
-| Trusted By (marquee) | 1,460–1,480 | `<!-- TRUSTED BY -->` |
-| The Challenge | 1,482–1,517 | `<!-- THE CHALLENGE -->` |
-| Solutions | 1,519–1,585 | `<!-- SOLUTIONS -->` `id="about"` |
-| Industries | 1,587–1,710 | `<!-- INDUSTRIES -->` `id="industries"` |
-| Products Showcase | 1,712–1,792 | `<!-- PRODUCTS SHOWCASE -->` `id="products"` |
-| Process / Services | 1,794–1,882 | `<!-- PROCESS / SERVICES -->` `id="services"` |
-| Core Belief | 1,884–1,892 | `<!-- CORE BELIEF -->` |
-| Client Value | 1,894–1,940 | `<!-- CLIENT VALUE -->` |
-| Leadership | 1,942–1,978 | `<!-- LEADERSHIP -->` |
-| CTA Band | 1,980–2,018 | `<!-- CTA BAND -->` `id="contact"` |
-| Footer | 2,020–2,069 | `<!-- FOOTER -->` |
+Defined in `src/App.jsx`:
+
+| Route | Component |
+|-------|-----------|
+| `/` | `pages/HomePage.jsx` |
+| `/blog` | `pages/BlogListPage.jsx` |
+| `/blog/:slug` | `pages/BlogArticlePage.jsx` |
+
+---
+
+## Homepage Section Order
+
+Render order from `src/pages/HomePage.jsx`:
+
+| Order | Component | Notes |
+|-------|-----------|-------|
+| 1 | `Nav` | Fixed navigation |
+| 2 | `Hero` | Value prop + animated process cards + stats |
+| 3 | `TrustedBy` | Client logo marquee (Indian Railways, L&T, TVS, Rane…) |
+| 4 | `Challenge` | 6 pain points the company addresses |
+| 5 | `Solutions` | 4 solution cards (formulation, phosphating, corrosion, IoT) |
+| 6 | `Industries` | 6 sector image tiles |
+| 7 | `Products` | 3 product families with chemical formulas |
+| 8 | `IoTCommandCenter` | Interactive real-time bath monitoring dashboard |
+| 9 | `IoTHowItWorks` | IoT process flow visualization |
+| 10 | `ProcessServices` | 4-step flow diagram + 3 service cards |
+| 11 | `CoreBelief` | Brand quote block |
+| 12 | `ClientValue` | 3 outcome cards (operational, financial, safety) |
+| 13 | `Leadership` | 2 bios (Mr. Santhanam, Mr. Aswin Kumar) |
+| 14 | `ProcessAudit` | Lead-capture form — submits via EmailJS |
+| 15 | `CtaBand` | Phone, email, consultation button |
+| 16 | `Footer` | Links + copyright |
 
 ---
 
 ## CSS Architecture
 
-### Custom Properties (CSS Variables)
+**File:** `src/index.css` (3,119 lines)
 
-Defined at the top of the `<style>` block on `:root`:
+### Custom Properties (`:root` block, lines 1–57)
 
 ```css
-/* Brand colors */
---primary:       #1E3A8A   /* navy */
---primary-deep:  #0F1F3D   /* deep navy */
---accent:        #2563EB   /* blue */
---accent-bright: #3B82F6   /* bright blue */
---purple:        #5B2A86
+/* Brand */
+--primary: #1E3A8A;         /* navy */
+--primary-deep: #0F1F3D;    /* deep navy */
+--accent: #2563EB;          /* blue */
+--accent-bright: #3B82F6;   /* bright blue */
+--purple: #5B2A86;
 
 /* Neutrals */
---ink:       #0F1F3D
---charcoal:  #1F2937
---slate:     #64748B
---mist:      #94A3B8
---surface:   #F8FAFC
---paper:     #FFFFFF
---line:      #E2E8F0
+--ink: #0A0F1E;
+--charcoal: #1F2937;
+--slate: #64748B;
+--mist: #94A3B8;
+--surface: #F8FAFC;
+--paper: #FFFFFF;
+--line: #E2E8F0;
+--line-soft: #F1F5F9;
 
-/* Accent */
---eco:       #059669   /* green / success */
---warning:   #DC2626   /* red / alert */
+/* Semantic / status */
+--eco: #059669;             /* green / success */
+--warning: #DC2626;         /* red / alert */
+--status-warn: #F59E0B;
+--status-error: #EF4444;
+--accent-violet: #8B5CF6;
 
-/* Typography */
---display: 'Fraunces', serif      /* headings */
---sans:    'Geist', sans-serif    /* body */
---mono:    'Geist Mono', monospace /* eyebrows / labels */
+/* Typography stacks */
+--display: 'Fraunces', Georgia, serif;   /* headings */
+--sans: 'Geist', -apple-system, sans-serif; /* body */
+--mono: 'Geist Mono', monospace;         /* eyebrows / labels */
+
+/* Type scale */
+--text-xs: 11px;   --text-sm: 13px;   --text-base: 15px;
+--text-md: 17px;   --text-lg: 20px;   --text-xl: 24px;
+--text-2xl: 32px;  --text-3xl: 42px;
+
+/* Radius */
+--radius-sm: 8px;  --radius-md: 14px;
+--radius-lg: 20px; --radius-pill: 999px;
+
+/* Elevation */
+--shadow-sm: 0 4px 12px rgba(15,31,61,0.06);
+--shadow-md: 0 12px 30px rgba(15,31,61,0.10);
+--shadow-lg: 0 24px 60px rgba(15,31,61,0.14);
+
+/* Motion */
+--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+--dur-fast: 200ms;  --dur-base: 300ms;  --dur-slow: 600ms;
 ```
 
 ### Layout Patterns
-
 - **Container**: `.container` with `max-width: 1440px`, horizontal padding
 - **2-column hero**: CSS Grid `1fr 1fr`
 - **3-column cards**: `repeat(3, 1fr)` grid (products, value, services)
-- **4-column stats**: `repeat(4, 1fr)` in hero stats
 - **Marquee**: infinite CSS `marquee` keyframe animation for client logos
 
 ### Responsive Breakpoint
-
-Single breakpoint at `@media (max-width: 1024px)`:
-- Nav links hidden; single-column layout; hero visual removed; padding reduced
-
-### Key Animations
-
-| Name | Effect | Used on |
-|------|--------|---------|
-| `fadeUp` | opacity + translateY | Hero headline, CTAs |
-| `fadeIn` | opacity only | Hero sub-text |
-| `barGrow` | scaleX progress bar | Live monitoring card |
-| `marquee` | infinite horizontal scroll | Client logo strip |
+Single breakpoint at `@media (max-width: 1024px)` — single-column layout, nav links hidden, padding reduced.
 
 ---
 
-## Content Architecture (buyer's journey order)
+## Blog System
 
-1. **Hero** — value proposition + process visualization cards + stats
-2. **Trusted By** — client logo marquee (Indian Railways, L&T, TVS, Rane, etc.)
-3. **Challenge** — 6 pain points the company addresses
-4. **Solutions** — 4 solution cards (formulation, phosphating, corrosion, IoT)
-5. **Industries** — 6 sectors served with image tiles
-6. **Products** — 3 product families with chemical formulas
-7. **Process/Services** — 4-step flow diagram + 3 service cards
-8. **Core Belief** — brand quote block
-9. **Client Value** — 3 outcome cards (operational, financial, safety)
-10. **Leadership** — 2 bios (Mr. Santhanam, Mr. Aswin Kumar)
-11. **CTA Band** — phone, email, consultation button
-12. **Footer** — links, copyright
+**Published articles (1):**
+- "Why Your Salt-Spray Test Results Are Inconsistent: The Bath Chemistry Explanation" — Mr. Santhanam, June 2026 (8 min read)
+  - Slug: `inconsistent-salt-spray-test-results-phosphating-bath`
+  - Component: `src/components/blog/articles/SaltSprayArticle.jsx`
+
+**Upcoming articles (3):**
+- Zinc Phosphate vs Iron Phosphate vs Manganese Phosphate (July 2026)
+- IoT Bath Monitoring for Phosphating Lines (July 2026)
+- Chromium-Free Phosphating in India (August 2026)
+
+To add a new article: create a component in `src/components/blog/articles/`, register the slug in `BlogArticlePage.jsx`.
 
 ---
 
-## Component Patterns
+## EmailJS Integration
 
-### Section header
-```html
-<div class="section-head">
-  <div class="section-eyebrow">Label Text</div>
-  <h2 class="section-title">Main heading with <em>italic emphasis.</em></h2>
-</div>
-```
+The `ProcessAudit` component submits form data via EmailJS.
 
-### Button styles
-- `.btn-primary` — solid navy, white text, arrow icon
-- `.btn-secondary` — transparent, bordered
-
-### Card types
-- `.sol-card` — solutions (icon + h3 + tags)
-- `.product-row` — product family (visual block + info list); add `.reverse` for alternate layout
-- `.ind-tile` — industry (image + number + name)
-- `.value-card` — outcomes; modifiers `.purple`, `.eco`
-- `.svc-card` — services; `.featured` for dark highlighted card
+- Keys are stored in `.env` (gitignored) — see `.env.example` for required variable names
+- Do not commit `.env` to the repository
 
 ---
 
 ## Product Families
 
-| Family | Class modifier | Tagline |
-|--------|---------------|---------|
-| 01 — Phosphating & Conversion Coatings | `.product-visual` (default) | `[Zn₃(PO₄)₂ · 4H₂O]` |
-| 02 — Surface Preparation Chemistry | `.product-visual-2` | `[ALKALINE · pH 12.4]` |
-| 03 — Corrosion Protection & Specialty | `.product-visual-3` | `[Cr-FREE · LOW-SLUDGE]` |
+| Family | Chemical tag |
+|--------|-------------|
+| 01 — Phosphating & Conversion Coatings | `[Zn₃(PO₄)₂ · 4H₂O]` |
+| 02 — Surface Preparation Chemistry | `[ALKALINE · pH 12.4]` |
+| 03 — Corrosion Protection & Specialty | `[Cr-FREE · LOW-SLUDGE]` |
 
 ---
 
 ## Common Editing Tasks
 
-### Update contact details
-- Phone: lines 1,992 and 2,058 (`href="tel:..."` and display text)
-- Email: lines 2,002 and 2,059
-
-### Add a new industry tile
-Copy any `.ind-tile` block within the `.ind-grid` (lines 1,598–1,709) and update the image, number, and name. Update the counter at line 1,595.
-
-### Change a color globally
-Update the CSS custom property in `:root` near line 1. All uses of `var(--property-name)` update automatically.
-
-### Add a new section
-Insert a new `<section>` between existing sections in the body, following the section head pattern above. Add a corresponding nav anchor if needed.
-
-### Swap an industry image
-Find the `<img src="...">` inside the target `.ind-tile` and replace the `src`. Placeholder comments above each image read `<!-- Replace with: <img src="path/to/..."> -->`.
+| Task | Where to edit |
+|------|---------------|
+| Edit a homepage section | `src/components/home/<ComponentName>.jsx` |
+| Change a color globally | `src/index.css` `:root` block (line 1) — `var(--property-name)` updates everywhere |
+| Update contact details (phone/email) | `src/components/home/CtaBand.jsx` and `src/components/layout/Footer.jsx` |
+| Update nav links | `src/components/layout/Nav.jsx` |
+| Add a blog article | New file in `src/components/blog/articles/`, register in `BlogArticlePage.jsx` |
+| Add a new homepage section | Create component in `src/components/home/`, import and add to `src/pages/HomePage.jsx` |
+| Add an industry tile | Edit `Industries.jsx` — copy an existing tile, update image + number + name |
+| Modify IoT dashboard | `IoTCommandCenter.jsx` + hooks in `src/hooks/` |
 
 ---
 
 ## Deployment
 
-No build step. Workflow:
-1. Edit `index.html`
-2. `git add index.html && git commit -m "..."` 
-3. `git push origin main`
+```bash
+npm run dev                              # Local dev server (hot reload)
+npm run build                            # Vite build → dist/ + copies dist/404.html for SPA routing
+git add src/ && git commit -m "..."
+git push origin main                     # Netlify auto-deploys on push
+```
 
-If hosted on GitHub Pages, changes go live on push.
+Build output goes to `dist/`. Netlify handles CI/CD — no manual deploy step needed.
