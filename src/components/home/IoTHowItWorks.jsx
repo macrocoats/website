@@ -1,6 +1,12 @@
+import { useRef } from 'react';
+import useIoTAnimations from '../../hooks/useIoTAnimations.js';
+
 export default function IoTHowItWorks() {
+  const sectionRef = useRef(null);
+  useIoTAnimations(sectionRef);
+
   return (
-    <section className="iot-howitworks" id="iot-howitworks">
+    <section className="iot-howitworks" id="iot-howitworks" ref={sectionRef}>
       <div className="hiw-head iot-panel-entry">
         <div className="hiw-eyebrow">How It Works</div>
         <h2 className="hiw-title">Real infrastructure, <em>not vaporware.</em></h2>
