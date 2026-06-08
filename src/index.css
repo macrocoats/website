@@ -944,7 +944,26 @@
     font-size: 16px;
     line-height: 1.65;
     color: var(--slate);
+    margin-bottom: 20px;
+  }
+  .product-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 28px;
+  }
+  .spec-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 5px 10px;
   }
   .product-list {
     list-style: none;

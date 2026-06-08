@@ -26,6 +26,12 @@ export default function Products() {
             <div className="product-num">/ FAMILY 01</div>
             <h3>Phosphating &amp; Conversion Coatings</h3>
             <p>Zinc, iron, and manganese phosphating systems that form protective conversion layers on metal surfaces — delivering superior corrosion resistance and paint adhesion across diverse base metals.</p>
+            <div className="product-specs">
+              <span className="spec-badge">pH 3.0–4.5</span>
+              <span className="spec-badge">40–60°C</span>
+              <span className="spec-badge">ISO 9001:2015</span>
+              <span className="spec-badge">OEM Approved</span>
+            </div>
             <ul className="product-list">
               <li>Zinc Phosphate Systems <span>Pre-paint</span></li>
               <li>Iron Phosphate Systems <span>Light-duty</span></li>
@@ -49,6 +55,12 @@ export default function Products() {
             <div className="product-num">/ FAMILY 02</div>
             <h3>Surface Preparation Chemistry</h3>
             <p>Solvent-based, water-based, and alkaline degreasers paired with acid-based de-rusting and pickling systems — engineered to deliver clean, activated surfaces ready for downstream conversion or coating.</p>
+            <div className="product-specs">
+              <span className="spec-badge">pH 11.0–13.0</span>
+              <span className="spec-badge">50–70°C</span>
+              <span className="spec-badge">RoHS Compliant</span>
+              <span className="spec-badge">Low-foam Grade</span>
+            </div>
             <ul className="product-list">
               <li>Solvent-Based Degreasers <span>Heavy oils</span></li>
               <li>Water-Based Degreasers <span>Eco-grade</span></li>
@@ -72,6 +84,12 @@ export default function Products() {
             <div className="product-num">/ FAMILY 03</div>
             <h3>Corrosion Protection &amp; Specialty</h3>
             <p>Rust preventives, sealants, and specialty industrial chemistry — including chemical blackening, paint removers, heat treatment salts, and metal working fluids for demanding industrial environments.</p>
+            <div className="product-specs">
+              <span className="spec-badge">Cr-Free</span>
+              <span className="spec-badge">Low Sludge</span>
+              <span className="spec-badge">REACH Compliant</span>
+              <span className="spec-badge">Salt Spray 500h+</span>
+            </div>
             <ul className="product-list">
               <li>Rust Preventives &amp; Converters <span>Storage</span></li>
               <li>Chemical Blackening <span>Black oxide</span></li>
