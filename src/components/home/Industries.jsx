@@ -55,7 +55,7 @@ export default function Industries() {
               <div className="ind-image">
                 <div className="ind-placeholder">
                   <div className="ind-placeholder-label">
-                    <img src={ind.img} alt={ind.alt} />
+                    <img src={ind.img} alt={ind.alt} loading="lazy" />
                   </div>
                 </div>
               </div>

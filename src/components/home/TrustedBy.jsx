@@ -18,7 +18,7 @@ export default function TrustedBy() {
       <div className="marquee">
         {[...clients, ...clients].map((c, i) => (
           <div className="client-logo" key={i}>
-            <img src={c.src} alt={c.alt} />
+            <img src={c.src} alt={c.alt} loading="lazy" />
           </div>
         ))}
       </div>
