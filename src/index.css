@@ -1006,6 +1006,111 @@
   }
   .product-link:hover { gap: 14px; }
 
+  /* ============ PRODUCT COMPARISON ============ */
+  .comparison {
+    padding: 120px 48px;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+  .comp-intro {
+    max-width: 680px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--slate);
+    margin-top: 32px;
+    margin-bottom: 56px;
+  }
+  .comp-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .comp-prop-head {
+    width: 22%;
+  }
+  .comp-col-head {
+    padding: 28px 24px 24px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 2px solid var(--line);
+    width: 26%;
+  }
+  .zinc-head {
+    border-top: 3px solid var(--accent-gold);
+    background: rgba(201,168,76,0.04);
+  }
+  .comp-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-gold-dark);
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    padding: 3px 7px;
+    margin-bottom: 10px;
+  }
+  .comp-col-name {
+    display: block;
+    font-family: var(--display);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--primary-deep);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .comp-formula {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mist);
+    letter-spacing: 0.05em;
+  }
+  .comp-prop {
+    padding: 14px 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    white-space: nowrap;
+    border-right: 1px solid var(--line);
+  }
+  .comp-val {
+    padding: 14px 24px;
+    color: var(--charcoal);
+    font-size: 14px;
+    border-right: 1px solid var(--line-soft);
+    vertical-align: middle;
+  }
+  .comp-val:last-child { border-right: none; }
+  .zinc-val {
+    background: rgba(201,168,76,0.04);
+    font-weight: 500;
+    color: var(--primary);
+  }
+  .comp-row-alt td { background-color: var(--surface); }
+  .comp-row-alt .zinc-val { background: rgba(201,168,76,0.07); }
+  .comp-note {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  .comp-note a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .comp-note a:hover { color: var(--accent-gold-dark); }
+
   /* ============ PROCESS FLOW ============ */
   .process {
     background: var(--ink);
@@ -2255,7 +2360,7 @@
     .hero-inner { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
     .hero-visual { display: none; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    .challenge, .solutions, .industries, .products, .process, .belief, .value, .leadership, .cta-band, footer { padding-left: 24px; padding-right: 24px; }
+    .challenge, .solutions, .industries, .products, .comparison, .process, .belief, .value, .leadership, .cta-band, footer { padding-left: 24px; padding-right: 24px; }
     .pain-grid, .ind-grid, .solutions-grid, .service-grid, .value-grid, .lead-grid, .case-grid, .footer-grid { grid-template-columns: 1fr; }
     .pain-item:nth-child(odd) { border-right: none; padding-right: 0; }
     .pain-item:nth-child(even) { padding-left: 0; }

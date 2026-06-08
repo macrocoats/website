@@ -7,6 +7,7 @@ import Challenge from '../components/home/Challenge.jsx';
 import Solutions from '../components/home/Solutions.jsx';
 import Industries from '../components/home/Industries.jsx';
 import Products from '../components/home/Products.jsx';
+import ProductComparison from '../components/home/ProductComparison.jsx';
 import IoTCommandCenter from '../components/home/IoTCommandCenter.jsx';
 import IoTHowItWorks from '../components/home/IoTHowItWorks.jsx';
 import ProcessServices from '../components/home/ProcessServices.jsx';
@@ -31,6 +32,7 @@ export default function HomePage() {
       <Solutions />
       <Industries />
       <Products />
+      <ProductComparison />
       <IoTCommandCenter />
       <IoTHowItWorks />
       <ProcessServices />
