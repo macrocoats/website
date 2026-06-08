@@ -1261,7 +1261,7 @@
   .lead-portrait {
     width: 100px; height: 100px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--purple));
+    background: linear-gradient(135deg, var(--primary), var(--accent-gold));
     display: grid;
     place-items: center;
     color: white;
@@ -1283,7 +1283,19 @@
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-gold-dark);
+    margin-bottom: 16px;
+  }
+  .lead-bio {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+  .lead-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 20px;
   }
   .lead-info ul { list-style: none; }

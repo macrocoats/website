@@ -12,11 +12,22 @@ export default function Leadership() {
             <div className="lead-portrait">S</div>
             <div className="lead-info">
               <h4>Mr. Santhanam</h4>
-              <div className="lead-role">Technical Director</div>
+              <div className="lead-role">Founder &amp; Technical Director</div>
+              <p className="lead-bio">
+                Founder of MacroCoats since 1993, Mr. Santhanam has spent over four decades developing
+                process-engineered chemical solutions for India's most demanding industrial environments.
+                His formulations serve Tier-1 automotive manufacturers, Indian Railways, and heavy
+                engineering clients across the country.
+              </p>
+              <div className="lead-credentials">
+                <span className="spec-badge">M.Sc. Applied Chemistry</span>
+                <span className="spec-badge">40+ Years Industry</span>
+                <span className="spec-badge">Est. MacroCoats 1993</span>
+              </div>
               <ul>
-                <li>40+ years in chemical formulation &amp; surface treatment</li>
-                <li>Deep expertise in R&amp;D, process chemistry, and application engineering</li>
-                <li>Provides technical leadership across product development and client solutions</li>
+                <li>Developed 200+ proprietary formulations across phosphating, passivation, and corrosion protection</li>
+                <li>Specialist in bath chemistry optimisation for automotive pre-treatment and OEM paint shop lines</li>
+                <li>Technical authority on zinc, iron, and manganese phosphating systems for Tier-1 &amp; Tier-2 suppliers</li>
               </ul>
             </div>
           </div>
@@ -25,11 +36,21 @@ export default function Leadership() {
             <div className="lead-portrait">A</div>
             <div className="lead-info">
               <h4>Mr. Aswin Kumar</h4>
-              <div className="lead-role">Automation &amp; Business Operations</div>
+              <div className="lead-role">Operations &amp; Automation Lead</div>
+              <p className="lead-bio">
+                Leading MacroCoats' digital transformation, Mr. Aswin Kumar bridges advanced industrial
+                automation with chemical process management. He architects the company's IoT bath
+                monitoring systems and oversees technical installations and client operations pan-India.
+              </p>
+              <div className="lead-credentials">
+                <span className="spec-badge">B.E. Electronics &amp; Instrumentation</span>
+                <span className="spec-badge">15+ Years Industry</span>
+                <span className="spec-badge">IoT Systems Specialist</span>
+              </div>
               <ul>
-                <li>15+ years in industrial automation &amp; control systems</li>
-                <li>Expertise in IoT-driven process monitoring and system integration</li>
-                <li>Leads operational excellence, digitalisation, and scalable deployment</li>
+                <li>Designed MacroCoats' real-time IoT bath monitoring and auto-dosing platform</li>
+                <li>Manages technical installations across 50+ client facilities in Tamil Nadu, Maharashtra, and Gujarat</li>
+                <li>Leads integration of Industry 4.0 practices into legacy chemical treatment operations</li>
               </ul>
             </div>
           </div>
