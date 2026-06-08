@@ -1238,6 +1238,111 @@
   .value-card.purple li::before { color: var(--purple); }
   .value-card.eco li::before { color: var(--eco); }
 
+  /* ============ CASE STUDIES ============ */
+  .case-studies {
+    padding: 140px 48px;
+    background: var(--ink);
+    color: white;
+  }
+  .case-studies .section-eyebrow { color: var(--accent-gold); }
+  .case-studies .section-eyebrow::before { background: var(--accent-gold); }
+  .case-studies .section-title { color: white; }
+  .case-studies .section-title em { color: var(--accent-gold); font-style: italic; font-weight: 400; }
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 80px;
+  }
+  .case-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: border-color var(--dur-base) var(--ease-out);
+  }
+  .case-card:hover {
+    border-color: rgba(201,168,76,0.35);
+  }
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .case-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    opacity: 0.7;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+  .case-studies .spec-badge {
+    color: var(--secondary);
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    border-left-color: var(--accent-gold);
+  }
+  .case-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: var(--text-lg);
+    color: white;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .case-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+  .case-row { display: flex; flex-direction: column; gap: 6px; }
+  .case-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    opacity: 0.8;
+  }
+  .case-row p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.55);
+  }
+  .case-result {
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .case-metric {
+    font-family: var(--display);
+    font-size: var(--text-3xl);
+    font-weight: 500;
+    color: var(--accent-gold);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .case-metric-label {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.5);
+  }
+
   /* ============ LEADERSHIP ============ */
   .leadership {
     padding: 140px 48px;
@@ -2151,7 +2256,7 @@
     .hero-visual { display: none; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     .challenge, .solutions, .industries, .products, .process, .belief, .value, .leadership, .cta-band, footer { padding-left: 24px; padding-right: 24px; }
-    .pain-grid, .ind-grid, .solutions-grid, .service-grid, .value-grid, .lead-grid, .footer-grid { grid-template-columns: 1fr; }
+    .pain-grid, .ind-grid, .solutions-grid, .service-grid, .value-grid, .lead-grid, .case-grid, .footer-grid { grid-template-columns: 1fr; }
     .pain-item:nth-child(odd) { border-right: none; padding-right: 0; }
     .pain-item:nth-child(even) { padding-left: 0; }
     .product-row { grid-template-columns: 1fr; gap: 40px; padding: 40px 0; }

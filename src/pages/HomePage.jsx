@@ -12,6 +12,7 @@ import IoTHowItWorks from '../components/home/IoTHowItWorks.jsx';
 import ProcessServices from '../components/home/ProcessServices.jsx';
 import CoreBelief from '../components/home/CoreBelief.jsx';
 import ClientValue from '../components/home/ClientValue.jsx';
+import CaseStudies from '../components/home/CaseStudies.jsx';
 import Leadership from '../components/home/Leadership.jsx';
 import ProcessAudit from '../components/home/ProcessAudit.jsx';
 import CtaBand from '../components/home/CtaBand.jsx';
@@ -35,6 +36,7 @@ export default function HomePage() {
       <ProcessServices />
       <CoreBelief />
       <ClientValue />
+      <CaseStudies />
       <Leadership />
       <ProcessAudit />
       <CtaBand />
