@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import useIoTAnimations from '../../hooks/useIoTAnimations.js';
 
 export default function IoTHowItWorks() {
@@ -111,6 +112,16 @@ export default function IoTHowItWorks() {
             <span className="setup-tag">Email reports</span>
           </div>
         </div>
+      </div>
+
+      <div className="hiw-head iot-panel-entry" style={{ marginTop: '48px', textAlign: 'center' }}>
+        <Link
+          to="/blog/iot-bath-monitoring-phosphating-lines"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'var(--accent-gold)', fontFamily: 'var(--mono)', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.04em' }}
+        >
+          Read: IoT Bath Monitoring in Practice — 90-day results from a Tier-1 phosphating line
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+        </Link>
       </div>
     </section>
   );

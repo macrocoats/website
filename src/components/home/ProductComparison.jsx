@@ -59,8 +59,8 @@ export default function ProductComparison() {
 
         <p className="comp-note">
           All systems available in custom formulations matched to your water chemistry and operating
-          conditions. <a href="#contact">Request a technical consultation</a> to identify the optimal
-          phosphating system for your line.
+          conditions. <a href="/#process-audit">Request a technical consultation</a> to identify the optimal
+          phosphating system for your line. Or <a href="/blog/zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate" style={{ color: 'var(--accent)', fontWeight: 500 }}>read the full phosphate selection guide →</a>
         </p>
       </div>
     </section>

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const ArrowIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M5 12h14M13 5l7 7-7 7" />
@@ -38,7 +40,8 @@ export default function Products() {
               <li>Manganese Phosphate <span>Wear surfaces</span></li>
               <li>Chromium-free Passivation <span>Eco-grade</span></li>
             </ul>
-            <a href="#" className="product-link">Request technical datasheet <ArrowIcon /></a>
+            <a href="mailto:info@macrocoats.in?subject=Datasheet%20Request%20%E2%80%93%20Phosphating%20%26%20Conversion%20Coatings" className="product-link">Request technical datasheet <ArrowIcon /></a>
+            <Link to="/blog/zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--accent)', fontFamily: 'var(--mono)', textDecoration: 'none', marginTop: '6px', letterSpacing: '0.02em' }}>Read the phosphate selection guide <ArrowIcon /></Link>
           </div>
         </div>
 
@@ -67,7 +70,8 @@ export default function Products() {
               <li>Alkaline Degreasers <span>High pH</span></li>
               <li>Pickling Inhibitors <span>Acid control</span></li>
             </ul>
-            <a href="#" className="product-link">Request technical datasheet <ArrowIcon /></a>
+            <a href="mailto:info@macrocoats.in?subject=Datasheet%20Request%20%E2%80%93%20Surface%20Preparation%20Chemistry" className="product-link">Request technical datasheet <ArrowIcon /></a>
+            <Link to="/blog/inconsistent-salt-spray-test-results-phosphating-bath" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--accent)', fontFamily: 'var(--mono)', textDecoration: 'none', marginTop: '6px', letterSpacing: '0.02em' }}>Why bath chemistry affects salt-spray results <ArrowIcon /></Link>
           </div>
         </div>
 
@@ -96,7 +100,8 @@ export default function Products() {
               <li>Heat Treatment Salts <span>Thermal</span></li>
               <li>Metal Working Oils <span>Cutting · Drawing</span></li>
             </ul>
-            <a href="#" className="product-link">Request technical datasheet <ArrowIcon /></a>
+            <a href="mailto:info@macrocoats.in?subject=Datasheet%20Request%20%E2%80%93%20Corrosion%20Protection%20%26%20Specialty" className="product-link">Request technical datasheet <ArrowIcon /></a>
+            <Link to="/blog/chromium-free-phosphating-india-tier1-automotive" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--accent)', fontFamily: 'var(--mono)', textDecoration: 'none', marginTop: '6px', letterSpacing: '0.02em' }}>Cr-free phosphating: transition guide <ArrowIcon /></Link>
           </div>
         </div>
       </div>
