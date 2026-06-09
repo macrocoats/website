@@ -1,30 +1,32 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import BlogNav from '../components/blog/BlogNav.jsx';
 import BlogFooter from '../components/blog/BlogFooter.jsx';
-import SaltSprayArticle from '../components/blog/articles/SaltSprayArticle.jsx';
-import PhosphateSelectionArticle from '../components/blog/articles/PhosphateSelectionArticle.jsx';
-import IoTMonitoringArticle from '../components/blog/articles/IoTMonitoringArticle.jsx';
-import ChromiumFreeArticle from '../components/blog/articles/ChromiumFreeArticle.jsx';
 
 const ARTICLE_MAP = {
   'inconsistent-salt-spray-test-results-phosphating-bath': {
-    component: SaltSprayArticle,
+    component: lazy(() => import('../components/blog/articles/SaltSprayArticle.jsx')),
     title: 'Why Your Salt-Spray Test Results Are Inconsistent — MacroCoats',
   },
   'zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate': {
-    component: PhosphateSelectionArticle,
+    component: lazy(() => import('../components/blog/articles/PhosphateSelectionArticle.jsx')),
     title: 'Zinc Phosphate vs Iron Phosphate vs Manganese Phosphate: The Selection Guide — MacroCoats',
   },
   'iot-bath-monitoring-phosphating-lines': {
-    component: IoTMonitoringArticle,
+    component: lazy(() => import('../components/blog/articles/IoTMonitoringArticle.jsx')),
     title: 'IoT Bath Monitoring for Phosphating Lines — MacroCoats',
   },
   'chromium-free-phosphating-india-tier1-automotive': {
-    component: ChromiumFreeArticle,
+    component: lazy(() => import('../components/blog/articles/ChromiumFreeArticle.jsx')),
     title: 'Chromium-Free Phosphating in India: Technical and Regulatory Guide — MacroCoats',
   },
 };
+
+const ArticleFallback = () => (
+  <div style={{ minHeight: '60vh', display: 'grid', placeItems: 'center', color: 'var(--slate)', fontFamily: 'var(--sans)', fontSize: '15px' }}>
+    Loading article…
+  </div>
+);
 
 export default function BlogArticlePage() {
   const { slug } = useParams();
@@ -51,7 +53,9 @@ export default function BlogArticlePage() {
   return (
     <>
       <BlogNav />
-      <ArticleComponent />
+      <Suspense fallback={<ArticleFallback />}>
+        <ArticleComponent />
+      </Suspense>
       <BlogFooter />
     </>
   );
