@@ -30,12 +30,19 @@ Marketing website for **MacroCoats Pvt Ltd** (formerly Technical Electroless Che
 
 ```
 website/
-├── index.html              # Vite entry point (16 lines — do not add content here)
-├── vite.config.js          # Vite config
-├── package.json            # Dependencies + scripts (dev / build / preview)
+├── index.html              # Vite entry point (SEO meta + GA4 tag)
+├── vite.config.js          # Vite config (manual chunks: react, react-router)
+├── package.json            # Dependencies + scripts (dev / build / preview / og)
+├── netlify.toml            # Netlify build config — publish = "dist" (SPA redirect omitted; handled by 404.html copy)
 ├── .env                    # EmailJS keys (gitignored)
 ├── .env.example            # EmailJS variable names — template for .env setup
 ├── .gitignore
+├── scripts/
+│   └── generate-og-image.js  # Generates public/og-image.png (run: npm run og)
+├── public/
+│   ├── og-image.png        # Social share image
+│   ├── sitemap.xml         # SEO sitemap
+│   └── robots.txt
 ├── content/
 │   └── linkedin-posts-ready-to-publish.md
 ├── blog/                   # Pre-rendered blog pages (generated)
@@ -58,18 +65,20 @@ website/
         ├── layout/
         │   ├── Nav.jsx
         │   └── Footer.jsx
-        ├── home/           # 14 homepage section components (render order below)
+        ├── home/           # 16 homepage section components (render order below)
         │   ├── Hero.jsx
         │   ├── TrustedBy.jsx
         │   ├── Challenge.jsx
         │   ├── Solutions.jsx
         │   ├── Industries.jsx
         │   ├── Products.jsx
+        │   ├── ProductComparison.jsx
         │   ├── IoTCommandCenter.jsx
         │   ├── IoTHowItWorks.jsx
         │   ├── ProcessServices.jsx
         │   ├── CoreBelief.jsx
         │   ├── ClientValue.jsx
+        │   ├── CaseStudies.jsx
         │   ├── Leadership.jsx
         │   ├── ProcessAudit.jsx
         │   └── CtaBand.jsx
@@ -78,7 +87,10 @@ website/
             ├── BlogFooter.jsx
             ├── BlogSidebar.jsx
             └── articles/
-                └── SaltSprayArticle.jsx
+                ├── SaltSprayArticle.jsx
+                ├── PhosphateSelectionArticle.jsx
+                ├── IoTMonitoringArticle.jsx
+                └── ChromiumFreeArticle.jsx
 ```
 
 ---
@@ -108,15 +120,17 @@ Render order from `src/pages/HomePage.jsx`:
 | 5 | `Solutions` | 4 solution cards (formulation, phosphating, corrosion, IoT) |
 | 6 | `Industries` | 6 sector image tiles |
 | 7 | `Products` | 3 product families with chemical formulas |
-| 8 | `IoTCommandCenter` | Interactive real-time bath monitoring dashboard |
-| 9 | `IoTHowItWorks` | IoT process flow visualization |
-| 10 | `ProcessServices` | 4-step flow diagram + 3 service cards |
-| 11 | `CoreBelief` | Brand quote block |
-| 12 | `ClientValue` | 3 outcome cards (operational, financial, safety) |
-| 13 | `Leadership` | 2 bios (Mr. Santhanam, Mr. Aswin Kumar) |
-| 14 | `ProcessAudit` | Lead-capture form — submits via EmailJS |
-| 15 | `CtaBand` | Phone, email, consultation button |
-| 16 | `Footer` | Links + copyright |
+| 8 | `ProductComparison` | Zinc / Iron / Manganese phosphating comparison table |
+| 9 | `IoTCommandCenter` | Interactive real-time bath monitoring dashboard |
+| 10 | `IoTHowItWorks` | IoT process flow visualization |
+| 11 | `ProcessServices` | 4-step flow diagram + 3 service cards |
+| 12 | `CoreBelief` | Brand quote block |
+| 13 | `ClientValue` | 3 outcome cards (operational, financial, safety) |
+| 14 | `CaseStudies` | 3 industry case studies (automotive Tier-1, two-wheeler, heavy eng.) |
+| 15 | `Leadership` | 2 bios (Mr. Santhanam, Mr. Aswin Kumar) |
+| 16 | `ProcessAudit` | Lead-capture form — submits via EmailJS |
+| 17 | `CtaBand` | Phone, email, consultation button |
+| 18 | `Footer` | Links + copyright |
 
 ---
 
@@ -188,15 +202,19 @@ Single breakpoint at `@media (max-width: 1024px)` — single-column layout, nav 
 
 ## Blog System
 
-**Published articles (1):**
+**Published articles (4):**
 - "Why Your Salt-Spray Test Results Are Inconsistent: The Bath Chemistry Explanation" — Mr. Santhanam, June 2026 (8 min read)
   - Slug: `inconsistent-salt-spray-test-results-phosphating-bath`
   - Component: `src/components/blog/articles/SaltSprayArticle.jsx`
-
-**Upcoming articles (3):**
-- Zinc Phosphate vs Iron Phosphate vs Manganese Phosphate (July 2026)
-- IoT Bath Monitoring for Phosphating Lines (July 2026)
-- Chromium-Free Phosphating in India (August 2026)
+- "Zinc Phosphate vs Iron Phosphate vs Manganese Phosphate" — July 2026
+  - Slug: `zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate`
+  - Component: `src/components/blog/articles/PhosphateSelectionArticle.jsx`
+- "IoT Bath Monitoring for Phosphating Lines" — July 2026
+  - Slug: `iot-bath-monitoring-phosphating-lines`
+  - Component: `src/components/blog/articles/IoTMonitoringArticle.jsx`
+- "Chromium-Free Phosphating in India" — August 2026
+  - Slug: `chromium-free-phosphating-india-tier1-automotive`
+  - Component: `src/components/blog/articles/ChromiumFreeArticle.jsx`
 
 To add a new article: create a component in `src/components/blog/articles/`, register the slug in `BlogArticlePage.jsx`.
 
@@ -233,6 +251,9 @@ The `ProcessAudit` component submits form data via EmailJS.
 | Add a new homepage section | Create component in `src/components/home/`, import and add to `src/pages/HomePage.jsx` |
 | Add an industry tile | Edit `Industries.jsx` — copy an existing tile, update image + number + name |
 | Modify IoT dashboard | `IoTCommandCenter.jsx` + hooks in `src/hooks/` |
+| Edit product comparison table | `src/components/home/ProductComparison.jsx` — update `rows` array |
+| Edit case studies | `src/components/home/CaseStudies.jsx` — update `cases` array |
+| Regenerate OG social image | `npm run og` (re-run after changing title or branding) |
 
 ---
 
@@ -241,8 +262,13 @@ The `ProcessAudit` component submits form data via EmailJS.
 ```bash
 npm run dev                              # Local dev server (hot reload)
 npm run build                            # Vite build → dist/ + copies dist/404.html for SPA routing
+npm run og                               # Regenerate public/og-image.png (run after branding changes)
 git add src/ && git commit -m "..."
 git push origin main                     # Netlify auto-deploys on push
 ```
 
 Build output goes to `dist/`. Netlify handles CI/CD — no manual deploy step needed.
+
+`netlify.toml` sets `publish = "dist"`. The SPA redirect (`[[redirects]]`) is intentionally omitted — the `cp dist/index.html dist/404.html` in the build script already handles React Router deep-linking on Netlify.
+
+`index.html` includes Google Analytics 4 (GA4, tracking ID `G-4L2PBC9WHB`) and full SEO meta tags. Do not remove the GA4 script block.
