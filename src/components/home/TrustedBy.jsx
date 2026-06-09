@@ -12,7 +12,7 @@ export default function TrustedBy() {
     <section className="trusted">
       <div className="container">
         <div className="section-head">
-          <div className="section-eyebrow" style={{ fontSize: '20px' }}>Trusted By</div>
+          <div className="section-eyebrow">Trusted By</div>
         </div>
       </div>
       <div className="marquee">

@@ -5,7 +5,7 @@ const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const EMPTY = { from_name: '', company: '', phone: '', challenge: '' };
+const EMPTY = { from_name: '', company: '', email: '', phone: '', challenge: '' };
 
 const contactDetails = [
   {
@@ -155,6 +155,19 @@ export default function ProcessAudit() {
                 </div>
 
                 <div className="audit-field">
+                  <label htmlFor="audit-email">Email</label>
+                  <input
+                    type="email"
+                    id="audit-email"
+                    name="email"
+                    value={fields.email}
+                    onChange={handleChange}
+                    placeholder="you@company.com"
+                    autoComplete="email"
+                  />
+                </div>
+
+                <div className="audit-field">
                   <label htmlFor="audit-phone">Phone / WhatsApp *</label>
                   <input
                     type="tel"
@@ -163,6 +176,11 @@ export default function ProcessAudit() {
                     value={fields.phone}
                     onChange={handleChange}
                     placeholder="+91 98765 43210"
+                    pattern="[0-9+\s\-()]{7,15}"
+                    inputMode="tel"
+                    minLength={7}
+                    maxLength={15}
+                    autoComplete="tel"
                     required
                   />
                 </div>

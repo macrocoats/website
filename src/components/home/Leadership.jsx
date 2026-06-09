@@ -29,6 +29,10 @@ export default function Leadership() {
                 <li>Specialist in bath chemistry optimisation for automotive pre-treatment and OEM paint shop lines</li>
                 <li>Technical authority on zinc, iron, and manganese phosphating systems for Tier-1 &amp; Tier-2 suppliers</li>
               </ul>
+              <a href="#process-audit" className="product-link lead-cta">
+                Book a free process audit
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              </a>
             </div>
           </div>
 
@@ -52,6 +56,10 @@ export default function Leadership() {
                 <li>Manages technical installations across 50+ client facilities in Tamil Nadu, Maharashtra, and Gujarat</li>
                 <li>Leads integration of Industry 4.0 practices into legacy chemical treatment operations</li>
               </ul>
+              <a href="#process-audit" className="product-link lead-cta">
+                Discuss IoT monitoring for your line
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              </a>
             </div>
           </div>
         </div>

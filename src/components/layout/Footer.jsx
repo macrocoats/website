@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="logo">
             <div className="logo-mark"></div>
             <div>
-              <div className="logo-text">MacroCoats P Ltd</div>
+              <div className="logo-text">MacroCoats Pvt Ltd</div>
               <div className="logo-subtext">Process-Engineered Chemistry</div>
             </div>
           </div>

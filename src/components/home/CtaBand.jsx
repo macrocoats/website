@@ -11,6 +11,13 @@ export default function CtaBand() {
         </div>
 
         <div className="cta-contact">
+          <a href="#process-audit" className="btn-primary btn-primary--gold" style={{ justifyContent: 'center' }}>
+            Request a Consultation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+          <div className="cta-contact-divider">— or contact us directly —</div>
           <a href="tel:9444961815" className="contact-item">
             <div className="contact-icon">
               <svg viewBox="0 0 24 24">
@@ -36,12 +43,6 @@ export default function CtaBand() {
             </div>
           </a>
 
-          <a href="#process-audit" className="btn-primary" style={{ justifyContent: 'center' }}>
-            Request a Consultation
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
         </div>
       </div>
     </section>
