@@ -2,37 +2,37 @@ const industries = [
   {
     num: '01',
     name: 'Automotive &\nAuto Ancillaries',
-    img: 'https://www.chemours.com/en/-/media/images/corporate/vertrel/pd/clouseup-of-metal-gear-sitting-on-container-or-tub-1-4-1.jpg',
+    img: '/images/industry-automotive.jpg',
     alt: 'Automotive industry',
   },
   {
     num: '02',
     name: 'Manufacturing &\nFabrication',
-    img: 'https://dam.oneadvanced.com/m/621c843315d5e49e/original/types-of-manufacturing-processes.jpg',
+    img: '/images/industry-manufacturing.jpg',
     alt: 'Manufacturing & fabrication',
   },
   {
     num: '03',
     name: 'Infrastructure &\nConstruction',
-    img: 'https://t3.ftcdn.net/jpg/02/09/46/68/360_F_209466807_vIEKPahlcztZ2hAYVe3pUryp0lqdqoNc.jpg',
+    img: '/images/industry-infrastructure.jpg',
     alt: 'Infrastructure & construction',
   },
   {
     num: '04',
     name: 'Railways &\nHeavy Engineering',
-    img: 'https://www.azocleantech.com/images/Article_Images/ImageForArticle_1590_16565750712931624.jpg',
+    img: '/images/industry-railways.jpg',
     alt: 'Railways & heavy engineering',
   },
   {
     num: '05',
     name: 'Power &\nProcess Industries',
-    img: 'http://powerline.net.in/wp-content/uploads/2025/06/62-678x381.jpg',
+    img: '/images/industry-power.jpg',
     alt: 'Power & process industries',
   },
   {
     num: '06',
     name: 'Agro, Livestock\n& Poultry',
-    img: 'https://quench.culligan.com/wp-content/uploads/2022/11/What-Goes-Into-the-Conventional-Water-Treatment-Process.jpg',
+    img: '/images/industry-agro.jpg',
     alt: 'Agro, livestock & poultry',
   },
 ];

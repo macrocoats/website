@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-bg-img">
-        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1600" alt="Industrial metal surface treatment plant — phosphating and chemical processing line" />
+        <img src="/images/hero-surface-treatment-plant.jpg" alt="Industrial metal surface treatment plant — phosphating and chemical processing line" />
       </div>
 
       <div className="hero-inner">
