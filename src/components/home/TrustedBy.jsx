@@ -1,10 +1,10 @@
 const clients = [
   { src: '/images/logo-indian-railways.svg', alt: 'Indian Railways' },
-  { src: '/images/logo-rane.jpg', alt: 'Rane Group' },
-  { src: '/images/logo-chemplast.jpg', alt: 'Chemplast Sanmar' },
+  { src: '/images/logo-rane.webp', alt: 'Rane Group' },
+  { src: '/images/logo-chemplast.webp', alt: 'Chemplast Sanmar' },
   { src: '/images/logo-lnt.svg', alt: 'L&T' },
-  { src: '/images/logo-tvs.png', alt: 'TVS Motor' },
-  { src: '/images/logo-tube-investments.png', alt: 'Tube Investments' },
+  { src: '/images/logo-tvs.webp', alt: 'TVS Motor' },
+  { src: '/images/logo-tube-investments.webp', alt: 'Tube Investments' },
 ];
 
 export default function TrustedBy() {

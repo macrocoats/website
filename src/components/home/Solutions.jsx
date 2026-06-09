@@ -10,7 +10,7 @@ export default function Solutions() {
         <div className="solutions-grid">
           <div className="sol-card">
             <div className="sol-bg">
-              <img src="/images/solutions-custom-formulation.jpg" alt="Custom formulation engineering" loading="lazy" />
+              <img src="/images/solutions-custom-formulation.webp" alt="Custom formulation engineering" loading="lazy" />
             </div>
             <div className="sol-content">
               <span className="sol-num">/ 01</span>
@@ -32,7 +32,7 @@ export default function Solutions() {
 
           <div className="sol-card">
             <div className="sol-bg">
-              <img src="/images/solutions-phosphating.jpg" alt="Surface treatment and phosphating" loading="lazy" />
+              <img src="/images/solutions-phosphating.webp" alt="Surface treatment and phosphating" loading="lazy" />
             </div>
             <div className="sol-content">
               <span className="sol-num">/ 02</span>
@@ -55,7 +55,7 @@ export default function Solutions() {
 
           <div className="sol-card">
             <div className="sol-bg">
-              <img src="/images/solutions-corrosion.jpg" alt="Corrosion protection" loading="lazy" />
+              <img src="/images/solutions-corrosion.webp" alt="Corrosion protection" loading="lazy" />
             </div>
             <div className="sol-content">
               <span className="sol-num">/ 03</span>

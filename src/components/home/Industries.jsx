@@ -2,37 +2,37 @@ const industries = [
   {
     num: '01',
     name: 'Automotive &\nAuto Ancillaries',
-    img: '/images/industry-automotive.jpg',
+    img: '/images/industry-automotive.webp',
     alt: 'Automotive industry',
   },
   {
     num: '02',
     name: 'Manufacturing &\nFabrication',
-    img: '/images/industry-manufacturing.jpg',
+    img: '/images/industry-manufacturing.webp',
     alt: 'Manufacturing & fabrication',
   },
   {
     num: '03',
     name: 'Infrastructure &\nConstruction',
-    img: '/images/industry-infrastructure.jpg',
+    img: '/images/industry-infrastructure.webp',
     alt: 'Infrastructure & construction',
   },
   {
     num: '04',
     name: 'Railways &\nHeavy Engineering',
-    img: '/images/industry-railways.jpg',
+    img: '/images/industry-railways.webp',
     alt: 'Railways & heavy engineering',
   },
   {
     num: '05',
     name: 'Power &\nProcess Industries',
-    img: '/images/industry-power.jpg',
+    img: '/images/industry-power.webp',
     alt: 'Power & process industries',
   },
   {
     num: '06',
     name: 'Agro, Livestock\n& Poultry',
-    img: '/images/industry-agro.jpg',
+    img: '/images/industry-agro.webp',
     alt: 'Agro, livestock & poultry',
   },
 ];
