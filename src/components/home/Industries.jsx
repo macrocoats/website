@@ -1,40 +1,10 @@
 const industries = [
-  {
-    num: '01',
-    name: 'Automotive &\nAuto Ancillaries',
-    img: '/images/industry-automotive.webp',
-    alt: 'Automotive industry',
-  },
-  {
-    num: '02',
-    name: 'Manufacturing &\nFabrication',
-    img: '/images/industry-manufacturing.webp',
-    alt: 'Manufacturing & fabrication',
-  },
-  {
-    num: '03',
-    name: 'Infrastructure &\nConstruction',
-    img: '/images/industry-infrastructure.webp',
-    alt: 'Infrastructure & construction',
-  },
-  {
-    num: '04',
-    name: 'Railways &\nHeavy Engineering',
-    img: '/images/industry-railways.webp',
-    alt: 'Railways & heavy engineering',
-  },
-  {
-    num: '05',
-    name: 'Power &\nProcess Industries',
-    img: '/images/industry-power.webp',
-    alt: 'Power & process industries',
-  },
-  {
-    num: '06',
-    name: 'Agro, Livestock\n& Poultry',
-    img: '/images/industry-agro.webp',
-    alt: 'Agro, livestock & poultry',
-  },
+  { num: '01', name: 'Automotive &\nAuto Ancillaries',   img: '/images/industry-automotive.webp',     alt: 'Automotive industry',            w: 830, h: 553 },
+  { num: '02', name: 'Manufacturing &\nFabrication',     img: '/images/industry-manufacturing.webp',  alt: 'Manufacturing & fabrication',    w: 900, h: 506 },
+  { num: '03', name: 'Infrastructure &\nConstruction',   img: '/images/industry-infrastructure.webp', alt: 'Infrastructure & construction',  w: 539, h: 360 },
+  { num: '04', name: 'Railways &\nHeavy Engineering',    img: '/images/industry-railways.webp',       alt: 'Railways & heavy engineering',   w: 900, h: 599 },
+  { num: '05', name: 'Power &\nProcess Industries',      img: '/images/industry-power.webp',          alt: 'Power & process industries',     w: 678, h: 381 },
+  { num: '06', name: 'Agro, Livestock\n& Poultry',       img: '/images/industry-agro.webp',           alt: 'Agro, livestock & poultry',      w: 900, h: 517 },
 ];
 
 export default function Industries() {
@@ -55,7 +25,7 @@ export default function Industries() {
               <div className="ind-image">
                 <div className="ind-placeholder">
                   <div className="ind-placeholder-label">
-                    <img src={ind.img} alt={ind.alt} loading="lazy" />
+                    <img src={ind.img} alt={ind.alt} width={ind.w} height={ind.h} loading="lazy" />
                   </div>
                 </div>
               </div>

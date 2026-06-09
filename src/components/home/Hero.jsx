@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-bg-img">
-        <img src="/images/hero-surface-treatment-plant.webp" alt="Industrial metal surface treatment plant — phosphating and chemical processing line" />
+        <img src="/images/hero-surface-treatment-plant.webp" alt="Industrial metal surface treatment plant — phosphating and chemical processing line" width="1600" height="1067" />
       </div>
 
       <div className="hero-inner">
