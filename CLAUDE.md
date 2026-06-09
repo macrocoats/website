@@ -22,7 +22,7 @@ Marketing website for **MacroCoats Pvt Ltd** (formerly Technical Electroless Che
 | Email | EmailJS Browser 4.4.1 (`@emailjs/browser`) |
 | Fonts | Google Fonts — Fraunces, Geist, Geist Mono |
 | Icons | Inline SVG |
-| Deployment | Netlify (auto-build on `git push origin main`) |
+| Deployment | Vercel (auto-deploy on `git push origin main`) |
 
 ---
 
@@ -33,7 +33,6 @@ website/
 ├── index.html              # Vite entry point (SEO meta + GA4 tag)
 ├── vite.config.js          # Vite config (manual chunks: react, react-router)
 ├── package.json            # Dependencies + scripts (dev / build / preview / og)
-├── netlify.toml            # Netlify build config — publish = "dist" (SPA redirect omitted; handled by 404.html copy)
 ├── .env                    # EmailJS keys (gitignored)
 ├── .env.example            # EmailJS variable names — template for .env setup
 ├── .gitignore
@@ -261,14 +260,12 @@ The `ProcessAudit` component submits form data via EmailJS.
 
 ```bash
 npm run dev                              # Local dev server (hot reload)
-npm run build                            # Vite build → dist/ + copies dist/404.html for SPA routing
+npm run build                            # Vite build → dist/
 npm run og                               # Regenerate public/og-image.png (run after branding changes)
 git add src/ && git commit -m "..."
-git push origin main                     # Netlify auto-deploys on push
+git push origin main                     # Vercel auto-deploys on push
 ```
 
-Build output goes to `dist/`. Netlify handles CI/CD — no manual deploy step needed.
-
-`netlify.toml` sets `publish = "dist"`. The SPA redirect (`[[redirects]]`) is intentionally omitted — the `cp dist/index.html dist/404.html` in the build script already handles React Router deep-linking on Netlify.
+Build output goes to `dist/`. Vercel handles CI/CD — no manual deploy step needed. Vercel natively handles SPA routing, so no redirect config is required.
 
 `index.html` includes Google Analytics 4 (GA4, tracking ID `G-4L2PBC9WHB`) and full SEO meta tags. Do not remove the GA4 script block.
