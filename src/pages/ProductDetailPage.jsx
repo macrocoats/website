@@ -28,6 +28,11 @@ const PRODUCT_IMAGES = {
   // Auxiliary
   'unikconditioner': '/images/hero-surface-treatment-plant.webp',
   'uniktonner':      '/images/hero-surface-treatment-plant.webp',
+  'unikguard-rpi':   '/images/solutions-corrosion.webp',
+  // New phosphating
+  'unikoat-zn-ni':   '/images/solutions-phosphating.webp',
+  // New surface prep
+  'unikstrip':       '/images/products-surface-prep.webp',
 };
 
 export default function ProductDetailPage() {

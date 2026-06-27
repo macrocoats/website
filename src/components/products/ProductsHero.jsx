@@ -2,7 +2,7 @@ export default function ProductsHero() {
   return (
     <section className="prods-hero">
       <div className="prods-hero__inner">
-        <div className="prods-hero__eyebrow">Product Catalogue · 18 Formulations</div>
+        <div className="prods-hero__eyebrow">Product Catalogue · 21 Formulations</div>
         <h1 className="prods-hero__h1">
           Purpose-engineered chemistry,{' '}
           <em>product by product.</em>
@@ -15,7 +15,7 @@ export default function ProductsHero() {
 
         <div className="prods-hero__stats">
           <div className="prods-hero__stat">
-            <div className="prods-hero__stat-num">18</div>
+            <div className="prods-hero__stat-num">21</div>
             <div className="prods-hero__stat-label">Active formulations</div>
           </div>
           <div className="prods-hero__stat">
