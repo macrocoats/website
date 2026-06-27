@@ -5,11 +5,29 @@ import Footer from '../components/layout/Footer.jsx';
 import CtaBand from '../components/home/CtaBand.jsx';
 import { PRODUCTS } from '../data/products.js';
 
-const FAMILY_IMAGES = {
-  phosphating: '/images/products-phosphating-parts.webp',
-  passivation: '/images/products-corrosion-protection.webp',
-  'surface-prep': '/images/products-surface-prep.webp',
-  auxiliary: '/images/products-phosphating-parts.webp',
+const PRODUCT_IMAGES = {
+  // Phosphating
+  'uni-manganese-phos':  '/images/products-phosphating-parts.webp',
+  'uni-iron-phosphate':  '/images/solutions-phosphating.webp',
+  'unikoat-lt450':       '/images/solutions-phosphating.webp',
+  'unikoat-lt700':       '/images/products-phosphating-parts.webp',
+  'unikoat-lt450-rt':    '/images/solutions-phosphating.webp',
+  'unikoat-lt2000':      '/images/products-phosphating-parts.webp',
+  // Passivation
+  'unipass-al-chrome':     '/images/solutions-corrosion.webp',
+  'unipass-al-non-chrome': '/images/products-corrosion-protection.webp',
+  'unipass-al':            '/images/solutions-corrosion.webp',
+  'unipass-fe-chrome':     '/images/solutions-corrosion.webp',
+  'unipass-fe-non-chrome': '/images/products-corrosion-protection.webp',
+  // Surface prep
+  'unklean-al':       '/images/solutions-custom-formulation.webp',
+  'unisolve-h3':      '/images/products-surface-prep.webp',
+  'unisolve':         '/images/products-surface-prep.webp',
+  'uniklean-sp':      '/images/solutions-custom-formulation.webp',
+  'uniklean-3-in-1':  '/images/hero-surface-treatment-plant.webp',
+  // Auxiliary
+  'unikconditioner': '/images/hero-surface-treatment-plant.webp',
+  'uniktonner':      '/images/hero-surface-treatment-plant.webp',
 };
 
 export default function ProductDetailPage() {
@@ -47,7 +65,7 @@ export default function ProductDetailPage() {
   ).slice(0, 3);
 
   const heroImage =
-    FAMILY_IMAGES[product.family] || FAMILY_IMAGES['auxiliary'];
+    PRODUCT_IMAGES[product.slug] || '/images/products-phosphating-parts.webp';
 
   return (
     <>
