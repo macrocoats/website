@@ -24,7 +24,7 @@ export default function Nav() {
 
         <ul className={`nav-links${isOpen ? ' nav-links--open' : ''}`}>
           <li><a href="#about" onClick={close}>About</a></li>
-          <li><a href="#products" onClick={close}>Products</a></li>
+          <li><Link to="/products" onClick={close}>Products</Link></li>
           <li><a href="#industries" onClick={close}>Industries</a></li>
           <li><a href="#services" onClick={close}>Services</a></li>
           <li><Link to="/technology" onClick={close}>Technology</Link></li>

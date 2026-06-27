@@ -18,11 +18,10 @@ export default function Footer() {
         <div className="footer-col">
           <h5>Products</h5>
           <ul>
-            <li><a href="#">Phosphating</a></li>
-            <li><a href="#">Surface Prep</a></li>
-            <li><a href="#">Corrosion Protection</a></li>
-            <li><a href="#">Specialty Chemicals</a></li>
-            <li><a href="#">Hygiene &amp; Water</a></li>
+            <li><Link to="/products">Phosphating</Link></li>
+            <li><Link to="/products">Surface Prep</Link></li>
+            <li><Link to="/products">Corrosion Protection</Link></li>
+            <li><Link to="/products">Specialty Chemicals</Link></li>
           </ul>
         </div>
 

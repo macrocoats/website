@@ -4168,3 +4168,902 @@
     .tech-certs__badges { display: grid; grid-template-columns: repeat(2, 1fr); }
   }
   a.contact-detail-value:hover { color: var(--accent); }
+
+/* ============ PRODUCTS PAGE ============ */
+
+/* ── Hero ── */
+.prods-hero {
+  background: var(--primary);
+  padding: 140px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.prods-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, rgba(37,99,235,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.prods-hero__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.prods-hero__eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.prods-hero__eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-gold);
+}
+.prods-hero__h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: white;
+  max-width: 820px;
+  margin-bottom: 28px;
+}
+.prods-hero__h1 em {
+  font-style: italic;
+  color: var(--accent-gold);
+  font-weight: 400;
+}
+.prods-hero__sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+  max-width: 580px;
+  margin-bottom: 60px;
+  font-weight: 300;
+}
+.prods-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 48px;
+}
+.prods-hero__stat {
+  padding: 0 48px 0 0;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.prods-hero__stat:first-child { padding-left: 0; }
+.prods-hero__stat:last-child { border-right: none; }
+.prods-hero__stat-num {
+  font-family: var(--display);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--accent-gold);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.prods-hero__stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+}
+
+/* ── Catalogue ── */
+.pcat {
+  padding: 80px 48px 120px;
+  background: var(--surface);
+}
+.pcat__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Filter bar */
+.pcat-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.pcat-filter-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all var(--dur-fast) ease;
+}
+.pcat-filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.pcat-filter-btn--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+.pcat-filter-count {
+  display: inline-block;
+  font-size: 9px;
+  background: var(--line);
+  color: var(--mist);
+  border-radius: var(--radius-pill);
+  padding: 1px 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.pcat-filter-btn--active .pcat-filter-count {
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+}
+
+/* Grid */
+.pcat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* Card */
+.pcat-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.pcat-card:hover {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+.pcat-card--open {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+.pcat-card--open:hover {
+  border-color: var(--primary);
+}
+
+/* Card header — the always-visible click area */
+.pcat-card-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 24px 20px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pcat-card-header:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+.pcat-card-header-left {
+  flex: 1;
+  min-width: 0;
+}
+.pcat-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.pcat-code {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pcat-name {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--primary-deep);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.pcat-formula {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--mist);
+}
+
+/* Toggle circle */
+.pcat-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+  color: var(--slate);
+}
+.pcat-toggle svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.pcat-card--open .pcat-toggle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+.pcat-card--open .pcat-toggle svg {
+  transform: rotate(45deg);
+}
+
+/* Expandable detail panel */
+.pcat-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s var(--ease-out);
+}
+.pcat-detail--open {
+  max-height: 1000px;
+}
+.pcat-detail-inner {
+  padding: 20px 24px 28px;
+  border-top: 1px solid var(--line);
+}
+.pcat-detail-desc {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--slate);
+  margin-bottom: 16px;
+}
+.pcat-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.pcat-detail-section {
+  margin-bottom: 18px;
+}
+.pcat-detail-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: block;
+}
+.pcat-use-list {
+  list-style: none;
+}
+.pcat-use-list li {
+  font-size: 13px;
+  color: var(--charcoal);
+  line-height: 1.5;
+  padding: 8px 0 8px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+}
+.pcat-use-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.pcat-use-list li:last-child { border-bottom: none; }
+.pcat-specialty-box {
+  background: rgba(13,27,42,0.03);
+  border-left: 2px solid var(--accent-gold);
+  padding: 14px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--charcoal);
+}
+.pcat-datasheet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 18px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+  transition: gap var(--dur-fast), color var(--dur-fast);
+}
+.pcat-datasheet-link:hover {
+  color: var(--accent);
+  gap: 11px;
+}
+.pcat-datasheet-link svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .prods-hero { padding: 120px 24px 60px; }
+  .prods-hero__stats { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+  .prods-hero__stat { border-right: none; padding-right: 0; padding-bottom: 28px; }
+  .prods-hero__stat:nth-child(1),
+  .prods-hero__stat:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .pcat { padding: 60px 24px 80px; }
+  .pcat-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   PRODUCT DETAIL PAGE  (.pdp-*)
+   ============================================================ */
+
+/* ── 1. Hero ── */
+.pdp-hero {
+  background: var(--surface);
+  padding: 120px 48px 64px;
+}
+
+.pdp-hero__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.pdp-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  color: var(--mist);
+  margin-bottom: 32px;
+}
+
+.pdp-breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.pdp-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.pdp-hero__eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.pdp-hero__h1 {
+  font-family: var(--display);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.pdp-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── 2. Layout ── */
+.pdp-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 64px;
+  align-items: start;
+}
+
+.pdp-section-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 24px;
+  margin-top: 56px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.pdp-section-title:first-of-type {
+  margin-top: 0;
+}
+
+/* ── 3. Overview ── */
+.pdp-overview {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.pdp-overview__img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  display: block;
+}
+
+.pdp-overview__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pdp-overview__desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--slate);
+}
+
+.pdp-blockquote {
+  background: rgba(13, 27, 42, 0.03);
+  border-left: 3px solid var(--accent-gold);
+  padding: 18px 20px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--charcoal);
+  font-style: italic;
+}
+
+/* ── 4. Technical Parameters ── */
+.pdp-params-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.pdp-params-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.pdp-params-table tr:last-child {
+  border-bottom: none;
+}
+
+.pdp-params-table th {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--slate);
+  font-weight: 400;
+  text-align: left;
+  padding: 14px 16px 14px 0;
+  width: 40%;
+  vertical-align: top;
+}
+
+.pdp-params-table td {
+  font-size: 14px;
+  color: var(--charcoal);
+  padding: 14px 0;
+  font-weight: 500;
+  vertical-align: top;
+}
+
+/* ── 5. Process diagram ── */
+.pdp-process-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 28px 0;
+}
+
+.pdp-process-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdp-stage {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--slate);
+  white-space: nowrap;
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+
+.pdp-stage--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.pdp-stage-arrow {
+  width: 16px;
+  height: 16px;
+  stroke: var(--line);
+  flex-shrink: 0;
+}
+
+/* ── 6. Applications ── */
+.pdp-app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.pdp-app-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px 20px 16px 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--charcoal);
+  position: relative;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+
+.pdp-app-card:hover {
+  border-color: var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.pdp-app-card::before {
+  content: '—';
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  color: var(--accent-gold);
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+}
+
+/* ── 7. Compliance ── */
+.pdp-standards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pdp-std-badge {
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.25);
+  color: var(--eco);
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.4;
+}
+
+/* ── 8. Related products ── */
+.pdp-related {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.pdp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.pdp-related-card {
+  display: block;
+  text-decoration: none;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  transition: border-color var(--dur-base), box-shadow var(--dur-base);
+}
+
+.pdp-related-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.pdp-related-code {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.pdp-related-name {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.pdp-related-formula {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--mist);
+  display: block;
+}
+
+/* ── 9. Sidebar ── */
+.pdp-sidebar {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pdp-sidebar-block {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.pdp-sidebar-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--mist);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.pdp-sidebar-btn {
+  display: block;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--dur-fast);
+  line-height: 1;
+}
+
+.pdp-sidebar-btn--primary {
+  background: var(--primary);
+  color: #ffffff;
+  border: 1px solid var(--primary);
+}
+
+.pdp-sidebar-btn--primary:hover {
+  background: var(--primary-deep);
+  border-color: var(--primary-deep);
+}
+
+.pdp-sidebar-btn--outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.pdp-sidebar-btn--outline:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.pdp-sidebar-phone {
+  display: block;
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: color var(--dur-fast);
+}
+
+.pdp-sidebar-phone:hover {
+  color: var(--accent);
+}
+
+/* ── 10. Hero value prop ── */
+.pdp-hero__value-prop {
+  background: var(--primary);
+  color: #ffffff;
+  font-family: var(--display);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-top: 20px;
+  line-height: 1.3;
+}
+
+/* ── 11. Key Benefits ── */
+.pdp-benefits {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.pdp-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.pdp-benefit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pdp-benefit-label {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.pdp-benefit-description {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+/* ── 12. Suitable For ── */
+.pdp-suitable {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.pdp-suitable-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pdp-suitable-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  background: rgba(30, 58, 138, 0.08);
+  border: 1px solid rgba(30, 58, 138, 0.2);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  transition: all var(--dur-fast);
+}
+
+.pdp-suitable-tag:hover {
+  background: rgba(30, 58, 138, 0.12);
+  border-color: rgba(30, 58, 138, 0.3);
+}
+
+/* ── 13. Process Position Summary ── */
+.pdp-process-summary {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+  margin-top: 20px;
+  font-style: italic;
+  padding: 12px 0;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 16px;
+}
+
+/* ── 14. 404 state ── */
+.pdp-404 {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-size: 16px;
+  color: var(--slate);
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.pdp-404 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.pdp-404 a:hover {
+  text-decoration: underline;
+}
+
+/* ── 15. Responsive ── */
+@media (max-width: 1024px) {
+  .pdp-hero { padding: 100px 24px 48px; }
+  .pdp-layout { grid-template-columns: 1fr; padding: 48px 24px 60px; gap: 40px; }
+  .pdp-sidebar { position: static; }
+  .pdp-overview { grid-template-columns: 1fr; }
+  .pdp-benefits-grid { grid-template-columns: 1fr; gap: 20px; }
+  .pdp-app-grid { grid-template-columns: 1fr; }
+  .pdp-related-grid { grid-template-columns: 1fr; }
+  .pdp-process-flow { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 12px; }
+}
+
+/* ── Products catalogue — view detail link ── */
+.pcat-view-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+.pcat-view-link:hover { color: var(--primary); }
