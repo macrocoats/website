@@ -2704,6 +2704,11 @@
   .card-arrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
 
   /* featured card */
+  .article-card.featured .card-tag {
+    color: var(--accent-bright);
+    background: rgba(59,130,246,0.15);
+    border-color: rgba(59,130,246,0.3);
+  }
   .article-card.featured {
     background: var(--primary);
     border-color: transparent;
@@ -3472,5 +3477,694 @@
     font-weight: 500;
     color: var(--charcoal);
     text-decoration: none;
+  }
+
+  /* ============================================================
+     TECHNOLOGY PAGE
+  ============================================================ */
+
+  /* ── Hero ── */
+  .tech-hero {
+    background: #060D14;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+  .tech-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(37,99,235,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .tech-hero__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 90vh;
+    padding-top: 140px;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  .tech-hero__eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .tech-hero__eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent-bright);
+    flex-shrink: 0;
+  }
+  .tech-hero__h1 {
+    font-family: var(--display);
+    font-size: clamp(42px, 5.5vw, 80px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .tech-hero__h1 em {
+    color: var(--accent-gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .tech-hero__sub {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    max-width: 540px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .tech-hero__cta { margin-bottom: 20px; }
+  .tech-hero__credit {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mist);
+    letter-spacing: 0.08em;
+  }
+  .tech-hero__visual {
+    position: relative;
+    height: 480px;
+  }
+  .tech-hero__molecule {
+    width: 100%;
+    height: 100%;
+  }
+  .tech-hero__molecule-edge {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: techEdgeDraw 0.6s var(--ease-out) forwards;
+  }
+  @keyframes techEdgeDraw {
+    to { stroke-dashoffset: 0; }
+  }
+  .tech-hero__molecule-node {
+    opacity: 0;
+    animation: techNodeFade 0.4s var(--ease-out) forwards;
+  }
+  @keyframes techNodeFade {
+    to { opacity: 1; }
+  }
+  .tech-hero__data-card {
+    position: absolute;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    min-width: 180px;
+  }
+  .tech-hero__data-card--top { top: 20px; right: 0; }
+  .tech-hero__data-card--bottom { bottom: 40px; left: 0; border-color: rgba(59,130,246,0.25); }
+  .tech-hero__dc-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+  }
+  .tech-hero__dc-num {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .tech-hero__dc-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    font-family: var(--mono);
+  }
+  .tech-hero__dc-bar {
+    margin-top: 10px;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .tech-hero__dc-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-bright), #fff);
+    border-radius: 2px;
+  }
+  .tech-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 48px 0;
+    gap: 0;
+    position: relative;
+  }
+  .tech-hero__stat {
+    padding: 0 32px 0 0;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding-right: 32px;
+    margin-right: 0;
+  }
+  .tech-hero__stat:last-child { border-right: none; }
+  .tech-hero__stat-num {
+    font-family: var(--display);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .tech-hero__stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Approach ── */
+  .tech-approach {
+    background: var(--paper);
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .tech-approach__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+  .tech-approach__eyebrow { color: var(--primary); }
+  .tech-approach__eyebrow::before { background: var(--primary); }
+  .tech-approach__heading {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 500;
+    color: var(--primary-deep);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: 24px;
+  }
+  .tech-approach__heading em {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .tech-approach__lead {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .tech-approach__body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--slate);
+    margin-bottom: 20px;
+  }
+  .tech-approach__pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 48px;
+  }
+  .tech-approach__pillar {
+    padding: 0 40px 0 0;
+    border-right: 1px solid var(--line);
+    margin-right: 40px;
+  }
+  .tech-approach__pillar:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .tech-approach__pillar-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold-dark);
+    margin-bottom: 12px;
+  }
+  .tech-approach__pillar-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--slate);
+  }
+
+  /* ── [old pillars removed] ──
+     Keeping placeholder so line numbers don't shift unexpectedly.
+  ── */
+  .tech-pillars__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .tech-pillars__card {
+    background: var(--paper);
+    border-radius: 4px 16px 16px 4px;
+    padding: 36px 32px;
+    position: relative;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    overflow: hidden;
+  }
+  .tech-pillars__card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    opacity: 0;
+    transition: opacity var(--dur-base);
+  }
+  .tech-pillars__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .tech-pillars__card:hover::after { opacity: 1; }
+  .tech-pillars__card--navy { border-left: 3px solid var(--primary); }
+  .tech-pillars__card--purple { border-left: 3px solid var(--purple); }
+  .tech-pillars__card--eco { border-left: 3px solid var(--eco); }
+  .tech-pillars__icon {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--surface);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    color: var(--primary);
+  }
+  .tech-pillars__card--purple .tech-pillars__icon { color: var(--purple); }
+  .tech-pillars__card--eco .tech-pillars__icon { color: var(--eco); }
+  .tech-pillars__card-eyebrow {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 8px;
+  }
+  .tech-pillars__card-title {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--primary-deep);
+    margin-bottom: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .tech-pillars__card-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--slate);
+    margin-bottom: 20px;
+  }
+  .tech-pillars__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .tech-pillars__tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(13,27,42,0.06);
+    border: 1px solid rgba(13,27,42,0.12);
+    color: var(--charcoal);
+  }
+  .tech-pillars__card--purple .tech-pillars__tag {
+    background: rgba(91,42,134,0.06);
+    border-color: rgba(91,42,134,0.15);
+    color: var(--purple);
+  }
+  .tech-pillars__card--eco .tech-pillars__tag {
+    background: rgba(5,150,105,0.06);
+    border-color: rgba(5,150,105,0.15);
+    color: var(--eco);
+  }
+  .tech-pillars__metric-wrap {
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 18px;
+  }
+  .tech-pillars__metric {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .tech-pillars__card--purple .tech-pillars__metric { color: var(--purple); }
+  .tech-pillars__card--eco .tech-pillars__metric { color: var(--eco); }
+  .tech-pillars__metric-label {
+    font-size: 11px;
+    color: var(--mist);
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Process ── */
+  .tech-process {
+    background: var(--ink);
+    padding: 120px 0 80px;
+  }
+  .tech-process__eyebrow { color: var(--accent-bright); }
+  .tech-process__eyebrow::before { background: var(--accent-bright); }
+  .tech-process__title { color: #fff; font-weight: 500; }
+  .tech-process__title em { color: var(--accent-bright); font-style: italic; font-weight: 400; }
+  .tech-process__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+    padding: 72px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .tech-process__row:last-of-type { border-bottom: none; }
+  .tech-process__row--reverse { direction: rtl; }
+  .tech-process__row--reverse > * { direction: ltr; }
+  .tech-process__visual {
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: border-color var(--dur-base);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .tech-process__visual:hover { border-color: rgba(201,168,76,0.35); }
+  .tech-process__visual-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 24px;
+  }
+  .tech-process__stage-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .tech-process__stage-label {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .tech-process__formula {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+  .tech-process__step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+  }
+  .tech-process__content-title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .tech-process__descriptor {
+    font-family: var(--display);
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+  .tech-process__body {
+    font-size: 16px;
+    line-height: 1.78;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 0;
+  }
+  .tech-process__formula-sub {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-top: 8px;
+    text-align: center;
+  }
+  .section-footnote {
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    color: var(--slate);
+    text-align: center;
+    padding: 40px 0 0;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── IoT ── */
+  .tech-iot {
+    background: var(--primary);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .tech-iot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(37,99,235,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .tech-iot__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .tech-iot__eyebrow { color: var(--accent-bright); }
+  .tech-iot__eyebrow::before { background: var(--accent-bright); }
+  .tech-iot__heading {
+    font-family: var(--display);
+    font-size: clamp(32px, 3.5vw, 50px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-top: 24px;
+    margin-bottom: 28px;
+  }
+  .tech-iot__heading em { color: var(--accent-gold); font-style: italic; font-weight: 400; }
+  .tech-iot__body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 18px;
+  }
+  .tech-iot__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--accent-bright);
+    text-decoration: none;
+    margin-top: 8px;
+  }
+  .tech-iot__link:hover { color: #fff; }
+  .tech-iot__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tech-iot__stat {
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .tech-iot__stat:last-child { border-bottom: none; }
+  .tech-iot__stat-num {
+    font-family: var(--display);
+    font-size: clamp(40px, 4vw, 60px);
+    font-weight: 400;
+    color: var(--accent-gold);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+  .tech-iot__stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── Certifications ── */
+  .tech-certs {
+    background: var(--paper);
+    padding: 120px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .tech-certs__eyebrow { color: var(--accent-gold-dark); }
+  .tech-certs__eyebrow::before { background: var(--accent-gold-dark); }
+  .tech-certs__title { color: var(--primary-deep); }
+  .tech-certs__title em { color: var(--purple); font-style: italic; font-weight: 400; }
+  .tech-certs__badges {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+  .tech-certs__badge {
+    flex: 1;
+    min-width: 140px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px 20px 20px;
+    text-align: center;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base), border-color var(--dur-base);
+  }
+  .tech-certs__badge:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-gold);
+  }
+  .tech-certs__badge-icon {
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    height: 40px;
+  }
+  .tech-certs__badge-name {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--primary-deep);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .tech-certs__badge-sub {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+  .tech-certs__badge-bar {
+    width: 40%;
+    height: 3px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+    margin: 16px auto 0;
+    opacity: 0.55;
+  }
+
+  /* ── Numbers ── */
+  .tech-numbers {
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+  }
+  .tech-numbers::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 120%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .tech-numbers__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+  }
+  .tech-numbers__stat {
+    padding: 80px 48px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    transition: background var(--dur-base);
+  }
+  .tech-numbers__stat:last-child { border-right: none; }
+  .tech-numbers__stat:hover { background: rgba(255,255,255,0.02); }
+  .tech-numbers__stat-eyebrow {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+    transition: color var(--dur-base);
+  }
+  .tech-numbers__stat:hover .tech-numbers__stat-eyebrow { color: rgba(201,168,76,0.65); }
+  .tech-numbers__stat-num {
+    font-family: var(--display);
+    font-size: clamp(48px, 4.5vw, 72px);
+    font-weight: 400;
+    color: var(--accent-gold);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+  }
+  .tech-numbers__stat-suffix {
+    font-size: 0.55em;
+    color: var(--accent-bright);
+    vertical-align: super;
+  }
+  .tech-numbers__stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.45;
+  }
+
+  /* ── Technology page responsive ── */
+  @media (max-width: 1024px) {
+    .tech-hero__inner {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 120px;
+      gap: 40px;
+    }
+    .tech-hero__visual { height: auto; }
+    .tech-hero__molecule { display: none; }
+    .tech-hero__data-card { position: static; width: auto; display: inline-block; margin: 8px 8px 0 0; }
+    .tech-hero__visual { display: flex; flex-wrap: wrap; }
+    .tech-hero__stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .tech-hero__stat { border-right: none; padding-right: 0; }
+    .tech-approach__inner { grid-template-columns: 1fr; gap: 32px; }
+    .tech-approach__pillars { grid-template-columns: 1fr; gap: 32px; }
+    .tech-approach__pillar { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 32px; }
+    .tech-approach__pillar:last-child { border-bottom: none; padding-bottom: 0; }
+    .tech-process__row { grid-template-columns: 1fr; gap: 36px; padding: 48px 0; }
+    .tech-process__row--reverse { direction: ltr; }
+    .tech-iot__inner { grid-template-columns: 1fr; gap: 48px; }
+    .tech-certs__badges { display: grid; grid-template-columns: repeat(2, 1fr); }
   }
   a.contact-detail-value:hover { color: var(--accent); }

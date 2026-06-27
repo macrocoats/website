@@ -33,6 +33,7 @@ website/
 ├── index.html              # Vite entry point (SEO meta + GA4 tag)
 ├── vite.config.js          # Vite config (manual chunks: react, react-router)
 ├── package.json            # Dependencies + scripts (dev / build / preview / og)
+├── vercel.json             # Vercel SPA rewrite — routes all paths to index.html for React Router
 ├── .env                    # EmailJS keys (gitignored)
 ├── .env.example            # EmailJS variable names — template for .env setup
 ├── .gitignore
@@ -260,7 +261,7 @@ The `ProcessAudit` component submits form data via EmailJS.
 
 ```bash
 npm run dev                              # Local dev server (hot reload)
-npm run build                            # Vite build → dist/
+npm run build                            # Vite build → dist/ (no 404.html copy needed — Vercel handles SPA routing via vercel.json)
 npm run og                               # Regenerate public/og-image.png (run after branding changes)
 git add src/ && git commit -m "..."
 git push origin main                     # Vercel auto-deploys on push

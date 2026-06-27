@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function BlogFooter() {
   return (
     <footer className="blog-footer">
-      <div>© 2026 Macro Coats Pvt Ltd · All rights reserved</div>
+      <div>© {new Date().getFullYear()} Macro Coats Pvt Ltd · All rights reserved</div>
       <div>
         <Link to="/">macrocoats.in</Link>
         &nbsp;·&nbsp;

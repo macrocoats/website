@@ -27,6 +27,7 @@ export default function Nav() {
           <li><a href="#products" onClick={close}>Products</a></li>
           <li><a href="#industries" onClick={close}>Industries</a></li>
           <li><a href="#services" onClick={close}>Services</a></li>
+          <li><Link to="/technology" onClick={close}>Technology</Link></li>
           <li><Link to="/blog" onClick={close}>Blog</Link></li>
           <li><a href="#contact" onClick={close}>Contact</a></li>
           <li className="nav-mobile-cta">
