@@ -202,21 +202,42 @@ Single breakpoint at `@media (max-width: 1024px)` — single-column layout, nav 
 
 ## Blog System
 
-**Published articles (4):**
-- "Why Your Salt-Spray Test Results Are Inconsistent: The Bath Chemistry Explanation" — Mr. Santhanam, June 2026 (8 min read)
-  - Slug: `inconsistent-salt-spray-test-results-phosphating-bath`
-  - Component: `src/components/blog/articles/SaltSprayArticle.jsx`
-- "Zinc Phosphate vs Iron Phosphate vs Manganese Phosphate" — July 2026
-  - Slug: `zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate`
-  - Component: `src/components/blog/articles/PhosphateSelectionArticle.jsx`
-- "IoT Bath Monitoring for Phosphating Lines" — July 2026
-  - Slug: `iot-bath-monitoring-phosphating-lines`
-  - Component: `src/components/blog/articles/IoTMonitoringArticle.jsx`
-- "Chromium-Free Phosphating in India" — August 2026
-  - Slug: `chromium-free-phosphating-india-tier1-automotive`
-  - Component: `src/components/blog/articles/ChromiumFreeArticle.jsx`
+**27 published articles** (May 2024 – Jul 2026, one per month), registered in `src/pages/BlogArticlePage.jsx`'s `ARTICLE_MAP`, listed as cards in `src/pages/BlogListPage.jsx`, and mirrored in `public/sitemap.xml`. Plus **3 upcoming/disabled articles** (Aug–Oct 2026) — written but intentionally unregistered (no `ARTICLE_MAP` entry, no sitemap entry) and shown as non-clickable "Coming Soon" cards at the bottom of `BlogListPage.jsx`, matching the site's convention of not publishing future-dated content. Every article component lives in `src/components/blog/articles/` and follows the same structure (see any file there as a template: hero/deck/byline → `article-body` with `data-table`/`callout`/`blockquote` → `article-cta` → 4-card `article-sidebar`).
 
-To add a new article: create a component in `src/components/blog/articles/`, register the slug in `BlogArticlePage.jsx`.
+| # | Date | Status | Byline | Slug | Component |
+|---|---|---|---|---|---|
+| 1 | May 2024 | Published | Santhanam | `reading-phosphating-sludge-bath-process-chemistry` | `PhosphatingSludgeArticle.jsx` |
+| 2 | Jun 2024 | Published | Santhanam | `pre-treatment-chemistry-phosphating-lines` | `PreTreatmentArticle.jsx` |
+| 3 | Jul 2024 | Published | Company | `chromium-free-phosphating-india-tier1-automotive` | `ChromiumFreeArticle.jsx` |
+| 4 | Aug 2024 | Published | Aswin Kumar | `iot-bath-monitoring-phosphating-lines` | `IoTMonitoringArticle.jsx` |
+| 5 | Sep 2024 | Published | Santhanam | `zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate` | `PhosphateSelectionArticle.jsx` |
+| 6 | Oct 2024 | Published | Santhanam | `inconsistent-salt-spray-test-results-phosphating-bath` | `SaltSprayArticle.jsx` |
+| 7 | Nov 2024 | Published | Santhanam | `post-treatment-sealer-passivation-salt-spray` | `SealerPassivationArticle.jsx` |
+| 8 | Dec 2024 | Published | Aswin Kumar | `water-quality-hard-water-phosphating-bath` | `WaterQualityArticle.jsx` |
+| 9 | Jan 2025 | Published | Aswin Kumar | `real-cost-phosphating-bath-failures` | `BathFailureCostArticle.jsx` |
+| 10 | Feb 2025 | Published | Santhanam | `coating-adhesion-failure-root-cause-analysis` | `AdhesionFailureArticle.jsx` |
+| 11 | Mar 2025 | Published | Santhanam | `surface-treatment-indian-railways-corrosion` | `RailwaysCorrosionArticle.jsx` |
+| 12 | Apr 2025 | Published | Aswin Kumar | `auto-dosing-systems-closed-loop-chemical-baths` | `AutoDosingArticle.jsx` |
+| 13 | May 2025 | Published | Santhanam | `free-acid-vs-total-acid-phosphating` | `FreeAcidTotalAcidArticle.jsx` |
+| 14 | Jun 2025 | Published | Aswin Kumar | `oee-chemistry-bath-downtime-plant-efficiency` | `OEEChemistryArticle.jsx` |
+| 15 | Jul 2025 | Published | Santhanam | `accelerator-chemistry-nitrite-nitrate-sludge` | `AcceleratorChemistryArticle.jsx` |
+| 16 | Aug 2025 | Published | Company | `iatf-16949-surface-treatment-audit-checklist` | `IATF16949AuditArticle.jsx` |
+| 17 | Sep 2025 | Published | Santhanam | `water-break-test-phosphating-surface-preparation` | `WaterBreakTestArticle.jsx` |
+| 18 | Oct 2025 | Published | Aswin Kumar | `digital-twin-phosphating-lines-partial-automation` | `DigitalTwinArticle.jsx` |
+| 19 | Nov 2025 | Published | Santhanam | `degreasing-chemistry-alkaline-cleaners-oil-carryover` | `DegreasingChemistryArticle.jsx` |
+| 20 | Dec 2025 | Published | Aswin Kumar | `multi-plant-chemical-standardization-india` | `MultiPlantStandardizationArticle.jsx` |
+| 21 | Jan 2026 | Published | Santhanam | `coating-weight-measurement-strip-weigh-xrf-gravimetric` | `CoatingWeightMeasurementArticle.jsx` |
+| 22 | Feb 2026 | Published | Company | `cpcb-effluent-norms-surface-treatment-etp` | `CPCBEffluentNormsArticle.jsx` |
+| 23 | Mar 2026 | Published | Santhanam | `astm-b117-salt-spray-testing-standard-explained` | `AstmB117SaltSprayArticle.jsx` |
+| 24 | Apr 2026 | Published | Company | `reach-export-compliance-tier1-eu-customers` | `ReachExportComplianceArticle.jsx` |
+| 25 | May 2026 | Published | Santhanam | `vci-rust-preventive-oils-transit-storage-protection` | `VciRustPreventiveOilsArticle.jsx` |
+| 26 | Jun 2026 | Published | Santhanam | `two-wheeler-manufacturing-surface-treatment-requirements` | `TwoWheelerSurfaceTreatmentArticle.jsx` |
+| 27 | Jul 2026 | Published (latest) | Santhanam | `heavy-engineering-corrosion-protection-large-components` | `HeavyEngineeringCorrosionArticle.jsx` |
+| 28 | Aug 2026 | Coming Soon (disabled) | Company | `job-coater-rejection-rate-case-study-coimbatore` | `JobCoaterCaseStudyArticle.jsx` |
+| 29 | Sep 2026 | Coming Soon (disabled) | Santhanam | `organic-vs-inorganic-passivation-silane-zirconium` | `PassivationComparisonArticle.jsx` |
+| 30 | Oct 2026 | Coming Soon (disabled) | Company | `vendor-qualification-oem-approval-documentation` | `VendorQualificationArticle.jsx` |
+
+To add a new article: create a component in `src/components/blog/articles/`, register the slug in `BlogArticlePage.jsx`'s `ARTICLE_MAP`, add a card in `BlogListPage.jsx`, and add a `<url>` entry to `public/sitemap.xml`.
 
 ---
 

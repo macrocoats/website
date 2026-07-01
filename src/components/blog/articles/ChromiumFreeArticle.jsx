@@ -15,7 +15,7 @@ export default function ChromiumFreeArticle() {
           <div className="article-meta">
             <span className="article-tag">Compliance</span>
             <span className="article-tag">Cr-Free</span>
-            <span className="article-date">March 2026</span>
+            <span className="article-date">July 2024</span>
             <span className="article-read-time">11 min read</span>
           </div>
           <h1>Chromium-Free Phosphating in India: A Technical and Regulatory Guide for <em>Tier-1 Automotive Suppliers</em></h1>

@@ -15,7 +15,7 @@ export default function PhosphateSelectionArticle() {
           <div className="article-meta">
             <span className="article-tag">Phosphating</span>
             <span className="article-tag">Selection Guide</span>
-            <span className="article-date">May 2026</span>
+            <span className="article-date">September 2024</span>
             <span className="article-read-time">10 min read</span>
           </div>
           <h1>Zinc vs Iron vs Manganese Phosphate: The <em>Selection Guide</em> for Indian Manufacturers</h1>

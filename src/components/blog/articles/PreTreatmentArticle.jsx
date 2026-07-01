@@ -14,7 +14,7 @@ export default function PreTreatmentArticle() {
           <div className="article-meta">
             <span className="article-tag">Surface Preparation</span>
             <span className="article-tag">Pre-Treatment</span>
-            <span className="article-date">February 2026</span>
+            <span className="article-date">June 2024</span>
             <span className="article-read-time">9 min read</span>
           </div>
           <h1>Pre-Treatment Chemistry for Phosphating Lines: Why the Stages <em>Before</em> the Bath Determine the Results After</h1>

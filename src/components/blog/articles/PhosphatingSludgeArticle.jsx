@@ -14,7 +14,7 @@ export default function PhosphatingSlungeArticle() {
           <div className="article-meta">
             <span className="article-tag">Process Diagnostics</span>
             <span className="article-tag">Bath Management</span>
-            <span className="article-date">January 2026</span>
+            <span className="article-date">May 2024</span>
             <span className="article-read-time">8 min read</span>
           </div>
           <h1>Reading Your Phosphating Sludge: What Your Bath Waste <em>Tells You</em> About Your Process Chemistry</h1>

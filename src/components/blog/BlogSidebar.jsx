@@ -18,12 +18,12 @@ export default function BlogSidebar() {
       <div className="sidebar-card">
         <span className="sidebar-label">Topics</span>
         <ul className="topic-list">
-          <li><Link to="/blog">Phosphating <span className="topic-count">4</span></Link></li>
-          <li><Link to="/blog">Surface Preparation <span className="topic-count">2</span></Link></li>
-          <li><Link to="/blog">Corrosion Protection <span className="topic-count">1</span></Link></li>
-          <li><Link to="/blog">IoT &amp; Automation <span className="topic-count">1</span></Link></li>
-          <li><Link to="/blog">Compliance &amp; Regulatory <span className="topic-count">1</span></Link></li>
-          <li><Link to="/blog">Quality &amp; Testing <span className="topic-count">2</span></Link></li>
+          <li><Link to="/blog">Phosphating <span className="topic-count">6</span></Link></li>
+          <li><Link to="/blog">Surface Preparation <span className="topic-count">3</span></Link></li>
+          <li><Link to="/blog">Corrosion Protection <span className="topic-count">4</span></Link></li>
+          <li><Link to="/blog">IoT &amp; Automation <span className="topic-count">5</span></Link></li>
+          <li><Link to="/blog">Compliance &amp; Regulatory <span className="topic-count">4</span></Link></li>
+          <li><Link to="/blog">Quality &amp; Testing <span className="topic-count">6</span></Link></li>
         </ul>
       </div>
 

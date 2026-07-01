@@ -15,7 +15,7 @@ export default function IoTMonitoringArticle() {
           <div className="article-meta">
             <span className="article-tag">IoT</span>
             <span className="article-tag">Automation</span>
-            <span className="article-date">April 2026</span>
+            <span className="article-date">August 2024</span>
             <span className="article-read-time">9 min read</span>
           </div>
           <h1>IoT Bath Monitoring for Phosphating Lines: How <em>Real-Time Data</em> Eliminates the Quality Guesswork</h1>

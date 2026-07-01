@@ -15,7 +15,7 @@ export default function SaltSprayArticle() {
           <div className="article-meta">
             <span className="article-tag">Surface Treatment</span>
             <span className="article-tag">Phosphating</span>
-            <span className="article-date">June 2026</span>
+            <span className="article-date">October 2024</span>
             <span className="article-read-time">8 min read</span>
           </div>
           <h1>Why Your Salt-Spray Test Results Are <em>Inconsistent:</em> The Bath Chemistry Explanation</h1>
