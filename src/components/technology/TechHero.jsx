@@ -29,21 +29,46 @@ export default function TechHero() {
       <div className="tech-hero__inner container">
         {/* Left column */}
         <div className="tech-hero__content">
-          <div className="tech-hero__eyebrow">TECHNOLOGY / PROCESS CHEMISTRY</div>
+          <div className="tech-hero__eyebrow">CAPABILITIES BROCHURE · 2026</div>
           <h1 className="tech-hero__h1">
-            Where industrial chemistry meets{' '}
-            <em>precision engineering.</em>
+            Surface Treatment Is a System,{' '}
+            <em>Not a Product.</em>
           </h1>
           <p className="tech-hero__sub">
-            Every phosphating bath MacroCoats engineers is built on 30 years of industrial process data, validated chemistry, and real plant experience — formulated for your water, your line, and your compliance requirements.
+            Chemistry engineered to your water profile, throughput, and compliance requirements. Since 1993, MacroCoats has served India's most demanding industrial clients — from Indian Railways to Tier-1 automotive OEMs.
           </p>
-          <a href="#treatment-process" className="btn-primary btn-primary--gold tech-hero__cta">
-            See Our Technology Stack
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <div className="tech-hero__cta-row">
+            <a href="#treatment-process" className="btn-primary btn-primary--gold tech-hero__cta print-hide">
+              Explore Capabilities
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+            <button
+              className="tech-hero__pdf-btn print-hide"
+              onClick={() => {
+                const prev = document.title;
+                document.title = 'MacroCoats — Capabilities Brochure 2026';
+                window.print();
+                document.title = prev;
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download PDF
+            </button>
+          </div>
           <div className="tech-hero__credit">Established 1993 · Chennai, India</div>
+
+          {/* Print-only cover block */}
+          <div className="tech-hero__print-cover print-only">
+            <div className="tech-hero__print-company">MacroCoats Pvt Ltd</div>
+            <div className="tech-hero__print-tagline">Process-Engineered Chemistry · Est. 1993 · Chennai, India</div>
+            <div className="tech-hero__print-contact">macrocoats.in · info@macrocoats.in · +91 98840 80377</div>
+          </div>
         </div>
 
         {/* Right column — SVG molecule + floating cards */}

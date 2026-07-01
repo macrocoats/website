@@ -5066,4 +5066,976 @@
   text-decoration: none;
   transition: color var(--dur-fast);
 }
+
 .pcat-view-link:hover { color: var(--primary); }
+
+/* ── Tech Process Stage Photos ─────────────────────────────── */
+.tech-process__visual-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: luminosity;
+  opacity: 0.28;
+  z-index: 0;
+}
+.tech-process__visual-overlay {
+  z-index: 1;
+}
+
+/* ── CapCompany ─────────────────────────────────────────────── */
+.cap-company {
+  background: var(--surface);
+  padding: 120px 0 0;
+}
+
+.cap-company__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 96px;
+}
+.cap-company__stat {
+  padding: 40px 32px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.cap-company__stat:last-child { border-right: none; }
+.cap-company__stat-num {
+  font-family: var(--display);
+  font-size: var(--text-3xl);
+  color: var(--primary);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.cap-company__stat-label {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--slate);
+}
+
+.cap-company__approach {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+.cap-company__eyebrow { margin-bottom: 20px; }
+.cap-company__heading {
+  font-family: var(--display);
+  font-size: clamp(32px, 3.5vw, 48px);
+  color: var(--primary-deep);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.cap-company__heading em { font-style: italic; color: var(--accent); }
+.cap-company__lead {
+  font-family: var(--sans);
+  font-size: var(--text-md);
+  color: var(--charcoal);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.cap-company__body {
+  font-family: var(--sans);
+  font-size: var(--text-base);
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.cap-company__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 0;
+}
+.cap-company__pillar {
+  border-top: 3px solid var(--accent-gold, #C9A84C);
+  padding: 32px 28px 40px;
+  background: var(--paper);
+  border-radius: 0;
+}
+.cap-company__pillar-label {
+  font-family: var(--sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.cap-company__pillar-desc {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.cap-company__ind-strip {
+  background: var(--primary-deep);
+  padding: 28px 0;
+  margin-top: 64px;
+}
+.cap-company__ind-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.cap-company__ind-heading {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+  margin-right: 16px;
+}
+.cap-company__ind-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cap-company__ind-icon {
+  width: 32px;
+  height: 32px;
+  color: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+.cap-company__ind-icon svg { width: 100%; height: 100%; }
+.cap-company__ind-name {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--paper);
+}
+.cap-company__ind-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(201,168,76,0.75);
+}
+
+/* ── CapProducts ────────────────────────────────────────────── */
+.cap-products {
+  background: var(--surface);
+  padding: 120px 0;
+}
+.cap-products__eyebrow { margin-bottom: 16px; }
+.cap-products__title em { font-style: italic; color: var(--accent); }
+
+.cap-products__grid {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.cap-products__grid--flagship {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cap-products__grid--standard {
+  grid-template-columns: repeat(3, 1fr);
+}
+.cap-products__grid--prep {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cap-products__card {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.cap-products__card-head {
+  padding: 24px 24px 20px;
+  color: var(--paper);
+}
+.cap-products__card-code {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.75;
+  margin-bottom: 8px;
+}
+.cap-products__card-name {
+  font-family: var(--display);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.cap-products__card--wide .cap-products__card-name {
+  font-size: var(--text-2xl);
+}
+.cap-products__card-spec {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  color: rgba(255,255,255,0.9);
+}
+.cap-products__card-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.cap-products__card-desc {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: var(--slate);
+  line-height: 1.65;
+}
+.cap-products__card-uses {
+  margin: 0;
+  padding: 0 0 0 16px;
+  list-style: disc;
+}
+.cap-products__card-uses li {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 2px;
+}
+.cap-products__card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.cap-products__tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--line-soft);
+  color: var(--charcoal);
+  border: 1px solid var(--line);
+}
+
+.cap-products__rule {
+  height: 1px;
+  background: var(--line);
+  margin: 72px 0;
+}
+
+/* ── CapPassivation ─────────────────────────────────────────── */
+.cap-passiv {
+  background: var(--primary-deep, #0F1F3D);
+  padding: 120px 0;
+  color: var(--paper);
+}
+.cap-passiv__eyebrow.section-eyebrow,
+.cap-passiv .section-eyebrow {
+  color: rgba(255,255,255,0.55);
+}
+.cap-passiv__eyebrow.section-eyebrow::before,
+.cap-passiv .section-eyebrow::before {
+  background: rgba(255,255,255,0.3);
+}
+.cap-passiv__title em { font-style: italic; color: rgba(201,168,76,0.9); }
+.cap-passiv .section-title { color: var(--paper); }
+
+.cap-passiv__sub-eyebrow {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(201,168,76,0.7);
+  margin-bottom: 20px;
+}
+
+.cap-passiv__grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.cap-passiv__grid--3 { grid-template-columns: repeat(3, 1fr); }
+.cap-passiv__grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+.cap-passiv__card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+}
+.cap-passiv__card-head {
+  padding: 24px 24px 20px;
+  color: var(--paper);
+}
+.cap-passiv__card-type {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.65;
+  margin-bottom: 10px;
+}
+.cap-passiv__card-code {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+.cap-passiv__card-name {
+  font-family: var(--display);
+  font-size: var(--text-lg);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.cap-passiv__card-spec {
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: rgba(255,255,255,0.12);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  color: rgba(255,255,255,0.85);
+}
+.cap-passiv__card-body {
+  padding: 18px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.cap-passiv__card-desc {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+}
+.cap-passiv__card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.cap-passiv__tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cap-passiv__divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 72px 0;
+}
+
+.cap-passiv__aux-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.cap-passiv__aux-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+.cap-passiv__aux-head {
+  padding: 20px 20px 16px;
+  color: var(--paper);
+}
+.cap-passiv__aux-code {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+.cap-passiv__aux-name {
+  font-family: var(--display);
+  font-size: var(--text-lg);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.cap-passiv__aux-spec {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.65;
+}
+.cap-passiv__aux-desc {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  padding: 18px 20px;
+}
+
+/* ── CapOils ────────────────────────────────────────────────── */
+.cap-oils {
+  background: var(--surface);
+  padding: 120px 0;
+}
+.cap-oils__eyebrow { margin-bottom: 16px; }
+.cap-oils__title em { font-style: italic; color: var(--accent); }
+
+.cap-oils__image-wrap {
+  position: relative;
+  margin: 56px 0 48px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.cap-oils__image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+.cap-oils__image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 24px;
+  background: linear-gradient(transparent, rgba(15,31,61,0.7));
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+}
+
+.cap-oils__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.cap-oils__cell {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 24px;
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.cap-oils__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--accent);
+  padding: 8px;
+  background: rgba(37,99,235,0.07);
+  border-radius: var(--radius-sm);
+}
+.cap-oils__icon svg { width: 100%; height: 100%; }
+.cap-oils__name {
+  font-family: var(--sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.cap-oils__desc {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+/* ── CapWhy ─────────────────────────────────────────────────── */
+.cap-why {
+  background: var(--primary-deep, #0F1F3D);
+  padding: 96px 0 120px;
+  color: var(--paper);
+}
+
+.cap-why__logo-band {
+  margin-bottom: 0;
+}
+.cap-why__logo-label {
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  margin-bottom: 36px;
+}
+.cap-why__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.cap-why__logo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cap-why__logo {
+  height: 28px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.35;
+  transition: opacity var(--dur-base);
+}
+.cap-why__logo:hover { opacity: 0.65; }
+
+.cap-why__divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 64px 0;
+}
+
+.cap-why .section-eyebrow {
+  color: rgba(255,255,255,0.5);
+}
+.cap-why .section-eyebrow::before {
+  background: rgba(255,255,255,0.25);
+}
+.cap-why__eyebrow { margin-bottom: 16px; }
+.cap-why .section-title { color: var(--paper); }
+.cap-why__title em { font-style: italic; color: rgba(201,168,76,0.9); }
+
+.cap-why__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.cap-why__card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 32px 32px 36px;
+  transition: border-color var(--dur-base), background var(--dur-base);
+}
+.cap-why__card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+.cap-why__card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: rgba(201,168,76,0.8);
+  padding: 12px;
+}
+.cap-why__card-icon svg { width: 100%; height: 100%; }
+.cap-why__card-title {
+  font-family: var(--sans);
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+.cap-why__card-desc {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+
+/* ── Responsive: Capabilities Sections ─────────────────────── */
+@media (max-width: 1024px) {
+  .cap-company__stats { grid-template-columns: repeat(2, 1fr); }
+  .cap-company__stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .cap-company__stat:nth-child(2n) { }
+  .cap-company__approach { grid-template-columns: 1fr; gap: 32px; }
+  .cap-company__pillars { grid-template-columns: 1fr; }
+  .cap-company__ind-inner { gap: 24px; }
+
+  .cap-products__grid--flagship { grid-template-columns: 1fr; }
+  .cap-products__grid--standard { grid-template-columns: 1fr 1fr; }
+  .cap-products__grid--prep { grid-template-columns: 1fr 1fr; }
+
+  .cap-passiv__grid--3 { grid-template-columns: 1fr; }
+  .cap-passiv__grid--2 { grid-template-columns: 1fr; }
+  .cap-passiv__aux-grid { grid-template-columns: 1fr; }
+
+  .cap-oils__grid { grid-template-columns: 1fr 1fr; }
+  .cap-oils__image { height: 200px; }
+
+  .cap-why__logos { gap: 28px; }
+  .cap-why__grid { grid-template-columns: 1fr; }
+}
+
+/* ── Print / PDF Download button (screen only) ──────────────── */
+.tech-hero__cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.tech-hero__pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  letter-spacing: 0.01em;
+}
+.tech-hero__pdf-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--paper);
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Print-only elements hidden on screen */
+.print-only { display: none; }
+
+/* ── A4 Print / PDF Styles ───────────────────────────────────── */
+@media print {
+  /* Force all backgrounds and colors to print */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* A4 page with 15mm margins */
+  @page {
+    size: A4 portrait;
+    margin: 15mm 18mm;
+  }
+
+  /* Base reset */
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Kill all animations */
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    animation-duration: 0s !important;
+  }
+
+  /* ── Visibility ── */
+  .print-hide,
+  .nav,
+  nav,
+  .footer,
+  footer,
+  .cta-band,
+  .tech-iot,
+  .tech-hero__visual,
+  .tech-hero__stats,
+  .tech-hero__cta-row,
+  .tech-hero__credit,
+  .section-footnote,
+  .cap-company__ind-strip { display: none !important; }
+
+  .print-only { display: block !important; }
+
+  /* ── Page: Cover (TechHero) ── */
+  .tech-hero {
+    min-height: 0;
+    padding: 10mm 0 12mm;
+    break-after: page;
+  }
+  .tech-hero__inner {
+    display: block;
+  }
+  .tech-hero__eyebrow {
+    font-size: 8pt;
+    letter-spacing: 0.25em;
+    margin-bottom: 6mm;
+  }
+  .tech-hero__h1 {
+    font-size: 32pt;
+    line-height: 1.05;
+    margin-bottom: 6mm;
+  }
+  .tech-hero__sub {
+    font-size: 11pt;
+    line-height: 1.6;
+    max-width: 160mm;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8mm;
+  }
+  .tech-hero__print-cover {
+    margin-top: 10mm;
+    padding-top: 8mm;
+    border-top: 1px solid rgba(201,168,76,0.4);
+  }
+  .tech-hero__print-company {
+    font-family: var(--display);
+    font-size: 14pt;
+    font-weight: 900;
+    color: var(--paper);
+    margin-bottom: 3mm;
+  }
+  .tech-hero__print-tagline,
+  .tech-hero__print-contact {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2mm;
+  }
+  .tech-hero__print-contact {
+    color: rgba(201,168,76,0.7);
+  }
+
+  /* ── Page: CapCompany ── */
+  .cap-company {
+    padding: 10mm 0;
+    background: var(--surface) !important;
+    break-after: page;
+  }
+  .cap-company__stats {
+    margin-bottom: 10mm;
+    border: 1px solid var(--line);
+  }
+  .cap-company__stat {
+    padding: 6mm 8mm;
+  }
+  .cap-company__stat-num {
+    font-size: 22pt;
+  }
+  .cap-company__stat-label {
+    font-size: 7pt;
+  }
+  .cap-company__approach {
+    margin-bottom: 8mm;
+    gap: 8mm;
+  }
+  .cap-company__heading {
+    font-size: 18pt;
+  }
+  .cap-company__lead,
+  .cap-company__body {
+    font-size: 10pt;
+  }
+  .cap-company__pillar {
+    padding: 5mm 6mm 6mm;
+  }
+  .cap-company__pillar-label {
+    font-size: 9pt;
+    margin-bottom: 3mm;
+  }
+  .cap-company__pillar-desc {
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+
+  /* ── TechProcess ── */
+  .tech-process {
+    padding: 8mm 0;
+    background: var(--primary-deep) !important;
+    break-after: page;
+  }
+  .tech-process .section-head {
+    margin-bottom: 8mm;
+  }
+  .tech-process__row {
+    gap: 6mm;
+    margin-bottom: 8mm;
+    break-inside: avoid;
+  }
+  .tech-process__visual {
+    aspect-ratio: 4/3;
+    min-height: 0;
+  }
+  .tech-process__body {
+    font-size: 9.5pt;
+    line-height: 1.55;
+  }
+  .tech-process__content-title {
+    font-size: 14pt;
+  }
+
+  /* ── CapProducts ── */
+  .cap-products {
+    padding: 8mm 0;
+    background: var(--surface) !important;
+  }
+  .cap-products__grid--flagship {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .cap-products__grid--standard {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .cap-products__grid--prep {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .cap-products__card {
+    break-inside: avoid;
+  }
+  .cap-products__card-head {
+    padding: 5mm 5mm 4mm;
+  }
+  .cap-products__card-name {
+    font-size: 11pt;
+  }
+  .cap-products__card--wide .cap-products__card-name {
+    font-size: 13pt;
+  }
+  .cap-products__card-body {
+    padding: 4mm 5mm 5mm;
+    gap: 3mm;
+  }
+  .cap-products__card-desc {
+    font-size: 8.5pt;
+    line-height: 1.45;
+  }
+  .cap-products__card-uses li {
+    font-size: 8pt;
+  }
+  .cap-products__rule {
+    margin: 8mm 0;
+  }
+
+  /* ── CapPassivation ── */
+  .cap-passiv {
+    padding: 8mm 0;
+    background: var(--primary-deep) !important;
+    break-before: page;
+  }
+  .cap-passiv__card {
+    break-inside: avoid;
+  }
+  .cap-passiv__card-head {
+    padding: 5mm 5mm 4mm;
+  }
+  .cap-passiv__card-name {
+    font-size: 10pt;
+  }
+  .cap-passiv__card-body {
+    padding: 4mm 5mm 5mm;
+  }
+  .cap-passiv__card-desc {
+    font-size: 8.5pt;
+    line-height: 1.45;
+  }
+  .cap-passiv__aux-card {
+    break-inside: avoid;
+  }
+  .cap-passiv__divider {
+    margin: 6mm 0;
+  }
+
+  /* ── CapOils ── */
+  .cap-oils {
+    padding: 8mm 0;
+    background: var(--surface) !important;
+  }
+  .cap-oils__image {
+    height: 40mm;
+  }
+  .cap-oils__image-wrap {
+    margin: 5mm 0 6mm;
+  }
+  .cap-oils__cell {
+    break-inside: avoid;
+    padding: 4mm 5mm;
+  }
+  .cap-oils__name {
+    font-size: 9pt;
+  }
+  .cap-oils__desc {
+    font-size: 8.5pt;
+    line-height: 1.45;
+  }
+
+  /* ── TechCertifications ── */
+  .tech-certs {
+    padding: 8mm 0;
+  }
+
+  /* ── CapWhy ── */
+  .cap-why {
+    padding: 8mm 0;
+    background: var(--primary-deep) !important;
+  }
+  .cap-why__logo {
+    opacity: 0.55 !important;
+  }
+  .cap-why__grid {
+    margin-top: 6mm;
+  }
+  .cap-why__card {
+    break-inside: avoid;
+    padding: 5mm 6mm 6mm;
+  }
+  .cap-why__card-title {
+    font-size: 10pt;
+    margin-bottom: 3mm;
+  }
+  .cap-why__card-desc {
+    font-size: 8.5pt;
+    line-height: 1.5;
+  }
+
+  /* ── Typography scale for print ── */
+  .section-title {
+    font-size: 18pt !important;
+    margin-bottom: 4mm;
+  }
+  .section-eyebrow {
+    font-size: 7pt !important;
+    margin-bottom: 3mm;
+  }
+  .section-head {
+    margin-bottom: 6mm;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
