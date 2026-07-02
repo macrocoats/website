@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Nav from '../components/layout/Nav.jsx';
 import Footer from '../components/layout/Footer.jsx';
 import Hero from '../components/home/Hero.jsx';
@@ -19,9 +20,17 @@ import ProcessAudit from '../components/home/ProcessAudit.jsx';
 import CtaBand from '../components/home/CtaBand.jsx';
 
 export default function HomePage() {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = 'MacroCoats — Process-Engineered Chemical Solutions';
   }, []);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView();
+  }, [location.hash]);
 
   return (
     <>

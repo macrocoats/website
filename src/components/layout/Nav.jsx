@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -11,27 +14,34 @@ export default function Nav() {
 
   function close() { setIsOpen(false); }
 
+  function goToSection(e, id) {
+    close();
+    if (isHome) return; // let the native #anchor jump handle it
+    e.preventDefault();
+    navigate(`/#${id}`);
+  }
+
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <a href="#" className="logo" onClick={close}>
+        <Link to="/" className="logo" onClick={close}>
           <div className="logo-mark"></div>
           <div>
             <div className="logo-text">Macro Coats Pvt Ltd</div>
             <div className="logo-subtext">Process-Engineered Chemistry</div>
           </div>
-        </a>
+        </Link>
 
         <ul className={`nav-links${isOpen ? ' nav-links--open' : ''}`}>
-          <li><a href="#about" onClick={close}>About</a></li>
+          <li><a href="#about" onClick={(e) => goToSection(e, 'about')}>About</a></li>
           <li><Link to="/products" onClick={close}>Products</Link></li>
-          <li><a href="#industries" onClick={close}>Industries</a></li>
-          <li><a href="#services" onClick={close}>Services</a></li>
+          <li><a href="#industries" onClick={(e) => goToSection(e, 'industries')}>Industries</a></li>
+          <li><a href="#services" onClick={(e) => goToSection(e, 'services')}>Services</a></li>
           <li><Link to="/technology" onClick={close}>Technology</Link></li>
           <li><Link to="/blog" onClick={close}>Blog</Link></li>
-          <li><a href="#contact" onClick={close}>Contact</a></li>
+          <li><a href="#contact" onClick={(e) => goToSection(e, 'contact')}>Contact</a></li>
           <li className="nav-mobile-cta">
-            <a href="#contact" className="nav-cta" onClick={close}>
+            <a href="#contact" className="nav-cta" onClick={(e) => goToSection(e, 'contact')}>
               Talk to an Expert
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M13 5l7 7-7 7" />
@@ -40,7 +50,7 @@ export default function Nav() {
           </li>
         </ul>
 
-        <a href="#contact" className="nav-cta nav-cta--desktop">
+        <a href="#contact" className="nav-cta nav-cta--desktop" onClick={(e) => goToSection(e, 'contact')}>
           Talk to an Expert
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7" />
