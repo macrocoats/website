@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <div className="logo">
-            <div className="logo-mark"></div>
+            <img src="/images/logo.png" alt="MacroCoats" className="logo-mark" />
             <div>
               <div className="logo-text">MacroCoats Pvt Ltd</div>
               <div className="logo-subtext">Process-Engineered Chemistry</div>

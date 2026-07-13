@@ -25,7 +25,7 @@ export default function Nav() {
     <nav className="nav">
       <div className="nav-inner">
         <Link to="/" className="logo" onClick={close}>
-          <div className="logo-mark"></div>
+          <img src="/images/logo.png" alt="MacroCoats" className="logo-mark" />
           <div>
             <div className="logo-text">Macro Coats Pvt Ltd</div>
             <div className="logo-subtext">Process-Engineered Chemistry</div>
