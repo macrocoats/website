@@ -111,7 +111,7 @@
     text-decoration: none;
   }
   .logo-mark {
-    width: 40px; height: 40px;
+    width: 54px; height: 54px;
     object-fit: contain;
     flex-shrink: 0;
   }
@@ -120,7 +120,7 @@
     gap: 0.32em;
     font-family: var(--wordmark);
     font-weight: 800;
-    font-size: 21px;
+    font-size: 28px;
     line-height: 1;
     letter-spacing: -0.01em;
     text-transform: uppercase;
@@ -130,12 +130,12 @@
   .wordmark-sub {
     display: flex;
     align-items: center;
-    gap: 7px;
-    margin-top: 5px;
+    gap: 9px;
+    margin-top: 6px;
   }
   .wm-rule {
     flex: 1;
-    height: 1.5px;
+    height: 2px;
     border-radius: 1px;
   }
   .wm-rule-navy { background: var(--brand-navy); }
@@ -143,7 +143,7 @@
   .wm-suffix {
     font-family: var(--wordmark);
     font-weight: 600;
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     color: var(--brand-navy);
     white-space: nowrap;
