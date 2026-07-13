@@ -8,8 +8,14 @@ export default function Footer() {
           <div className="logo">
             <img src="/images/logo.png" alt="MacroCoats" className="logo-mark" />
             <div>
-              <div className="logo-text">MacroCoats Pvt Ltd</div>
-              <div className="logo-subtext">Process-Engineered Chemistry</div>
+              <div className="wordmark-main">
+                <span className="wm-macro">Macro</span><span className="wm-coats">Coats</span>
+              </div>
+              <div className="wordmark-sub">
+                <span className="wm-rule wm-rule-navy"></span>
+                <span className="wm-suffix">Pvt. Ltd.</span>
+                <span className="wm-rule wm-rule-red"></span>
+              </div>
             </div>
           </div>
           <p>Specialty chemical formulations engineered for consistency, scale, and control. Formerly Technical Electroless Chemical Co. Pvt. Ltd.</p>

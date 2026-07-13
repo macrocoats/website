@@ -30,6 +30,11 @@
     --display: 'Fraunces', Georgia, serif;
     --sans: 'Geist', -apple-system, sans-serif;
     --mono: 'Geist Mono', monospace;
+    --wordmark: 'Poppins', 'Geist', -apple-system, sans-serif;
+
+    /* Wordmark brand colors */
+    --brand-navy: #242C3A;
+    --brand-red: #C42D24;
 
     /* Type scale */
     --text-xs: 11px;
@@ -110,21 +115,46 @@
     object-fit: contain;
     flex-shrink: 0;
   }
-  .logo-text {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 22px;
-    color: var(--primary-deep);
-    letter-spacing: -0.02em;
-  }
-  .logo-subtext {
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    color: var(--slate);
+  .wordmark-main {
+    display: flex;
+    gap: 0.32em;
+    font-family: var(--wordmark);
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 1;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
-    font-weight: 500;
-    margin-top: 2px;
   }
+  .wm-macro { color: var(--brand-navy); }
+  .wm-coats { color: var(--brand-red); }
+  .wordmark-sub {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 5px;
+  }
+  .wm-rule {
+    flex: 1;
+    height: 1.5px;
+    border-radius: 1px;
+  }
+  .wm-rule-navy { background: var(--brand-navy); }
+  .wm-rule-red { background: var(--brand-red); }
+  .wm-suffix {
+    font-family: var(--wordmark);
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--brand-navy);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .footer-brand .wm-macro,
+  .footer-brand .wm-rule-navy,
+  .footer-brand .wm-suffix {
+    color: white;
+  }
+  .footer-brand .wm-rule-navy { background: white; }
   .nav-links {
     display: flex;
     gap: 36px;
@@ -1664,7 +1694,6 @@
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .footer-brand .logo-text { color: white; }
   .footer-brand p {
     margin-top: 24px;
     font-size: 14px;
