@@ -71,22 +71,55 @@ function SuccessState({ onReset }) {
   );
 }
 
+const PHONE_PATTERN = /^[0-9+\s\-()]{7,15}$/;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function ProcessAudit() {
   const [fields, setFields] = useState(EMPTY);
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [errorMessage, setErrorMessage] = useState('');
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFields((prev) => ({ ...prev, [name]: value }));
   }
 
+  function validate() {
+    if (!fields.from_name.trim() || !fields.phone.trim() || !fields.challenge.trim()) {
+      return 'Please fill in your name, phone, and message.';
+    }
+    if (!PHONE_PATTERN.test(fields.phone.trim())) {
+      return 'Please enter a valid phone number.';
+    }
+    if (fields.email.trim() && !EMAIL_PATTERN.test(fields.email.trim())) {
+      return 'Please enter a valid email address.';
+    }
+    return null;
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
+    const validationError = validate();
+    if (validationError) {
+      setErrorMessage(validationError);
+      setStatus('error');
+      return;
+    }
     setStatus('loading');
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, fields, { publicKey: PUBLIC_KEY });
+      const company = fields.company.trim();
+      const payload = {
+        name: fields.from_name.trim(),
+        email: fields.email.trim(),
+        phone: fields.phone.trim(),
+        title: company ? `Enquiry from ${company}` : 'Website Enquiry',
+        message: fields.challenge.trim(),
+        reply_to: fields.email.trim() || fields.phone.trim(),
+      };
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, { publicKey: PUBLIC_KEY });
       setStatus('success');
     } catch {
+      setErrorMessage('');
       setStatus('error');
     }
   }
@@ -125,7 +158,7 @@ export default function ProcessAudit() {
             </div>
 
             {status === 'success' ? (
-              <SuccessState onReset={() => { setFields(EMPTY); setStatus('idle'); }} />
+              <SuccessState onReset={() => { setFields(EMPTY); setErrorMessage(''); setStatus('idle'); }} />
             ) : (
               <form className="audit-form" onSubmit={handleSubmit} noValidate>
                 <div className="audit-form-row">
@@ -200,8 +233,12 @@ export default function ProcessAudit() {
 
                 {status === 'error' && (
                   <div className="audit-error">
-                    Something went wrong — please try again or reach us directly at{' '}
-                    <a href="mailto:info@macrocoats.in">info@macrocoats.in</a>.
+                    {errorMessage || (
+                      <>
+                        Something went wrong — please try again or reach us directly at{' '}
+                        <a href="mailto:info@macrocoats.in">info@macrocoats.in</a>.
+                      </>
+                    )}
                   </div>
                 )}
 
