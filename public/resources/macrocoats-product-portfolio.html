@@ -308,7 +308,66 @@ document.addEventListener('DOMContentLoaded', async function() {
     // createElement so they execute, awaiting onload for src scripts to
     // preserve ordering (React before ReactDOM before Babel before text/babel).
     const doc = new DOMParser().parseFromString(template, 'text/html');
+    // Keep the fixed A4 artwork intact, but scale the complete document to the
+    // available phone width. `zoom` participates in layout (unlike transform),
+    // so stacked brochure pages do not leave full-size gaps on small screens.
+    const responsiveStyle = doc.createElement('style');
+    responsiveStyle.textContent = `
+      @media screen and (max-width: 820px) {
+        html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+        body { display: block !important; min-height: 0 !important; }
+        doc-page {
+          display: block !important;
+          margin: 8px auto !important;
+          zoom: 1;
+        }
+      }
+      @media print { doc-page { zoom: 1 !important; } }
+    `;
+    doc.head.appendChild(responsiveStyle);
     document.documentElement.replaceWith(doc.documentElement);
+
+    function fitBrochureToViewport() {
+      const brochure = document.querySelector('doc-page');
+      if (!brochure) return;
+      if (window.innerWidth > 820) {
+        brochure.style.removeProperty('zoom');
+        return;
+      }
+      brochure.style.zoom = '1';
+      requestAnimationFrame(function () {
+        const firstPage = brochure.querySelector('.page');
+        const naturalWidth = Math.max(794,
+          firstPage ? firstPage.offsetWidth : 0,
+          firstPage ? firstPage.scrollWidth : 0,
+          brochure.scrollWidth,
+          brochure.getBoundingClientRect().width
+        );
+        const availableWidth = Math.max(280, window.innerWidth - 16);
+        const scale = naturalWidth ? Math.min(1, availableWidth / naturalWidth) : 1;
+        brochure.style.zoom = String(scale);
+      });
+    }
+    let fitTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(fitTimer);
+      fitTimer = setTimeout(fitBrochureToViewport, 80);
+    }, { passive: true });
+    [0, 100, 500].forEach(function (delay) { setTimeout(fitBrochureToViewport, delay); });
+    window.addEventListener('beforeprint', function () {
+      const brochure = document.querySelector('doc-page');
+      if (brochure) brochure.style.zoom = '1';
+    });
+    window.addEventListener('afterprint', fitBrochureToViewport);
+    let hasOpenedPrintDialog = false;
+    function openSaveAsPdfDialog() {
+      if (hasOpenedPrintDialog) return;
+      hasOpenedPrintDialog = true;
+      window.print();
+    }
+    // Give the custom brochure element, fonts, and images time to finish
+    // laying out before opening the browser's Save as PDF / print dialog.
+    setTimeout(openSaveAsPdfDialog, 1200);
 
     // Resolve page-frame markers: mint this document's own blob for each
     // framed page — from local text when this is the root, otherwise by
