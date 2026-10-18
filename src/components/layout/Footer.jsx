@@ -45,6 +45,16 @@ export default function Footer() {
           <h5>Resources</h5>
           <ul>
             <li><a href="#process-audit">Free Process Audit</a></li>
+            <li>
+              <a href="/resources/macrocoats-corporate-brochure.html" target="_blank" rel="noreferrer">
+                Corporate Brochure
+              </a>
+            </li>
+            <li>
+              <a href="/resources/macrocoats-product-portfolio.html" target="_blank" rel="noreferrer">
+                Product Portfolio
+              </a>
+            </li>
             <li><Link to="/blog">Technical Blog</Link></li>
             <li>
               <Link to="/blog/inconsistent-salt-spray-test-results-phosphating-bath">
