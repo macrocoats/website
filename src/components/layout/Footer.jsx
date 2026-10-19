@@ -34,25 +34,25 @@ export default function Footer() {
         <div className="footer-col">
           <h5>Services</h5>
           <ul>
-            <li><a href="#">Turnkey Treatment</a></li>
-            <li><a href="#">IoT Monitoring</a></li>
-            <li><a href="#">Process Consulting</a></li>
-            <li><a href="#">Sustainability</a></li>
+            <li><a href="/#services">Turnkey Treatment</a></li>
+            <li><Link to="/technology">IoT Monitoring</Link></li>
+            <li><a href="/#services">Process Consulting</a></li>
+            <li><a href="/#about">Sustainability</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h5>Resources</h5>
           <ul>
-            <li><a href="#process-audit">Free Process Audit</a></li>
+            <li><a href="/#process-audit">Free Process Audit</a></li>
             <li>
-              <a href="/resources/macrocoats-corporate-brochure.html" target="_blank" rel="noreferrer">
+              <a href="/resources/brochure.html" target="_blank" rel="noreferrer">
                 Corporate Brochure
               </a>
             </li>
             <li>
               <a href="/resources/macrocoats-product-portfolio.html" target="_blank" rel="noreferrer">
-                Product Portfolio
+                Portfolio
               </a>
             </li>
             <li><Link to="/blog">Technical Blog</Link></li>
@@ -67,9 +67,9 @@ export default function Footer() {
         <div className="footer-col">
           <h5>Contact</h5>
           <ul>
-            <li><a href="tel:9444961815">+91 9444961815</a></li>
+            <li><a href="tel:+919444961815">+91 94449 61815</a></li>
             <li><a href="mailto:info@macrocoats.in">info@macrocoats.in</a></li>
-            <li><a href="#">Chennai, India</a></li>
+            <li><span>Chennai, India</span></li>
           </ul>
         </div>
       </div>

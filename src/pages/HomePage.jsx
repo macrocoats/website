@@ -35,22 +35,24 @@ export default function HomePage() {
   return (
     <>
       <Nav />
-      <Hero />
-      <TrustedBy />
-      <Challenge />
-      <Solutions />
-      <Industries />
-      <Products />
-      <ProductComparison />
-      <IoTCommandCenter />
-      <IoTHowItWorks />
-      <ProcessServices />
-      <CoreBelief />
-      <ClientValue />
-      <CaseStudies />
-      <Leadership />
-      <ProcessAudit />
-      <CtaBand />
+      <main id="main-content">
+        <Hero />
+        <TrustedBy />
+        <Challenge />
+        <Solutions />
+        <Industries />
+        <Products />
+        <ProductComparison />
+        <IoTCommandCenter />
+        <IoTHowItWorks />
+        <ProcessServices />
+        <CoreBelief />
+        <ClientValue />
+        <CaseStudies />
+        <Leadership />
+        <ProcessAudit />
+        <CtaBand />
+      </main>
       <Footer />
     </>
   );

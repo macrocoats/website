@@ -271,7 +271,7 @@ export default function PhosphatingSlungeArticle() {
             <Link to="/#process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
-            <a href="tel:9444961815" className="sidebar-btn secondary">+91 9444961815</a>
+            <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>
           </div>
 
           <div className="sidebar-card">

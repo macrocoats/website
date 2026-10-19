@@ -701,7 +701,7 @@ export default function BrochureViewer() {
                 <div className="br-contact-role">Formerly Tecco Pvt. Ltd. · Metal Surface Treatment Chemicals</div>
                 <div className="br-contact-line">
                   Registered HQ — Chennai, Tamil Nadu, India<br/>
-                  +91 98840 80377 &nbsp;·&nbsp;
+                  +91 94449 61815 &nbsp;·&nbsp;
                   <a href="mailto:info@macrocoats.in">info@macrocoats.in</a> &nbsp;·&nbsp;
                   <a href="https://macrocoats.in">macrocoats.in</a>
                 </div>

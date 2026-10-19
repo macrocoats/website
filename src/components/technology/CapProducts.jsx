@@ -6,7 +6,7 @@ const phosphating = [
     desc: 'Highest salt-spray endurance in the range. Engineered for Tier-1 automotive OEM requirements where 500-hour ASTM B117 compliance is mandatory.',
     uses: ['Automotive body panels', 'Chassis & suspension', 'OEM export components'],
     tags: ['Zn · Ni', 'Cr-FREE', 'REACH'],
-    gradient: 'linear-gradient(135deg, #1E3A8A 0%, #0F1F3D 100%)',
+    gradient: 'linear-gradient(135deg, #10243A 0%, #07172A 100%)',
     wide: true,
   },
   {
@@ -16,7 +16,7 @@ const phosphating = [
     desc: 'Full zinc phosphate performance at 45°C bath temperature. Reduces energy consumption 30–40% versus standard lines with no loss in coating weight.',
     uses: ['High-volume lines', 'Barrel operations', 'Heat-sensitive alloys'],
     tags: ['Zn²⁺', 'LOW-TEMP', 'ECO'],
-    gradient: 'linear-gradient(135deg, #5B2A86 0%, #1E3A8A 100%)',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #10243A 100%)',
     wide: true,
   },
   {
@@ -26,7 +26,7 @@ const phosphating = [
     desc: 'Workhorse zinc phosphate for pre-paint and pre-powder coat on mild steel. Consistent 1.8–3.2 g/m² coating weight across varied water hardness.',
     uses: ['General fabrication', 'Pre-paint lines'],
     tags: ['Zn²⁺', 'IS 6005'],
-    gradient: 'linear-gradient(135deg, #1E3A8A 0%, #0F2D6B 100%)',
+    gradient: 'linear-gradient(135deg, #10243A 0%, #07172A 100%)',
     wide: false,
   },
   {
@@ -78,7 +78,7 @@ const surfacePrep = [
     spec: 'pH 12.4 · 65°C',
     desc: 'Heavy-duty alkaline degreaser for stamping oils, coolant residues, and metallic fines on steel and CI. Free-rinse formulation.',
     tags: ['ALKALINE', 'STEEL', 'CI'],
-    gradient: 'linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%)',
+    gradient: 'linear-gradient(135deg, #10243A 0%, #10243A 100%)',
   },
   {
     code: 'UNICLEAN AD-3L',
@@ -86,7 +86,7 @@ const surfacePrep = [
     spec: 'pH 11.8 · spray line',
     desc: 'Low-foam alkaline degreaser formulated for high-pressure spray wash systems. Suppresses foam without compromising degreasing efficiency.',
     tags: ['LOW-FOAM', 'SPRAY'],
-    gradient: 'linear-gradient(135deg, #1D4ED8 0%, #1E3A8A 100%)',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #10243A 100%)',
   },
   {
     code: 'UNIETCH AC-5',
@@ -94,7 +94,7 @@ const surfacePrep = [
     spec: 'HCl-based · inhibited',
     desc: 'Inhibited hydrochloric acid pickle for oxide and mill-scale removal. Over-etch inhibitor minimises base metal attack on thin-gauge stampings.',
     tags: ['ACID', 'INHIBITED', 'HCl'],
-    gradient: 'linear-gradient(135deg, #5B2A86 0%, #4C1D95 100%)',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #A91717 100%)',
   },
   {
     code: 'UNIACT NR-2',

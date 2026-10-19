@@ -5,7 +5,7 @@
 Marketing website for **MacroCoats Pvt Ltd** (formerly Technical Electroless Chemical Co. Pvt. Ltd), a specialty industrial chemistry company based in Chennai, India. The company specialises in process-engineered chemical solutions — phosphating, surface treatment, and corrosion protection — for industrial clients across India. Est. 1993.
 
 - **Company tagline**: Process-Engineered Chemistry
-- **Phone**: +91 98840 80377
+- **Phone**: +91 94449 61815
 - **Email**: info@macrocoats.in
 - **Git remote**: github.com:Macro-Coats/website, branch `main`
 

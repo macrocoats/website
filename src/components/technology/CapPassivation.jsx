@@ -6,7 +6,7 @@ const aluminium = [
     spec: 'MIL-DTL-81706',
     desc: 'Chromate conversion coating for aluminium per MIL spec. Maximum corrosion resistance and paint adhesion for aerospace and defence applications.',
     tags: ['Cr⁶⁺', 'MIL-SPEC', 'AEROSPACE'],
-    gradient: 'linear-gradient(135deg, #1E3A8A 0%, #0F1F3D 100%)',
+    gradient: 'linear-gradient(135deg, #10243A 0%, #07172A 100%)',
   },
   {
     code: 'UNIPASS-AL NC',
@@ -24,7 +24,7 @@ const aluminium = [
     spec: 'IS 6005 · light duty',
     desc: 'Cost-effective aluminium passivation for light industrial applications. Compatible with acrylic, polyurethane, and epoxy topcoat systems.',
     tags: ['Al', 'IS 6005', 'PAINT BASE'],
-    gradient: 'linear-gradient(135deg, #5B2A86 0%, #4C1D95 100%)',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #A91717 100%)',
   },
 ];
 
@@ -36,7 +36,7 @@ const iron = [
     spec: 'Cr⁶⁺ · 500h salt spray',
     desc: 'High-performance chrome passivation for phosphated steel. Seals the phosphate crystal structure and delivers 500+ hours ASTM B117 endurance.',
     tags: ['Cr⁶⁺', 'ASTM B117', '500h+'],
-    gradient: 'linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%)',
+    gradient: 'linear-gradient(135deg, #10243A 0%, #C62828 100%)',
   },
   {
     code: 'UNIPASS-FE NC',
@@ -55,21 +55,21 @@ const auxiliaries = [
     name: 'Bath Conditioner',
     spec: 'Sludge control',
     desc: 'Dispersant additive that keeps phosphate sludge in suspension, reducing dragout and extending bath drain intervals.',
-    gradient: 'linear-gradient(135deg, #5B2A86 0%, #7C3AED 100%)',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #ED1C24 100%)',
   },
   {
     code: 'UNIKTONER',
     name: 'Crystal Toner',
     spec: 'Grain refiner',
     desc: 'Grain-refining additive for zinc phosphate. Reduces crystal size to below 4 µm for dense, uniform coatings and improved paint inter-adhesion.',
-    gradient: 'linear-gradient(135deg, #7C3AED 0%, #5B2A86 100%)',
+    gradient: 'linear-gradient(135deg, #ED1C24 0%, #C62828 100%)',
   },
   {
     code: 'UNIKGUARD RPI',
     name: 'Rust Preventive',
     spec: 'Inter-op storage',
     desc: 'Water-displacing rust preventive for inter-operation storage of phosphated components. Thin film, easily removed before final coating.',
-    gradient: 'linear-gradient(135deg, #1E3A8A 0%, #5B2A86 100%)',
+    gradient: 'linear-gradient(135deg, #10243A 0%, #C62828 100%)',
   },
 ];
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -15,8 +15,8 @@ const contactDetails = [
       </svg>
     ),
     label: 'Call or WhatsApp',
-    value: '+91 9444961815',
-    href: 'tel:9444961815',
+    value: '+91 94449 61815',
+    href: 'tel:+919444961815',
   },
   {
     icon: (
@@ -62,7 +62,7 @@ function SuccessState({ onReset }) {
       <h3>Message Sent</h3>
       <p>Thank you for reaching out — we'll get back to you within 24 hours on working days.</p>
       <div className="audit-success-contact">
-        <a href="tel:9444961815">+91 9444961815</a>
+        <a href="tel:+919444961815">+91 94449 61815</a>
         <span>·</span>
         <a href="mailto:info@macrocoats.in">info@macrocoats.in</a>
       </div>
@@ -78,33 +78,47 @@ export default function ProcessAudit() {
   const [fields, setFields] = useState(EMPTY);
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [errorMessage, setErrorMessage] = useState('');
+  const [errors, setErrors] = useState({});
+  const formRef = useRef(null);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFields((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => {
+      if (!prev[name]) return prev;
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
   }
 
   function validate() {
-    if (!fields.from_name.trim() || !fields.phone.trim() || !fields.challenge.trim()) {
-      return 'Please fill in your name, phone, and message.';
-    }
+    const nextErrors = {};
+    if (!fields.from_name.trim()) nextErrors.from_name = 'Enter your name.';
+    if (!fields.phone.trim()) nextErrors.phone = 'Enter a phone or WhatsApp number.';
     if (!PHONE_PATTERN.test(fields.phone.trim())) {
-      return 'Please enter a valid phone number.';
+      if (fields.phone.trim()) nextErrors.phone = 'Use 7–15 digits and optional spaces, brackets, + or -.';
     }
     if (fields.email.trim() && !EMAIL_PATTERN.test(fields.email.trim())) {
-      return 'Please enter a valid email address.';
+      nextErrors.email = 'Enter an email address such as name@company.com.';
     }
-    return null;
+    if (!fields.challenge.trim()) nextErrors.challenge = 'Tell us what you need help with.';
+    return nextErrors;
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const validationError = validate();
-    if (validationError) {
-      setErrorMessage(validationError);
-      setStatus('error');
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length) {
+      setErrors(validationErrors);
+      setStatus('idle');
+      requestAnimationFrame(() => {
+        formRef.current?.querySelector(`[name="${Object.keys(validationErrors)[0]}"]`)?.focus();
+      });
       return;
     }
+    setErrors({});
+    setErrorMessage('');
     setStatus('loading');
     try {
       const company = fields.company.trim();
@@ -158,9 +172,9 @@ export default function ProcessAudit() {
             </div>
 
             {status === 'success' ? (
-              <SuccessState onReset={() => { setFields(EMPTY); setErrorMessage(''); setStatus('idle'); }} />
+              <SuccessState onReset={() => { setFields(EMPTY); setErrors({}); setErrorMessage(''); setStatus('idle'); }} />
             ) : (
-              <form className="audit-form" onSubmit={handleSubmit} noValidate>
+              <form ref={formRef} className="audit-form" onSubmit={handleSubmit} noValidate>
                 <div className="audit-form-row">
                   <div className="audit-field">
                     <label htmlFor="audit-name">Your Name *</label>
@@ -171,8 +185,11 @@ export default function ProcessAudit() {
                       value={fields.from_name}
                       onChange={handleChange}
                       placeholder="Your Name"
+                      aria-invalid={Boolean(errors.from_name)}
+                      aria-describedby={errors.from_name ? 'audit-name-error' : undefined}
                       required
                     />
+                    {errors.from_name && <p className="audit-field-error" id="audit-name-error" role="alert">{errors.from_name}</p>}
                   </div>
                   <div className="audit-field">
                     <label htmlFor="audit-company">Company</label>
@@ -197,7 +214,10 @@ export default function ProcessAudit() {
                     onChange={handleChange}
                     placeholder="you@company.com"
                     autoComplete="email"
+                    aria-invalid={Boolean(errors.email)}
+                    aria-describedby={errors.email ? 'audit-email-error' : undefined}
                   />
+                  {errors.email && <p className="audit-field-error" id="audit-email-error" role="alert">{errors.email}</p>}
                 </div>
 
                 <div className="audit-field">
@@ -214,21 +234,28 @@ export default function ProcessAudit() {
                     minLength={7}
                     maxLength={15}
                     autoComplete="tel"
+                    aria-invalid={Boolean(errors.phone)}
+                    aria-describedby={errors.phone ? 'audit-phone-error' : undefined}
                     required
                   />
+                  {errors.phone && <p className="audit-field-error" id="audit-phone-error" role="alert">{errors.phone}</p>}
                 </div>
 
                 <div className="audit-field">
                   <label htmlFor="audit-message">Message *</label>
                   <textarea
+                    className="resize-none"
                     id="audit-message"
                     name="challenge"
                     value={fields.challenge}
                     onChange={handleChange}
                     rows="4"
                     placeholder="Tell us about your process, challenge, or what you'd like to discuss..."
+                    aria-invalid={Boolean(errors.challenge)}
+                    aria-describedby={errors.challenge ? 'audit-message-error' : undefined}
                     required
                   />
+                  {errors.challenge && <p className="audit-field-error" id="audit-message-error" role="alert">{errors.challenge}</p>}
                 </div>
 
                 {status === 'error' && (

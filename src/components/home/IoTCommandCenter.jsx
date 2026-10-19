@@ -80,8 +80,8 @@ export default function IoTCommandCenter() {
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#2563EB" />
-            <stop offset="100%" stopColor="#3B82F6" />
+            <stop offset="0%" stopColor="#C62828" />
+            <stop offset="100%" stopColor="#ED1C24" />
           </linearGradient>
         </defs>
       </svg>

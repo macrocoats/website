@@ -132,8 +132,8 @@ export default function IoTMonitoringArticle() {
                 <Link to="/#process-audit" className="cta-btn-white">
                   Book a Site Visit <ArrowIcon />
                 </Link>
-                <a href="tel:+919884080377" className="cta-btn-ghost">
-                  Call +91 98840 80377
+                <a href="tel:+919444961815" className="cta-btn-ghost">
+                  Call +91 94449 61815
                 </a>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function IoTMonitoringArticle() {
             <Link to="/#process-audit" className="sidebar-btn">
               Book Site Visit <ArrowIcon />
             </Link>
-            <a href="tel:+919884080377" className="sidebar-btn secondary">+91 98840 80377</a>
+            <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>
           </div>
           <div className="sidebar-card">
             <span className="sidebar-card-label">About the Author</span>

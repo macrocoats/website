@@ -18,7 +18,7 @@ export default function CtaBand() {
             </svg>
           </a>
           <div className="cta-contact-divider">— or contact us directly —</div>
-          <a href="tel:9444961815" className="contact-item">
+          <a href="tel:+919444961815" className="contact-item">
             <div className="contact-icon">
               <svg viewBox="0 0 24 24">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z" />
@@ -26,7 +26,7 @@ export default function CtaBand() {
             </div>
             <div className="contact-text">
               <small>Call us</small>
-              <strong>+91 9444961815</strong>
+              <strong>+91 94449 61815</strong>
             </div>
           </a>
 

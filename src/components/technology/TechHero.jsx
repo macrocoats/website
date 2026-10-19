@@ -67,7 +67,7 @@ export default function TechHero() {
           <div className="tech-hero__print-cover print-only">
             <div className="tech-hero__print-company">MacroCoats Pvt Ltd</div>
             <div className="tech-hero__print-tagline">Process-Engineered Chemistry · Est. 1993 · Chennai, India</div>
-            <div className="tech-hero__print-contact">macrocoats.in · info@macrocoats.in · +91 98840 80377</div>
+            <div className="tech-hero__print-contact">macrocoats.in · info@macrocoats.in · +91 94449 61815</div>
           </div>
         </div>
 
@@ -98,8 +98,8 @@ export default function TechHero() {
                 cx={n.cx}
                 cy={n.cy}
                 r={16}
-                fill={n.gold ? 'rgba(201,168,76,0.25)' : n.blue ? 'rgba(59,130,246,0.25)' : 'rgba(255,255,255,0.03)'}
-                stroke={n.gold ? 'rgba(201,168,76,0.5)' : n.blue ? 'rgba(59,130,246,0.4)' : 'rgba(255,255,255,0.15)'}
+                fill={n.gold ? 'rgba(198,40,40,0.25)' : n.blue ? 'rgba(237,28,36,0.25)' : 'rgba(255,255,255,0.03)'}
+                stroke={n.gold ? 'rgba(198,40,40,0.5)' : n.blue ? 'rgba(237,28,36,0.4)' : 'rgba(255,255,255,0.15)'}
                 strokeWidth="1"
                 className="tech-hero__molecule-node"
                 style={{ animationDelay: `${400 + i * 60}ms` }}

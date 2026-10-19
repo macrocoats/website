@@ -112,7 +112,7 @@ export default function HomePage() {
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Sales",
-            "telephone": "+91-98840-80377",
+            "telephone": "+91-94449-61815",
             "email": "info@macrocoats.in"
           }
         }
