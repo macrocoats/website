@@ -73,11 +73,10 @@ export default function Nav() {
 
         <ul ref={menuRef} id="primary-navigation" className={`nav-links${isOpen ? ' nav-links--open' : ''}`}>
           <li><a href="#about" aria-current={isHome && location.hash === '#about' ? 'page' : undefined} onClick={(e) => goToSection(e, 'about')}>About</a></li>
+          <li><a href="#services" aria-current={isHome && location.hash === '#services' ? 'page' : undefined} onClick={(e) => goToSection(e, 'services')}>Process</a></li>
           <li><Link to="/products" aria-current={location.pathname.startsWith('/products') ? 'page' : undefined} onClick={close}>Products</Link></li>
           <li><a href="#industries" aria-current={isHome && location.hash === '#industries' ? 'page' : undefined} onClick={(e) => goToSection(e, 'industries')}>Industries</a></li>
-          <li><a href="#services" aria-current={isHome && location.hash === '#services' ? 'page' : undefined} onClick={(e) => goToSection(e, 'services')}>Services</a></li>
-          <li><Link to="/technology" aria-current={location.pathname === '/technology' ? 'page' : undefined} onClick={close}>Technology</Link></li>
-          <li><Link to="/blog" aria-current={location.pathname.startsWith('/blog') ? 'page' : undefined} onClick={close}>Blog</Link></li>
+          <li><Link to="/technology" aria-current={location.pathname === '/technology' ? 'page' : undefined} onClick={close}>Compliance</Link></li>
           <li><a href="#contact" aria-current={isHome && location.hash === '#contact' ? 'page' : undefined} onClick={(e) => goToSection(e, 'contact')}>Contact</a></li>
           <li className="nav-mobile-cta">
             <a href="#contact" className="nav-cta" onClick={(e) => goToSection(e, 'contact')}>

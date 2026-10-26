@@ -13,11 +13,11 @@ colors:
   white: "#FFFFFF"
 typography:
   heading:
-    fontFamily: "Archivo Narrow, Archivo, sans-serif"
+    fontFamily: "IBM Plex Sans, Archivo, sans-serif"
   body:
-    fontFamily: "Archivo, -apple-system, sans-serif"
+    fontFamily: "IBM Plex Sans, Archivo, -apple-system, sans-serif"
   utility:
-    fontFamily: "Archivo Narrow, Arial Narrow, sans-serif"
+    fontFamily: "IBM Plex Mono, Archivo Narrow, monospace"
 rounded:
   small: "0px"
   medium: "0px"
@@ -50,7 +50,7 @@ Navy (`#10243A`) owns structure, major headings, and dark technical sections. Si
 
 ## Typography
 
-Archivo is the body and control face. Archivo Narrow is the heading, label, measurement, and utility face. Headings are bold, compressed, often uppercase, and use tight but readable spacing. Avoid serif and italic display treatments; emphasis comes from weight, scale, rules, and red accents.
+IBM Plex Sans is the homepage display, body, and control face; IBM Plex Mono carries technical labels and measurements. The broader product catalogue may retain Archivo while it is migrated. Homepage headings use lighter weights and generous scale; technical sections remain compact and structured. Avoid serif and italic display treatments; emphasis comes from scale, rules, and restrained colour.
 
 ## Layout
 
