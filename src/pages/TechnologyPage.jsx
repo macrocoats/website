@@ -8,7 +8,6 @@ import TechIoT from '../components/technology/TechIoT.jsx';
 import CapProducts from '../components/technology/CapProducts.jsx';
 import CapPassivation from '../components/technology/CapPassivation.jsx';
 import CapOils from '../components/technology/CapOils.jsx';
-import TechCertifications from '../components/technology/TechCertifications.jsx';
 import CapWhy from '../components/technology/CapWhy.jsx';
 import CtaBand from '../components/home/CtaBand.jsx';
 
@@ -28,7 +27,6 @@ export default function TechnologyPage() {
       <CapProducts />
       <CapPassivation />
       <CapOils />
-      <TechCertifications />
       <CapWhy />
       <CtaBand />
       <Footer />

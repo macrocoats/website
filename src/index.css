@@ -6515,7 +6515,7 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
 }
 .v3-hero__image,
 .v3-hero__scrim { position: absolute; inset: 0 0 156px; width: 100%; height: calc(100% - 156px); }
-.v3-hero__image { object-fit: cover; filter: saturate(0) contrast(1.12); }
+.v3-hero__image { object-fit: cover; object-position: center; filter: contrast(1.04); }
 .v3-hero__scrim { background: linear-gradient(90deg, rgba(7,23,42,.97), rgba(7,23,42,.83) 44%, rgba(7,23,42,.22)); }
 .v3-hero__rail { position: absolute; z-index: 2; top: 0; bottom: 156px; left: 48px; width: 1px; background: rgba(255,255,255,.18); }
 .v3-hero__formula { position: absolute; z-index: 2; right: 23px; top: calc(50% - 78px); writing-mode: vertical-rl; font: 500 12px/1 var(--mono); letter-spacing: .1em; color: rgba(255,255,255,.3); }

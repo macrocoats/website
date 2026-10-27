@@ -8,7 +8,15 @@ const stats = [
 export default function Hero() {
   return (
     <section className="v3-hero" aria-labelledby="home-title">
-      <img className="v3-hero__image" src="/images/products-phosphating-parts.webp" alt="Industrial metal components prepared for surface treatment" width="1280" height="853" loading="eager" />
+      <img
+        className="v3-hero__image"
+        src="/images/hero-surface-treatment-gear-v2.webp"
+        alt="Industrial gears shown before, during, and after surface treatment"
+        width="1916"
+        height="821"
+        loading="eager"
+        fetchPriority="high"
+      />
       <div className="v3-hero__scrim" aria-hidden="true" />
       <div className="v3-hero__rail" aria-hidden="true" />
       <div className="v3-hero__formula" aria-hidden="true">Zn₃(PO₄)₂ · FePO₄ · Mn₃(PO₄)₂</div>
