@@ -308,3 +308,5 @@ git push origin main                     # Vercel auto-deploys on push
 Build output goes to `dist/`. Vercel handles CI/CD — no manual deploy step needed. Vercel natively handles SPA routing, so no redirect config is required.
 
 `index.html` includes Google Analytics 4 (GA4, tracking ID `G-4L2PBC9WHB`) and full SEO meta tags. Do not remove the GA4 script block.
+
+**Conversion events:** `public/track.js` is loaded after the GA4 tag on every page (homepage via `scripts/unpack-homepage.js`, `blog/index.html`, portfolio and brochure). One delegated click listener sends `phone_click` (tel:), `email_click` (mailto:, with `email_subject`), `whatsapp_click` (wa.me), `view_portfolio`, `view_brochure`, plus `print_document` on print. `ProcessAudit.jsx` sends `generate_lead` after a successful EmailJS submit. Any new page needs both the GA4 snippet and `<script src="/track.js" defer></script>`.

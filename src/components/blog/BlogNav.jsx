@@ -4,8 +4,8 @@ export default function BlogNav() {
   return (
     <nav className="blog-nav">
       <div className="nav-inner">
-        <Link to="/" className="logo">
-          <img src="/images/logo.png" alt="MacroCoats" className="logo-mark" />
+        <a href="/" className="logo">
+          <img src="/images/logo-brochure.webp" alt="MacroCoats" className="logo-mark" />
           <div>
             <div className="wordmark-main">
               <span className="wm-macro">Macro</span><span className="wm-coats">Coats</span>
@@ -16,7 +16,7 @@ export default function BlogNav() {
               <span className="wm-rule wm-rule-red"></span>
             </div>
           </div>
-        </Link>
+        </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           <Link to="/blog" style={{ fontFamily: 'var(--sans)', fontSize: '13px', fontWeight: 500, color: 'var(--slate)', textDecoration: 'none' }}>
             All Articles

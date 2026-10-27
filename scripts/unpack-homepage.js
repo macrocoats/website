@@ -102,7 +102,8 @@ const GA4 = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-4L
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-4L2PBC9WHB');
-</script>`
+</script>
+<script src="/track.js" defer></script>`
 const headInject = [
   GA4,
   seoMarkup,

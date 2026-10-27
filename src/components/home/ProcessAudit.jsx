@@ -132,6 +132,7 @@ export default function ProcessAudit() {
       };
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, { publicKey: PUBLIC_KEY });
       setStatus('success');
+      window.gtag?.('event', 'generate_lead', { form_name: 'process_audit' });
     } catch {
       setErrorMessage('');
       setStatus('error');
