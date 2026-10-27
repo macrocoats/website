@@ -59,14 +59,14 @@ function SuccessState({ onReset }) {
           <path d="M9 12l2 2 4-4" />
         </svg>
       </div>
-      <h3>Message Sent</h3>
-      <p>Thank you for reaching out — we'll get back to you within 24 hours on working days.</p>
+      <h3>Audit Request Received</h3>
+      <p>Thank you — we'll contact you within 24 hours on working days to schedule your plant visit.</p>
       <div className="audit-success-contact">
         <a href="tel:+919444961815">+91 94449 61815</a>
         <span>·</span>
         <a href="mailto:info@macrocoats.in">info@macrocoats.in</a>
       </div>
-      <button className="audit-reset-btn" onClick={onReset}>Send another message</button>
+      <button className="audit-reset-btn" onClick={onReset}>Send another request</button>
     </div>
   );
 }
@@ -145,9 +145,9 @@ export default function ProcessAudit() {
         <div className="audit-inner">
           {/* Left: intro */}
           <div className="audit-intro">
-            <div className="section-eyebrow">Get In Touch</div>
-            <h2 className="section-title">Reach out to us — <em>we're here to help.</em></h2>
-            <p>Whether you need chemistry engineered for your process, have a quality problem to solve, or want to explore IoT monitoring — drop us a message and we'll get back to you.</p>
+            <div className="section-eyebrow">Free Process Audit</div>
+            <h2 className="section-title">Book your free <em>process chemistry audit.</em></h2>
+            <p>A 2-hour plant visit from Mr. Santhanam, a review of your bath logs, and a written report with specific recommendations for your line. No cost, no obligation — tell us about your process and we'll schedule the visit.</p>
             <ul className="audit-benefits">
               {contactDetails.map((item) => (
                 <li key={item.label}>
@@ -168,8 +168,8 @@ export default function ProcessAudit() {
           {/* Right: form card */}
           <div className="audit-form-card">
             <div className="audit-form-head">
-              <h3>Reach Out to Us</h3>
-              <p>We respond within 24 hours on working days.</p>
+              <h3>Request Your Audit</h3>
+              <p>We'll call within 24 hours on working days to schedule.</p>
             </div>
 
             {status === 'success' ? (
@@ -251,7 +251,7 @@ export default function ProcessAudit() {
                     value={fields.challenge}
                     onChange={handleChange}
                     rows="4"
-                    placeholder="Tell us about your process, challenge, or what you'd like to discuss..."
+                    placeholder="Your line, metals treated, and the problem you're seeing (e.g. salt spray failures, sludge, adhesion)..."
                     aria-invalid={Boolean(errors.challenge)}
                     aria-describedby={errors.challenge ? 'audit-message-error' : undefined}
                     required
@@ -283,7 +283,7 @@ export default function ProcessAudit() {
                     </>
                   ) : (
                     <>
-                      Send Message
+                      Request Free Audit
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M13 5l7 7-7 7" />
                       </svg>
