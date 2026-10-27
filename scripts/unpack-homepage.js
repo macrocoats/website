@@ -84,9 +84,10 @@ template = template.replace(
   "{ t: 'Industries', href: '#industries' }, { t: 'Blog', href: '/blog/' }]"
 )
 
-// Send the hero "Request a Quote" and contact "Request a Consultation" buttons
-// to the /process-audit lead form instead of #contact / a mailto link.
+// Send the nav "Talk to an Expert", hero "Request a Quote" and contact "Request a
+// Consultation" buttons to the /process-audit lead form instead of #contact / a mailto link.
 for (const cta of [
+  '<a href="#contact" style="background:#10243A;color:#fff;padding:12px 22px',
   '<a href="#contact" style="background:#fff;color:#10243A;padding:16px 28px',
   '<a href="mailto:info@macrocoats.in?subject=Process%20consultation" style="display:flex',
 ]) {
