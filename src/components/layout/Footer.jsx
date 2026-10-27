@@ -46,7 +46,7 @@ export default function Footer() {
           <ul>
             <li><a href="/#process-audit">Free Process Audit</a></li>
             <li>
-              <a href="/resources/brochure.html" target="_blank" rel="noreferrer">
+              <a href="/resources/macrocoats-corporate-brochure.html" target="_blank" rel="noreferrer">
                 Corporate Brochure
               </a>
             </li>
