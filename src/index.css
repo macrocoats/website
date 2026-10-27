@@ -3549,7 +3549,9 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
     background: radial-gradient(circle at 90% 50%, rgba(237,28,36,0.3) 0%, transparent 60%);
   }
   .article-cta-inner { position: relative; z-index: 2; }
-  .article-cta h3 {
+  .article-cta h3,
+  .article-body .article-cta h3 {
+    color: #fff;
     font-family: var(--display);
     font-size: 24px;
     font-weight: 500;
@@ -6432,4 +6434,27 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
 
 @media (prefers-reduced-motion: reduce) {
   .v3-button { transition: none; }
+}
+
+/* ── Blog: phone/tablet readability ── */
+@media (max-width: 1024px) {
+  .articles-section-label,
+  .featured-eyebrow,
+  .card-tag,
+  .sidebar-label,
+  .sidebar-card-label,
+  .topic-count,
+  .article-tag,
+  .byline-role,
+  .callout-label,
+  .article-body .data-table th { font-size: 11px; }
+}
+
+@media (max-width: 600px) {
+  /* Wide comparison tables scroll sideways instead of squeezing every column. */
+  .article-body .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-body .data-table th,
+  .article-body .data-table td { min-width: 104px; }
+
+  .article-cta { padding: 28px 22px; }
 }

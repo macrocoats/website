@@ -1,0 +1,50 @@
+/*
+ * Phone/tablet layout for the paged documents (product portfolio, corporate
+ * brochure). On screen <= 820px the fixed A4-landscape pages reflow into a
+ * single readable column. Screen-only: printing / Save as PDF keeps the
+ * original page geometry from doc-page.js.
+ *
+ * The page content is styled inline, so these rules match inline-style
+ * fragments (e.g. [style*="repeat(4"]) and need !important to win.
+ */
+@media screen and (max-width: 820px) {
+  /* Page box: full width, natural height (doc-page sizes it to A4 otherwise). */
+  doc-page { --doc-page-w: 100%; min-width: 0 !important; padding: 10px 8px !important; }
+  .page { aspect-ratio: auto !important; height: auto !important; container-type: inline-size !important; }
+  .page > div { height: auto !important; min-height: 0 !important; padding-left: 20px !important; padding-right: 20px !important; }
+  .page > div > div { padding-left: 0 !important; padding-right: 0 !important; }
+
+  /* Grids: one column; card/stat/logo grids keep two. */
+  .page [style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; margin-left: 0 !important; margin-right: 0 !important; }
+  .page [style*="repeat(6"],
+  .page [style*="repeat(4"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .page [style*="grid-template-rows"] { grid-template-rows: none !important; }
+  .page [style*="grid-template-columns"] > * { grid-row: auto !important; grid-column: auto !important; }
+  .page [style*="repeat(6"] > [style*="span"],
+  .page [style*="repeat(4"] > [style*="span"],
+  .page [style*="repeat(4"] > header { grid-column: 1 / -1 !important; }
+  .page [style*="display:grid"][style*="height:"] { height: auto !important; }
+
+  /* Flex rows wrap; fixed-height fill areas size to their content. */
+  .page [style*="display:flex"] { flex-wrap: wrap; }
+  .page [style*="justify-content:space-between"] { row-gap: 12px; }
+  .page [style*="flex:1"] { flex: none !important; }
+  .page [style*="max-width"] { max-width: 100% !important; }
+  .page [style*="height:"][style*="overflow:hidden"]:not(.page > div) { height: auto !important; }
+
+  /* Photos: fixed-height bands; cover backgrounds fill the card behind the text. */
+  .page img[style*="object-fit:cover"]:not([style*="absolute"]) { height: 220px !important; max-height: 220px !important; width: 100% !important; }
+  .page img[style*="position:absolute"] { width: 100% !important; opacity: .35; }
+
+  /* Type: scale headings down, 11px floor for labels. */
+  .page h1 { font-size: clamp(34px, 11vw, 46px) !important; line-height: 1 !important; }
+  .page h2 { font-size: clamp(26px, 8vw, 34px) !important; line-height: 1.08 !important; }
+  .page [style*="font-size:8"],
+  .page [style*="font-size:9"],
+  .page [style*="font-size:10px"],
+  .page [style*=" 8px/"],
+  .page [style*=" 8.5px/"],
+  .page [style*=" 9px/"],
+  .page [style*=" 9.5px/"],
+  .page [style*=" 10px/"] { font-size: 11px !important; }
+}

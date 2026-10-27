@@ -87,6 +87,27 @@ template = template.replace(
 // The 526px PNG logo (120 KB) is shown at 46px; the 5 KB WebP is the same mark.
 template = template.split('/images/logo.png').join('/images/logo-brochure.webp')
 
+// Phone-layout fixes the export lacks: stack two-column sections, a logo grid
+// for "Trusted by", larger tap targets and an 11px text floor. Selectors are
+// prefixed with `html body` to outrank the export's own !important rules.
+const TRUSTED = 'html body .sc-host>section:not([id]):not([class]):not([data-screen-label])'
+const MOBILE_CSS = `<style id="mobile-overrides">
+@media (max-width:900px){
+html body #about>div>div{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+html body #about>div>div>div>div{padding-right:0!important}
+${TRUSTED}>div{grid-template-columns:minmax(0,1fr)!important;gap:14px!important;padding:24px 20px!important}
+${TRUSTED}>div>div+div{grid-template-columns:repeat(3,minmax(0,1fr))!important;border-left:0!important;border-top:1px solid #D3D9DF}
+${TRUSTED}>div>div+div>div{height:72px!important;padding:10px!important;border-bottom:1px solid #D3D9DF;border-right:1px solid #D3D9DF}
+${TRUSTED}>div>div+div>div:nth-child(3n+1){border-left:1px solid #D3D9DF}
+${TRUSTED}>div>div+div img{max-width:100%!important;max-height:44px!important}
+html body section[data-screen-label="IoT"] div[style*="repeat(3"]{grid-template-columns:minmax(0,1fr)!important}
+html body footer a{display:inline-block;padding:6px 0}
+html body [style*="font-size: 9px"],html body [style*="font-size:9px"],html body [style*="font-size: 10px"],html body [style*="font-size:10px"],
+html body .site-hero__kicker,html body .site-hero__meta,html body .portfolio-count,html body .portfolio-code,html body .portfolio-app-label,html body .portfolio-tag{font-size:11px!important}
+}
+</style>`
+template = template.replace('</body>', () => MOBILE_CSS + '\n</body>')
+
 for (const [uuid, url] of Object.entries(urls)) template = template.split(uuid).join(url)
 template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '')
 

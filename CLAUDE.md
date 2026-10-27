@@ -107,6 +107,9 @@ The live homepage is **not** the React `HomePage` — it is a design-tool export
 - Source: `design/homepage.bundle.html` (self-contained export; replace this file when re-exporting)
 - `npm run unpack-home` (`scripts/unpack-homepage.js`) unpacks it into a static `index.html` plus content-hashed JS/fonts in `public/home/` (cached immutably via `vercel.json`)
 - Do not hand-edit `index.html` or `public/home/` — re-run the unpack script instead
+- Phone-layout fixes for the homepage live in `MOBILE_CSS` inside `scripts/unpack-homepage.js` (≤900px)
+
+**Portfolio & brochure** (`public/resources/*.html`) are fixed A4-landscape pages (`doc-page.js`). `public/resources/doc-mobile.css` reflows them into a single column on screens ≤820px; printing/PDF is unaffected.
 
 ---
 
