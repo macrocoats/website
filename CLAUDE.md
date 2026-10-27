@@ -37,9 +37,14 @@ website/
 ├── .env                    # EmailJS keys (gitignored)
 ├── .env.example            # EmailJS variable names — template for .env setup
 ├── .gitignore
+├── design/
+│   └── homepage.bundle.html  # Homepage design export (source for index.html)
 ├── scripts/
-│   └── generate-og-image.js  # Generates public/og-image.png (run: npm run og)
+│   ├── generate-og-image.js  # Generates public/og-image.png (run: npm run og)
+│   └── unpack-homepage.js    # Builds index.html + public/home/ (run: npm run unpack-home)
 ├── public/
+│   ├── home/               # Generated homepage JS + fonts (hashed names)
+│   ├── resources/          # Product portfolio + corporate brochure (static HTML)
 │   ├── og-image.png        # Social share image
 │   ├── sitemap.xml         # SEO sitemap
 │   └── robots.txt
@@ -92,6 +97,16 @@ website/
                 ├── IoTMonitoringArticle.jsx
                 └── ChromiumFreeArticle.jsx
 ```
+
+---
+
+## Homepage Build (`/`)
+
+The live homepage is **not** the React `HomePage` — it is a design-tool export.
+
+- Source: `design/homepage.bundle.html` (self-contained export; replace this file when re-exporting)
+- `npm run unpack-home` (`scripts/unpack-homepage.js`) unpacks it into a static `index.html` plus content-hashed JS/fonts in `public/home/` (cached immutably via `vercel.json`)
+- Do not hand-edit `index.html` or `public/home/` — re-run the unpack script instead
 
 ---
 

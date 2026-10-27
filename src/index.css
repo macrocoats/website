@@ -4050,73 +4050,6 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
   }
 
   /* ── Approach ── */
-  .tech-approach {
-    background: var(--paper);
-    padding: 120px 0;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .tech-approach__inner {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
-    align-items: start;
-    margin-bottom: 80px;
-  }
-  .tech-approach__eyebrow { color: var(--primary); }
-  .tech-approach__eyebrow::before { background: var(--primary); }
-  .tech-approach__heading {
-    font-family: var(--display);
-    font-size: clamp(32px, 3.5vw, 48px);
-    font-weight: 500;
-    color: var(--primary-deep);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-top: 24px;
-  }
-  .tech-approach__heading em {
-    color: var(--accent);
-    font-style: normal;
-    font-weight: 400;
-  }
-  .tech-approach__lead {
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--charcoal);
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-  .tech-approach__body {
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--slate);
-    margin-bottom: 20px;
-  }
-  .tech-approach__pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--line);
-    padding-top: 48px;
-  }
-  .tech-approach__pillar {
-    padding: 0 40px 0 0;
-    border-right: 1px solid var(--line);
-    margin-right: 40px;
-  }
-  .tech-approach__pillar:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-  .tech-approach__pillar-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent-gold-dark);
-    margin-bottom: 12px;
-  }
-  .tech-approach__pillar-desc {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--slate);
-  }
 
   /* ── [old pillars removed] ──
      Keeping placeholder so line numbers don't shift unexpectedly.
@@ -4422,67 +4355,6 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
   }
 
   /* ── Certifications ── */
-  .tech-certs {
-    background: var(--paper);
-    padding: 120px 0;
-    border-top: 1px solid var(--line-soft);
-  }
-  .tech-certs__eyebrow { color: var(--accent-gold-dark); }
-  .tech-certs__eyebrow::before { background: var(--accent-gold-dark); }
-  .tech-certs__title { color: var(--primary-deep); }
-  .tech-certs__title em { color: var(--purple); font-style: normal; font-weight: 400; }
-  .tech-certs__badges {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 60px;
-  }
-  .tech-certs__badge {
-    flex: 1;
-    min-width: 140px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: 28px 20px 20px;
-    text-align: center;
-    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base), border-color var(--dur-base);
-  }
-  .tech-certs__badge:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent-gold);
-  }
-  .tech-certs__badge-icon {
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 14px;
-    height: 40px;
-  }
-  .tech-certs__badge-name {
-    font-family: var(--display);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--primary-deep);
-    margin-bottom: 6px;
-    line-height: 1.2;
-  }
-  .tech-certs__badge-sub {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mist);
-  }
-  .tech-certs__badge-bar {
-    width: 40%;
-    height: 3px;
-    background: var(--accent-gold);
-    border-radius: 2px;
-    margin: 16px auto 0;
-    opacity: 0.55;
-  }
 
   /* ── Numbers ── */
   .tech-numbers {
@@ -4553,14 +4425,9 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
     .tech-hero__visual { display: flex; flex-wrap: wrap; }
     .tech-hero__stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     .tech-hero__stat { border-right: none; padding-right: 0; }
-    .tech-approach__inner { grid-template-columns: 1fr; gap: 32px; }
-    .tech-approach__pillars { grid-template-columns: 1fr; gap: 32px; }
-    .tech-approach__pillar { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 32px; }
-    .tech-approach__pillar:last-child { border-bottom: none; padding-bottom: 0; }
     .tech-process__row { grid-template-columns: 1fr; gap: 36px; padding: 48px 0; }
     .tech-process__row--reverse { direction: ltr; }
     .tech-iot__inner { grid-template-columns: 1fr; gap: 48px; }
-    .tech-certs__badges { display: grid; grid-template-columns: repeat(2, 1fr); }
   }
   a.contact-detail-value:hover { color: var(--accent); }
 
@@ -6388,10 +6255,6 @@ body:has(.blog-nav) .blog-footer { background:#07172A; }
     line-height: 1.45;
   }
 
-  /* ── TechCertifications ── */
-  .tech-certs {
-    padding: 8mm 0;
-  }
 
   /* ── CapWhy ── */
   .cap-why {
