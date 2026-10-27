@@ -84,6 +84,16 @@ template = template.replace(
   "{ t: 'Industries', href: '#industries' }, { t: 'Blog', href: '/blog/' }]"
 )
 
+// Send the hero "Request a Quote" and contact "Request a Consultation" buttons
+// to the /process-audit lead form instead of #contact / a mailto link.
+for (const cta of [
+  '<a href="#contact" style="background:#fff;color:#10243A;padding:16px 28px',
+  '<a href="mailto:info@macrocoats.in?subject=Process%20consultation" style="display:flex',
+]) {
+  if (!template.includes(cta)) throw new Error(`CTA not found in export: ${cta}`)
+  template = template.replace(cta, cta.replace(/href="[^"]*"/, 'href="/process-audit"'))
+}
+
 // The 526px PNG logo (120 KB) is shown at 46px; the 5 KB WebP is the same mark.
 template = template.split('/images/logo.png').join('/images/logo-brochure.webp')
 
