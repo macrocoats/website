@@ -252,6 +252,8 @@ Single breakpoint at `@media (max-width: 1024px)` — single-column layout, nav 
 | 29 | Sep 2026 | Coming Soon (disabled) | Santhanam | `organic-vs-inorganic-passivation-silane-zirconium` | `PassivationComparisonArticle.jsx` |
 | 30 | Oct 2026 | Coming Soon (disabled) | Company | `vendor-qualification-oem-approval-documentation` | `VendorQualificationArticle.jsx` |
 
+**Prerendering:** `npm run build` runs `scripts/prerender-blog.js` after `vite build`. It renders `/blog/` and every `ARTICLE_MAP` slug through `src/entry-server.jsx` into `dist/blog/<slug>/index.html`. Each page gets its own title (from `ARTICLE_MAP`), meta description (from the `.article-deck` paragraph), canonical, OG/Twitter tags and BlogPosting JSON-LD (date from `.article-date`, author from `.byline-name`). `src/main.jsx` hydrates prerendered markup. Keep those three class names in every article, and keep article render code free of browser-only APIs (`window`/`document` only inside `useEffect`).
+
 To add a new article: create a component in `src/components/blog/articles/`, register the slug in `BlogArticlePage.jsx`'s `ARTICLE_MAP`, add a card in `BlogListPage.jsx`, and add a `<url>` entry to `public/sitemap.xml`.
 
 ---

@@ -96,15 +96,24 @@ const resourceMap = Object.fromEntries(extResources.map((r) => [r.id, urls[r.uui
 const preloads = extResources
   .map((r) => `<link rel="preload" href="${urls[r.uuid]}" as="script">`)
   .join('\n')
+const GA4 = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-4L2PBC9WHB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4L2PBC9WHB');
+</script>`
 const headInject = [
+  GA4,
   seoMarkup,
   `<script>window.__resources=${JSON.stringify(resourceMap).replace(/<\//g, '<\\/')};</script>`,
   preloads,
 ].join('\n')
 
-const headOpen = template.match(/<head[^>]*>/i)
-if (!headOpen) throw new Error('Template has no <head>')
-const at = headOpen.index + headOpen[0].length
+// Insert after the viewport meta so charset stays first in <head>.
+const anchor = template.match(/<meta name="viewport"[^>]*>/i) ?? template.match(/<head[^>]*>/i)
+if (!anchor) throw new Error('Template has no <head>')
+const at = anchor.index + anchor[0].length
 template = template.slice(0, at) + '\n' + headInject + template.slice(at)
 template = template.replace(/<html>/i, '<html lang="en">').replace(/\n{3,}/g, '\n\n')
 

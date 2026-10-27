@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import BlogNav from '../components/blog/BlogNav.jsx';
 import BlogFooter from '../components/blog/BlogFooter.jsx';
 
-const ARTICLE_MAP = {
+export const ARTICLE_MAP = {
   'inconsistent-salt-spray-test-results-phosphating-bath': {
     component: lazy(() => import('../components/blog/articles/SaltSprayArticle.jsx')),
     title: 'Why Your Salt-Spray Test Results Are Inconsistent — MacroCoats',
