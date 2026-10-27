@@ -669,13 +669,12 @@ export default function BlogListPage() {
 
         
 
-          <div className="articles-section-label" style={{ marginTop: '48px' }}>Coming Soon</div>
+          <div className="articles-section-label" style={{ marginTop: '48px' }}>Latest 2026 Releases</div>
 
-          <div className="article-card coming-soon">
+          <Link to="/blog/coimbatore-job-coater-cut-rejection-rates" className="article-card">
             <div className="article-card-body">
               <div className="card-tags">
               <span className="card-tag">Case Study</span>
-                <span className="coming-badge">Coming Soon</span>
               </div>
               <h2>How a Coimbatore Job Coater Cut Rejection Rates by 40% <em>Without Changing His Equipment</em></h2>
               <p>An anonymised case study: a job-coating shop with adequate equipment and inconsistent rejection rates — diagnosed as a bath-management problem, fixed without a single capital purchase.</p>
@@ -684,16 +683,21 @@ export default function BlogListPage() {
                   <div className="card-avatar">M</div>
                   <span className="card-author">MacroCoats</span>
                 </div>
+                <span className="card-read">7 min read</span>
                 <span className="card-date">August 2026</span>
+                <div className="card-arrow">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="article-card coming-soon">
+          <Link to="/blog/organic-vs-inorganic-post-treatment-passivation" className="article-card">
             <div className="article-card-body">
               <div className="card-tags">
               <span className="card-tag">Corrosion Protection</span>
-                <span className="coming-badge">Coming Soon</span>
               </div>
               <h2>Organic vs Inorganic Post-Treatment Passivation: Choosing Between <em>Silane, Zirconium,</em> and Chrome-Free Sealers</h2>
               <p>Chrome-free doesn't mean one chemistry. Silane and zirconium-based passivation systems bond differently, protect differently, and suit different substrates and topcoats.</p>
@@ -702,17 +706,22 @@ export default function BlogListPage() {
                   <div className="card-avatar">S</div>
                   <span className="card-author">Mr. Santhanam</span>
                 </div>
+                <span className="card-read">11 min read</span>
                 <span className="card-date">September 2026</span>
+                <div className="card-arrow">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="article-card coming-soon">
+          <Link to="/blog/vendor-qualification-oem-chemistry-supplier" className="article-card">
             <div className="article-card-body">
               <div className="card-tags">
               <span className="card-tag">Compliance &amp; Regulatory</span>
               <span className="card-tag">Quality</span>
-                <span className="coming-badge">Coming Soon</span>
               </div>
               <h2>Vendor Qualification for OEM Approval: What Documentation Your Chemistry Supplier <em>Should Already Have Ready</em></h2>
               <p>A practical checklist for procurement and quality teams evaluating a phosphating or surface-treatment chemistry supplier — including us.</p>
@@ -721,10 +730,16 @@ export default function BlogListPage() {
                   <div className="card-avatar">M</div>
                   <span className="card-author">MacroCoats</span>
                 </div>
+                <span className="card-read">10 min read</span>
                 <span className="card-date">October 2026</span>
+                <div className="card-arrow">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
         </main>
 

@@ -112,6 +112,18 @@ const ARTICLE_MAP = {
     component: lazy(() => import('../components/blog/articles/HeavyEngineeringCorrosionArticle.jsx')),
     title: 'Heavy Engineering Corrosion Protection: Coating Strategies for Large, Slow-Cycle Components — MacroCoats',
   },
+  'coimbatore-job-coater-cut-rejection-rates': {
+    component: lazy(() => import('../components/blog/articles/JobCoaterCaseStudyArticle.jsx')),
+    title: 'How a Coimbatore Job Coater Cut Rejection Rates by 40% — MacroCoats',
+  },
+  'organic-vs-inorganic-post-treatment-passivation': {
+    component: lazy(() => import('../components/blog/articles/PassivationComparisonArticle.jsx')),
+    title: 'Organic vs Inorganic Post-Treatment Passivation — MacroCoats',
+  },
+  'vendor-qualification-oem-chemistry-supplier': {
+    component: lazy(() => import('../components/blog/articles/VendorQualificationArticle.jsx')),
+    title: 'Vendor Qualification for OEM Approval: Chemistry Supplier Documentation — MacroCoats',
+  },
 };
 
 const ArticleFallback = () => (

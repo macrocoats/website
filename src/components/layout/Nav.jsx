@@ -76,6 +76,7 @@ export default function Nav() {
           <li><a href="#services" aria-current={isHome && location.hash === '#services' ? 'page' : undefined} onClick={(e) => goToSection(e, 'services')}>Process</a></li>
           <li><Link to="/products" aria-current={location.pathname.startsWith('/products') ? 'page' : undefined} onClick={close}>Products</Link></li>
           <li><a href="#industries" aria-current={isHome && location.hash === '#industries' ? 'page' : undefined} onClick={(e) => goToSection(e, 'industries')}>Industries</a></li>
+          <li><Link to="/blog" aria-current={location.pathname.startsWith('/blog') ? 'page' : undefined} onClick={close}>Blog</Link></li>
           <li><Link to="/technology" aria-current={location.pathname === '/technology' ? 'page' : undefined} onClick={close}>Compliance</Link></li>
           <li><a href="#contact" aria-current={isHome && location.hash === '#contact' ? 'page' : undefined} onClick={(e) => goToSection(e, 'contact')}>Contact</a></li>
           <li className="nav-mobile-cta">
