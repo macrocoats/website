@@ -235,7 +235,7 @@ export default function PhosphatingSlungeArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your bath produces abnormal sludge or your coating quality is inconsistent, our team will visit, review your bath chemistry and sludge history, and deliver a written root cause analysis — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Sludge Field Card" className="cta-btn-ghost">
@@ -268,7 +268,7 @@ export default function PhosphatingSlungeArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath log and sludge history review. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

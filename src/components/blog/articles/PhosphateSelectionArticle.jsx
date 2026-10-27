@@ -144,7 +144,7 @@ export default function PhosphateSelectionArticle() {
               <h3>Not sure which system is right for your application?</h3>
               <p>Our technical team will review your OEM specification, base metal, and process line configuration and recommend the optimal phosphating system with a written technical rationale — no charge, no obligation.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request a Technical Review <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Phosphate Selection Query" className="cta-btn-ghost">

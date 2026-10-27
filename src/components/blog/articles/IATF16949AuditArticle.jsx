@@ -137,7 +137,7 @@ export default function IATF16949AuditArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>Ahead of your next IATF audit, our team will review your bath records, calibration status, and traceability documentation, and deliver a written gap analysis — at no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=IATF Readiness Checklist" className="cta-btn-ghost">
@@ -166,7 +166,7 @@ export default function IATF16949AuditArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath records, calibration, and traceability review against IATF 16949 expectations. Written report. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

@@ -122,6 +122,7 @@ Defined in `src/App.jsx`:
 | `/` | `pages/HomePage.jsx` |
 | `/blog` | `pages/BlogListPage.jsx` |
 | `/blog/:slug` | `pages/BlogArticlePage.jsx` |
+| `/process-audit` | `pages/ProcessAuditPage.jsx` — lead form (`ProcessAudit` + EmailJS); target of every blog audit CTA |
 
 ---
 

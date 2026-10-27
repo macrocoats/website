@@ -128,7 +128,7 @@ export default function IoTMonitoringArticle() {
               <h3>See what your bath is doing <em>between titration checks</em></h3>
               <p>We'll visit your line, review your current monitoring setup, and show you what a retrofit IoT installation would look like for your specific tanks and throughput. The site visit is free.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Book a Site Visit <ArrowIcon />
                 </Link>
                 <a href="tel:+919444961815" className="cta-btn-ghost">
@@ -156,7 +156,7 @@ export default function IoTMonitoringArticle() {
             <span className="sidebar-card-label">Free Site Visit</span>
             <h4>See What Your Bath Is Doing</h4>
             <p>We'll visit your line and show you a retrofit IoT plan for your specific tanks and throughput. No capital commitment required.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Book Site Visit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

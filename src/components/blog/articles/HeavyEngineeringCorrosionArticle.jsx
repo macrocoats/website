@@ -127,7 +127,7 @@ export default function HeavyEngineeringCorrosionArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If you fabricate large, slow-cycle components and want a second opinion on process route, coating weight, or passivation strategy, our team will review your specification and process against the actual exposure environment — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Heavy Engineering Worksheet" className="cta-btn-ghost">
@@ -158,7 +158,7 @@ export default function HeavyEngineeringCorrosionArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Process route, coating weight, and passivation review against your actual exposure environment. Written report. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

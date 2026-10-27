@@ -135,7 +135,7 @@ export default function CPCBEffluentNormsArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If you're evaluating lower-sludge or Cr-free formulations to reduce ETP burden and compliance risk, our team will review your current chemistry and effluent profile and deliver a written assessment — at no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=ETP Checklist" className="cta-btn-ghost">
@@ -165,7 +165,7 @@ export default function CPCBEffluentNormsArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>Chemistry and effluent profile review to help reduce ETP burden. Written report. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

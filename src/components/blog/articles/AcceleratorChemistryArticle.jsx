@@ -136,7 +136,7 @@ export default function AcceleratorChemistryArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your sludge output or coating weight is inconsistent, our team will visit, review your accelerator dosing and bath chemistry, and deliver a written root cause analysis — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Accelerator Reference Card" className="cta-btn-ghost">
@@ -166,7 +166,7 @@ export default function AcceleratorChemistryArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath log and accelerator dosing review. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

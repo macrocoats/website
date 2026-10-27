@@ -120,7 +120,7 @@ export default function PassivationComparisonArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If you are transitioning away from hexavalent chromium sealers or troubleshooting an adhesion or corrosion issue after a chrome-free changeover, our team will review your passivation chemistry and process against your actual OEM specification — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Passivation Selection Guide" className="cta-btn-ghost">
@@ -151,7 +151,7 @@ export default function PassivationComparisonArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Passivation chemistry and process review against your OEM specification. Written report. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

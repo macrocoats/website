@@ -114,7 +114,7 @@ export default function DigitalTwinArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>Our team will visit, assess your current bath management practices, and recommend a realistic, staged path toward predictive monitoring — at no cost. Conducted by Mr. Aswin Kumar or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Digital Twin Roadmap" className="cta-btn-ghost">
@@ -144,7 +144,7 @@ export default function DigitalTwinArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath management review and staged automation roadmap. Written report. No obligation. Led by Mr. Aswin Kumar — 15+ years in IoT and industrial control.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

@@ -129,7 +129,7 @@ export default function MultiPlantStandardizationArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If you run multiple plants and suspect chemistry drift between sites, our team will review your bath logs, supplier records, and water chemistry across locations, and deliver a written cross-plant comparison — at no cost. Conducted by Mr. Aswin Kumar or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Multi-Plant Checklist" className="cta-btn-ghost">
@@ -160,7 +160,7 @@ export default function MultiPlantStandardizationArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>Cross-plant bath log and water chemistry review. Written comparison report. No obligation. Led by Mr. Aswin Kumar — 15+ years in IoT and industrial control.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

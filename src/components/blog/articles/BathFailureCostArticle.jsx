@@ -116,7 +116,7 @@ export default function BathFailureCostArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>Our team will review your bath history, recent rejection records, and monitoring gaps, and help you build the specific cost calculation for your own line — alongside a written root cause analysis of current process risk. At no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=ROI Worksheet" className="cta-btn-ghost">
@@ -146,7 +146,7 @@ export default function BathFailureCostArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath history and rejection record review. Written report with cost and monitoring recommendations. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

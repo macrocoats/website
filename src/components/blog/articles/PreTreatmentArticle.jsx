@@ -225,7 +225,7 @@ export default function PreTreatmentArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If coating quality is inconsistent and your phosphating bath parameters look correct, the root cause is almost certainly upstream. Our team will audit your pre-treatment sequence on-site, identify the failure point, and deliver a written report — at no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Pre-Treatment Checklist" className="cta-btn-ghost">
@@ -258,7 +258,7 @@ export default function PreTreatmentArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Pre-treatment and bath log review. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

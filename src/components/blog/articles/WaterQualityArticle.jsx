@@ -115,7 +115,7 @@ export default function WaterQualityArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your bath shows unexplained sludge, drift, or inconsistent coating despite normal titration readings, our team will test your make-up and rinse water alongside your bath chemistry and deliver a written root cause analysis — at no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Water Quality Field Card" className="cta-btn-ghost">
@@ -146,7 +146,7 @@ export default function WaterQualityArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath chemistry and make-up/rinse water quality review. Written report. No obligation. Includes IoT monitoring assessment led by Mr. Aswin Kumar.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

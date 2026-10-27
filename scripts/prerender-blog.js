@@ -1,4 +1,4 @@
-// Prerenders the blog list and every article into static HTML after `vite build`,
+// Prerenders the blog list, every article and /process-audit into static HTML after `vite build`,
 // each with its own title, description, canonical URL, social tags and
 // BlogPosting structured data. Crawlers get full content without running JS;
 // in the browser, src/main.jsx hydrates the markup.
@@ -23,7 +23,7 @@ const vite = await createServer({
 })
 
 try {
-  const { render, ARTICLE_MAP } = await vite.ssrLoadModule('/src/entry-server.jsx')
+  const { render, ARTICLE_MAP, PROCESS_AUDIT_TITLE } = await vite.ssrLoadModule('/src/entry-server.jsx')
   const templatePath = path.join(OUT_DIR, 'blog/index.html')
   const template = await fs.readFile(templatePath, 'utf8')
 
@@ -36,7 +36,16 @@ try {
     await fs.mkdir(path.dirname(file), { recursive: true })
     await fs.writeFile(file, page)
   }
-  console.log(`Prerendered /blog/ and ${Object.keys(ARTICLE_MAP).length} articles into ${OUT_DIR}/blog/`)
+
+  const auditFile = path.join(OUT_DIR, 'process-audit', 'index.html')
+  await fs.mkdir(path.dirname(auditFile), { recursive: true })
+  await fs.writeFile(auditFile, withBody(withPageHead(template, {
+    title: PROCESS_AUDIT_TITLE,
+    description: 'Book a free process chemistry audit: a plant visit, bath log review and a written report with specific recommendations for your phosphating or surface treatment line.',
+    url: `${SITE}/process-audit`,
+  }), await render('/process-audit')))
+
+  console.log(`Prerendered /blog/, ${Object.keys(ARTICLE_MAP).length} articles and /process-audit into ${OUT_DIR}/`)
 } finally {
   await vite.close()
 }
@@ -44,6 +53,18 @@ try {
 function withBody(template, body) {
   if (!template.includes('<div id="root"></div>')) throw new Error('No empty #root in blog template')
   return template.replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
+}
+
+function withPageHead(template, { title, description, url }) {
+  const t = attr(title)
+  const d = attr(description)
+  return template
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
+    .replace(/(<meta name="description" content=")[^"]*/, `$1${d}`)
+    .replace(/(<link rel="canonical" href=")[^"]*/, `$1${url}`)
+    .replace(/(<meta property="og:title" content=")[^"]*/, `$1${t}`)
+    .replace(/(<meta property="og:description" content=")[^"]*/, `$1${d}`)
+    .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
 }
 
 function withArticleHead(template, slug, title, body) {

@@ -129,7 +129,7 @@ export default function VciRustPreventiveOilsArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your parts are showing rust complaints after transit or storage, our team will review your protection product selection, packaging process, and shipping conditions and deliver a written root cause analysis — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Transit Protection Guide" className="cta-btn-ghost">
@@ -160,7 +160,7 @@ export default function VciRustPreventiveOilsArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Transit protection and packaging review. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

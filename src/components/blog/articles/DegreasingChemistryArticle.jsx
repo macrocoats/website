@@ -140,7 +140,7 @@ export default function DegreasingChemistryArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If you suspect oil carry-over is affecting your phosphating results, our team will visit, run water-break testing across your pre-treatment stages, and deliver a written root cause analysis — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Degreasing Check Sheet" className="cta-btn-ghost">
@@ -172,7 +172,7 @@ export default function DegreasingChemistryArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Water-break testing across pre-treatment stages. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

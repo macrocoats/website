@@ -147,7 +147,7 @@ export default function ChromiumFreeArticle() {
               <h3>Facing an OEM audit for <em>Cr-free compliance?</em></h3>
               <p>We'll audit your current phosphate base coat quality, run a controlled trial with Cr-free passivation candidates, and produce independent salt spray test data — so you know exactly what you're working with before committing to a transition.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request a Cr-Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Cr-Free Transition Enquiry" className="cta-btn-ghost">
@@ -175,7 +175,7 @@ export default function ChromiumFreeArticle() {
             <span className="sidebar-card-label">Free Cr-Free Audit</span>
             <h4>Facing an OEM Compliance Audit?</h4>
             <p>We audit your base coat, run a Cr-free trial, and produce independent salt spray data — 3–4 weeks, no commitment required.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="mailto:info@macrocoats.in?subject=Cr-Free Transition Enquiry" className="sidebar-btn secondary">Email Your Spec</a>

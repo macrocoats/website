@@ -119,7 +119,7 @@ export default function CoatingWeightMeasurementArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your coating weight readings are inconsistent across methods or ahead of a customer audit, our team will review your testing protocol, cross-check calibration, and deliver a written assessment — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Coating Weight Card" className="cta-btn-ghost">
@@ -150,7 +150,7 @@ export default function CoatingWeightMeasurementArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>Testing protocol review and calibration cross-check. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

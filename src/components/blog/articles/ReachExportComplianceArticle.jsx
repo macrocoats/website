@@ -108,7 +108,7 @@ export default function ReachExportComplianceArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If you're preparing REACH, SVHC, or IMDS declarations for an EU customer and need clarity on your current chromium exposure or documentation gaps, our team will review your process chemistry and supplier documentation at no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Documentation Pack" className="cta-btn-ghost">
@@ -139,7 +139,7 @@ export default function ReachExportComplianceArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Chemistry and documentation review against your customer's compliance requirements. Written report. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

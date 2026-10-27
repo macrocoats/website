@@ -121,7 +121,7 @@ export default function JobCoaterCaseStudyArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your rejection rate is inconsistent and you are not sure whether it is chemistry, equipment, or process discipline, our team will visit, review your bath and your process, and deliver a written root cause analysis — at no cost.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Bath Discipline Kit" className="cta-btn-ghost">
@@ -151,7 +151,7 @@ export default function JobCoaterCaseStudyArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Bath and process discipline review. Written report. No obligation.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

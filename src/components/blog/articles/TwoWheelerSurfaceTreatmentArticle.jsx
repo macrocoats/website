@@ -118,7 +118,7 @@ export default function TwoWheelerSurfaceTreatmentArticle() {
               <h3>Get a <em>free process chemistry audit</em> for your line</h3>
               <p>If your two-wheeler line is showing inconsistent coating quality across substrate types or your chemistry hasn't been revalidated against your current line speed, our team will visit, review your bath chemistry and dwell parameters, and deliver a written root cause analysis — at no cost. Conducted by Mr. Santhanam or under his direct supervision.</p>
               <div className="cta-buttons">
-                <Link to="/#process-audit" className="cta-btn-white">
+                <Link to="/process-audit" className="cta-btn-white">
                   Request Free Audit <ArrowIcon />
                 </Link>
                 <a href="mailto:info@macrocoats.in?subject=Two-Wheeler Worksheet" className="cta-btn-ghost">
@@ -149,7 +149,7 @@ export default function TwoWheelerSurfaceTreatmentArticle() {
             <span className="sidebar-card-label">Free Offer</span>
             <h4>Get a Free Process Audit</h4>
             <p>2-hour plant visit. Dwell time, substrate mix, and bath chemistry review. Written report. No obligation. Led by Mr. Santhanam — 40+ years of process chemistry expertise.</p>
-            <Link to="/#process-audit" className="sidebar-btn">
+            <Link to="/process-audit" className="sidebar-btn">
               Request Audit <ArrowIcon />
             </Link>
             <a href="tel:+919444961815" className="sidebar-btn secondary">+91 94449 61815</a>

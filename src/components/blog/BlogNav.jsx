@@ -21,7 +21,7 @@ export default function BlogNav() {
           <Link to="/blog" style={{ fontFamily: 'var(--sans)', fontSize: '13px', fontWeight: 500, color: 'var(--slate)', textDecoration: 'none' }}>
             All Articles
           </Link>
-          <Link to="/#contact" className="nav-cta">
+          <Link to="/process-audit" className="nav-cta">
             Free Process Audit
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M13 5l7 7-7 7" />
