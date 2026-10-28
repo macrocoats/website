@@ -8,7 +8,8 @@
     "build": "vite build && node scripts/prerender-blog.js",
     "preview": "vite preview",
     "og": "node scripts/generate-og-image.js",
-    "unpack-home": "node scripts/unpack-homepage.js"
+    "unpack-home": "node scripts/unpack-homepage.js",
+    "check-links": "node scripts/check-links.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

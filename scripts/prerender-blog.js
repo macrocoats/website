@@ -1,4 +1,5 @@
-// Prerenders the blog list, every article and /process-audit into static HTML after `vite build`,
+// Prerenders the blog list, every article, /process-audit, /products (+ each
+// product) and /technology into static HTML after `vite build`,
 // each with its own title, description, canonical URL, social tags and
 // BlogPosting structured data. Crawlers get full content without running JS;
 // in the browser, src/main.jsx hydrates the markup.
@@ -23,7 +24,7 @@ const vite = await createServer({
 })
 
 try {
-  const { render, ARTICLE_MAP, PROCESS_AUDIT_TITLE } = await vite.ssrLoadModule('/src/entry-server.jsx')
+  const { render, ARTICLE_MAP, PROCESS_AUDIT_TITLE, PRODUCTS } = await vite.ssrLoadModule('/src/entry-server.jsx')
   const templatePath = path.join(OUT_DIR, 'blog/index.html')
   const template = await fs.readFile(templatePath, 'utf8')
 
@@ -45,7 +46,31 @@ try {
     url: `${SITE}/process-audit`,
   }), await render('/process-audit')))
 
-  console.log(`Prerendered /blog/, ${Object.keys(ARTICLE_MAP).length} articles and /process-audit into ${OUT_DIR}/`)
+  // Without these files a direct visit or reload fell through to the homepage export.
+  const pages = [
+    {
+      route: '/products',
+      title: 'Products — MacroCoats Process-Engineered Chemistry',
+      description: 'Phosphating, surface preparation, passivation and corrosion-protection chemicals from MacroCoats, with process stages, applications and technical data for each product.',
+    },
+    {
+      route: '/technology',
+      title: 'Capabilities Brochure 2026 — MacroCoats Process-Engineered Chemistry',
+      description: 'How MacroCoats engineers surface treatment as a system: process chemistry, bath control, IoT monitoring and on-site technical support for industrial lines.',
+    },
+    ...PRODUCTS.map((p) => ({
+      route: `/products/${p.slug}`,
+      title: `${p.name} — MacroCoats`,
+      description: truncate(p.description.replace(/\s+/g, ' ').trim(), 160),
+    })),
+  ]
+  for (const { route, title, description } of pages) {
+    const file = path.join(OUT_DIR, route, 'index.html')
+    await fs.mkdir(path.dirname(file), { recursive: true })
+    await fs.writeFile(file, withBody(withPageHead(template, { title, description, url: `${SITE}${route}` }), await render(route)))
+  }
+
+  console.log(`Prerendered /blog/, ${Object.keys(ARTICLE_MAP).length} articles, /process-audit and ${pages.length} product/technology pages into ${OUT_DIR}/`)
 } finally {
   await vite.close()
 }

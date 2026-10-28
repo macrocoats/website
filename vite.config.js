@@ -11,9 +11,11 @@ export default defineConfig({
         blog: resolve(__dirname, 'blog/index.html'),
       },
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          router: ['react-router-dom'],
+        // Function form: React 19 ships CJS, and the object form leaves an empty
+        // "react" chunk with React itself bundled into the app entry.
+        manualChunks(id) {
+          if (/node_modules\/(react|react-dom|scheduler)\//.test(id)) return 'react';
+          if (/node_modules\/(react-router|react-router-dom|cookie|set-cookie-parser)\//.test(id)) return 'router';
         },
       },
     },
