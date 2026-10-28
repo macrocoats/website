@@ -309,7 +309,9 @@ git add src/ && git commit -m "..."
 git push origin main                     # Vercel auto-deploys on push
 ```
 
-Build output goes to `dist/`. Vercel handles CI/CD — no manual deploy step needed. Vercel natively handles SPA routing, so no redirect config is required.
+Build output goes to `dist/`. `npm run check-links` (`scripts/check-links.js`) fails if any internal link or sitemap URL has no built file — there is no catch-all rewrite, so unknown paths return a real 404 (`public/404.html`).
+
+**CI/CD:** `.github/workflows/deploy.yml` — on every PR and push it runs `npm run build` + `npm run check-links`; PRs then get a Vercel preview deploy (URL commented on the PR); pushes to `main` deploy to production via `vercel build --prod` + `vercel deploy --prebuilt --prod`, followed by a smoke test of key URLs. Needs repo secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`.
 
 `index.html` includes Google Analytics 4 (GA4, tracking ID `G-4L2PBC9WHB`) and full SEO meta tags. Do not remove the GA4 script block.
 

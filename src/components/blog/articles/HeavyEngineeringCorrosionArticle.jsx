@@ -173,7 +173,7 @@ export default function HeavyEngineeringCorrosionArticle() {
           <div className="sidebar-card">
             <span className="sidebar-card-label">Related Reading</span>
             <nav className="toc">
-              <Link to="/blog/organic-vs-inorganic-passivation-silane-zirconium">Organic vs Inorganic Passivation: Silane vs Zirconium</Link>
+              <Link to="/blog/organic-vs-inorganic-post-treatment-passivation">Organic vs Inorganic Passivation: Silane vs Zirconium</Link>
               <Link to="/blog/surface-treatment-indian-railways-corrosion">Surface Treatment for Indian Railways Corrosion Protection</Link>
               <Link to="/blog/zinc-phosphate-vs-iron-phosphate-vs-manganese-phosphate">Zinc vs Iron vs Manganese Phosphate: Selection Guide</Link>
             </nav>
