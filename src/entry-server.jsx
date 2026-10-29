@@ -6,6 +6,7 @@ import { AppRoutes } from './App.jsx';
 
 export { ARTICLE_MAP } from './pages/BlogArticlePage.jsx';
 export { PROCESS_AUDIT_TITLE } from './pages/ProcessAuditPage.jsx';
+export { PRODUCTS } from './data/products.js';
 
 export async function render(url) {
   const { prelude } = await prerenderToNodeStream(

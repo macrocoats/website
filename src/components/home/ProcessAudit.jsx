@@ -74,7 +74,8 @@ function SuccessState({ onReset }) {
 const PHONE_PATTERN = /^[0-9+\s\-()]{7,15}$/;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function ProcessAudit() {
+export default function ProcessAudit({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
   const [fields, setFields] = useState(EMPTY);
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [errorMessage, setErrorMessage] = useState('');
@@ -146,7 +147,7 @@ export default function ProcessAudit() {
           {/* Left: intro */}
           <div className="audit-intro">
             <div className="section-eyebrow">Free Process Audit</div>
-            <h2 className="section-title">Book your free <em>process chemistry audit.</em></h2>
+            <Heading className="section-title">Book your free <em>process chemistry audit.</em></Heading>
             <p>A 2-hour plant visit from Mr. Santhanam, a review of your bath logs, and a written report with specific recommendations for your line. No cost, no obligation — tell us about your process and we'll schedule the visit.</p>
             <ul className="audit-benefits">
               {contactDetails.map((item) => (

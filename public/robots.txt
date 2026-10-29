@@ -21,6 +21,13 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# OpenAI search discovery is separate from model-training controls.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: MJ12bot
 Disallow: /
 
