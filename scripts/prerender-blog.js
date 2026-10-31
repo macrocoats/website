@@ -16,7 +16,7 @@ const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july',
 
 const vite = await createServer({
   logLevel: 'error',
-  server: { middlewareMode: true },
+  server: { middlewareMode: true, hmr: false },
   appType: 'custom',
   // Load react-router's ESM build (its "module-sync" export) like Node does natively.
   ssr: { resolve: { externalConditions: ['module-sync'] } },
@@ -109,7 +109,14 @@ try {
     await writeRoute(route, withBody(head, await render(route)))
   }
 
-  console.log(`Prerendered ${Object.keys(ARTICLE_MAP).length} articles, ${PRODUCTS.length} products and core routes into ${OUT_DIR}/`)
+  const notFound = withBody(withPageHead(template, {
+    title: 'Page Not Found | MacroCoats',
+    description: 'The requested MacroCoats page could not be found.',
+    url: `${SITE}/404`,
+  }).replace(/(<meta name="robots" content=")[^"]*/, '$1noindex, follow'), await render('/404'))
+  await fs.writeFile(path.join(OUT_DIR, '404.html'), notFound)
+
+  console.log(`Prerendered ${Object.keys(ARTICLE_MAP).length} articles, ${PRODUCTS.length} products, core routes and 404 into ${OUT_DIR}/`)
 
   async function writeRoute(route, html) {
     const file = path.join(OUT_DIR, route.replace(/^\//, ''), 'index.html')

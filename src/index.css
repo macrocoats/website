@@ -107,6 +107,7 @@
   }
   .skip-link:focus { transform: translateY(0); }
   .resize-none { resize: none; }
+  .audit-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
   ::selection { background: var(--primary); color: white; }
 
@@ -114,6 +115,62 @@
     outline: 2px solid var(--accent-gold);
     outline-offset: 3px;
     border-radius: 3px;
+  }
+
+  /* ============ NOT FOUND ============ */
+  .not-found {
+    position: relative;
+    min-height: 72vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+    align-items: end;
+    gap: 48px;
+    overflow: hidden;
+    padding: 150px 48px 72px;
+    color: var(--paper);
+    background: var(--primary-deep);
+  }
+  .not-found__grid {
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+  .not-found__content, .not-found__readout { position: relative; z-index: 1; }
+  .not-found__code {
+    margin-bottom: 22px;
+    color: #B8C6D4;
+    font: 500 12px/1.4 var(--mono);
+    letter-spacing: .14em;
+  }
+  .not-found h1 {
+    max-width: 850px;
+    color: var(--paper);
+    font: 300 clamp(42px, 6vw, 84px)/.98 var(--display);
+    letter-spacing: -.045em;
+  }
+  .not-found__content > p:not(.not-found__code) {
+    max-width: 650px;
+    margin-top: 26px;
+    color: #C8D2DC;
+    font-size: 17px;
+  }
+  .not-found__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .not-found__readout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-top: 3px solid var(--accent-bright);
+    background: var(--paper);
+    color: var(--primary);
+  }
+  .not-found__readout span, .not-found__readout strong { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  .not-found__readout span { font: 500 10px/1.2 var(--mono); letter-spacing: .12em; }
+  .not-found__readout strong { font: 700 13px/1.2 var(--mono); text-align: right; }
+  @media (max-width: 760px) {
+    .not-found { grid-template-columns: 1fr; gap: 38px; padding: 120px 20px 48px; }
+    .not-found__content > p:not(.not-found__code) { font-size: 15px; }
   }
 
   /* ============ NAVIGATION ============ */

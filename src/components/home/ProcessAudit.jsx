@@ -1,11 +1,6 @@
 import { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
 
-const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-const EMPTY = { from_name: '', company: '', email: '', phone: '', challenge: '' };
+const EMPTY = { from_name: '', company: '', email: '', phone: '', challenge: '', website: '' };
 
 const contactDetails = [
   {
@@ -131,11 +126,17 @@ export default function ProcessAudit({ headingLevel = 'h2' }) {
         message: fields.challenge.trim(),
         reply_to: fields.email.trim() || fields.phone.trim(),
       };
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, { publicKey: PUBLIC_KEY });
+      const response = await fetch('/api/process-audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...payload, website: fields.website }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'The request could not be sent.');
       setStatus('success');
       window.gtag?.('event', 'generate_lead', { form_name: 'process_audit' });
-    } catch {
-      setErrorMessage('');
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : '');
       setStatus('error');
     }
   }
@@ -177,6 +178,10 @@ export default function ProcessAudit({ headingLevel = 'h2' }) {
               <SuccessState onReset={() => { setFields(EMPTY); setErrors({}); setErrorMessage(''); setStatus('idle'); }} />
             ) : (
               <form ref={formRef} className="audit-form" onSubmit={handleSubmit} noValidate>
+                <div className="audit-honeypot" aria-hidden="true">
+                  <label htmlFor="audit-website">Website</label>
+                  <input id="audit-website" name="website" value={fields.website} onChange={handleChange} tabIndex="-1" autoComplete="off" />
+                </div>
                 <div className="audit-form-row">
                   <div className="audit-field">
                     <label htmlFor="audit-name">Your Name *</label>

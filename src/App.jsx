@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import HomePage from './pages/HomePage.jsx';
 
 const BlogListPage = lazy(() => import('./pages/BlogListPage.jsx'));
@@ -8,6 +10,7 @@ const ProcessAuditPage = lazy(() => import('./pages/ProcessAuditPage.jsx'));
 const TechnologyPage = lazy(() => import('./pages/TechnologyPage.jsx'));
 const ProductsPage = lazy(() => import('./pages/ProductsPage.jsx'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage.jsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 // Start each in-app page change at the top (hash links still jump to their anchor).
 function ScrollToTop() {
@@ -30,6 +33,7 @@ export function AppRoutes() {
         <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:slug" element={<ProductDetailPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );
@@ -37,8 +41,12 @@ export function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+      <Analytics />
+      <SpeedInsights />
+    </>
   );
 }

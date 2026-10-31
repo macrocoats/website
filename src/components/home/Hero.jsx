@@ -11,6 +11,8 @@ export default function Hero() {
       <img
         className="v3-hero__image"
         src="/images/hero-surface-treatment-gear-v2.webp"
+        srcSet="/images/responsive/hero-surface-treatment-gear-v2-480.webp 480w, /images/responsive/hero-surface-treatment-gear-v2-960.webp 960w, /images/responsive/hero-surface-treatment-gear-v2-1440.webp 1440w, /images/hero-surface-treatment-gear-v2.webp 1916w"
+        sizes="100vw"
         alt="Industrial gears shown before, during, and after surface treatment"
         width="1916"
         height="821"

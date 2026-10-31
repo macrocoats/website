@@ -12,11 +12,12 @@ function upsertMeta(selector, attributes) {
   Object.entries(attributes).forEach(([name, value]) => node.setAttribute(name, value));
 }
 
-export default function Seo({ title, description, path = '/', image = DEFAULT_IMAGE, type = 'website', schema }) {
+export default function Seo({ title, description, path = '/', image = DEFAULT_IMAGE, type = 'website', schema, robots = 'index, follow' }) {
   useEffect(() => {
     const url = `${SITE}${path === '/' ? '/' : path.replace(/\/$/, '')}`;
     document.title = title;
     upsertMeta('meta[name="description"]', { name: 'description', content: description });
+    upsertMeta('meta[name="robots"]', { name: 'robots', content: robots });
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: type });
     upsertMeta('meta[property="og:title"]', { property: 'og:title', content: title });
     upsertMeta('meta[property="og:description"]', { property: 'og:description', content: description });
@@ -45,7 +46,7 @@ export default function Seo({ title, description, path = '/', image = DEFAULT_IM
       document.head.appendChild(script);
     }
     return () => document.getElementById(id)?.remove();
-  }, [title, description, path, image, type, schema]);
+  }, [title, description, path, image, type, schema, robots]);
 
   return null;
 }

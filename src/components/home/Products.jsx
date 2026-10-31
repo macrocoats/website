@@ -17,7 +17,7 @@ export default function Products() {
 
         <div className="product-row">
           <div className="product-visual">
-            <img className="product-img" src="/images/products-phosphating-parts.webp" alt="Metal parts before and after conversion coating treatment" width="1280" height="853" loading="lazy" />
+            <img className="product-img" src="/images/products-phosphating-parts.webp" srcSet="/images/responsive/products-phosphating-parts-480.webp 480w, /images/responsive/products-phosphating-parts-960.webp 960w, /images/products-phosphating-parts.webp 1280w" sizes="(max-width: 800px) 100vw, 50vw" alt="Metal parts before and after conversion coating treatment" width="1280" height="853" loading="lazy" />
             <div className="product-visual-inner">
               <div className="formula-display">[Zn₃(PO₄)₂ · 4H₂O]</div>
               <div className="formula-name">Conversion<br />Coatings</div>
@@ -47,7 +47,7 @@ export default function Products() {
 
         <div className="product-row reverse">
           <div className="product-visual product-visual-2">
-            <img className="product-img" src="/images/products-surface-prep.webp" alt="Surface preparation treatment" width="1280" height="841" loading="lazy" />
+            <img className="product-img" src="/images/products-surface-prep.webp" srcSet="/images/responsive/products-surface-prep-480.webp 480w, /images/responsive/products-surface-prep-960.webp 960w, /images/products-surface-prep.webp 1280w" sizes="(max-width: 800px) 100vw, 50vw" alt="Surface preparation treatment" width="1280" height="841" loading="lazy" />
             <div className="product-visual-inner">
               <div className="formula-display">[ALKALINE · pH 12.4]</div>
               <div className="formula-name">Surface<br />Preparation</div>
@@ -77,7 +77,7 @@ export default function Products() {
 
         <div className="product-row">
           <div className="product-visual product-visual-3">
-            <img className="product-img" src="/images/products-corrosion-protection.webp" alt="Industrial chemical blackening and corrosion protection system" width="1280" height="853" loading="lazy" />
+            <img className="product-img" src="/images/products-corrosion-protection.webp" srcSet="/images/responsive/products-corrosion-protection-480.webp 480w, /images/responsive/products-corrosion-protection-960.webp 960w, /images/products-corrosion-protection.webp 1280w" sizes="(max-width: 800px) 100vw, 50vw" alt="Industrial chemical blackening and corrosion protection system" width="1280" height="853" loading="lazy" />
             <div className="product-visual-inner">
               <div className="formula-display">[Cr-FREE · LOW-SLUDGE]</div>
               <div className="formula-name">Corrosion<br />Protection</div>
