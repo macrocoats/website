@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-responsive-images.js && vite build && node scripts/prerender-blog.js",
+    "build": "npm run check:csp && node scripts/generate-responsive-images.js && vite build && node scripts/prerender-blog.js",
+    "check:csp": "node scripts/check-csp-compatibility.js",
     "preview": "vite preview",
     "og": "node scripts/generate-og-image.js",
     "unpack-home": "node scripts/unpack-homepage.js"
